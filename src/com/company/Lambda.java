@@ -8,8 +8,6 @@ public class Lambda {
 
     public static void main(String[] args) {
 
-
-
         List<String> hardaware = Arrays.asList("Spectrum", "Amiga", "Commodore", "LOL","DUPA","DUPA21");
 
 //        Collections.sort(hardaware,(str1, str2)->(porownaj(str1.length(),str2.length())));
