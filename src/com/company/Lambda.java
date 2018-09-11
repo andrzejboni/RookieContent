@@ -21,9 +21,9 @@ public class Lambda {
 
         int a= 5;
         int b= 7;
-        //
 
 
+//
 
 //        System.out.println(aa);
 
