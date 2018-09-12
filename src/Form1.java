@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Form1 {
+public class  Form1 {
     private JPanel panelGlowny;
     private JButton przyciskOK;
     private JLabel opisPrzycisku;

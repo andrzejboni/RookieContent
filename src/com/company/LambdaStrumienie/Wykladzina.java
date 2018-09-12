@@ -1,4 +1,4 @@
-package com.company;
+package com.company.LambdaStrumienie;
 
 public class Wykladzina {
     public final String nazwa;

@@ -1,4 +1,4 @@
-package com.company;
+package com.company.LambdaStrumienie;
 
 public class Samochod {
     public final String nazwa;
