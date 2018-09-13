@@ -1,4 +1,4 @@
-package com.company.WzorceProjektoweUG.Singleton2;
+package com.company.WzorceProjektoweUG.www;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

@@ -1,6 +1,6 @@
 package com.company.WzorceProjektoweUG.Builder2.builder;
 
-public class TestRowerBuilder {
+public class MainRowerBuilder {
 	public static void main(String[] args){
 		
 		RowerBuilder rowerBuilder = new RowerWyczynowyBuilder();

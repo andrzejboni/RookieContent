@@ -4,7 +4,7 @@ package com.company.WzorceProjektoweUG.SingletonDziedziczenie;
 public class Singleton {
     private String name = "obiekt MATKA";
 
-    protected Singleton() {};
+    protected Singleton() {}; //
     private static Singleton obiekt = null;
 
     public synchronized static Singleton getInstance() {

@@ -1,4 +1,4 @@
-package com.company.WzorceProjektoweUG.Singleton2;
+package com.company.WzorceProjektoweUG.www;
 
 
 public class SingletonTestDCL {
