@@ -1,6 +1,6 @@
 package com.company.WzorceProjektoweUG.Builder;
 
-public class TestRowerBuildier {
+public class MainGitaraBuildier {
     public static void main(String[] args){
 
         GitaraBuildier gitaraBuildier= new GitaraAkustycznaBuildier();
