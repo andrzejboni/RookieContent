@@ -7,7 +7,7 @@ public class Singleton  implements Serializable {
 
     private static Singleton singleton = null;
     private static int id = 1;
-    private Singleton() {};
+    protected Singleton() {};
 
 
     public static Singleton instancja() {
