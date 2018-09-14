@@ -6,6 +6,7 @@ public class Test {
         Singleton matka = Singleton.getInstance();
         Singleton dziecko = SingletonChild.getInstance();
         System.out.println();
+
         System.out.println("Wywołanie funkcji z klasy głównej:");
         System.out.println("Nazwa: " + matka.getName() + " " + matka.getClass());
         System.out.println();
