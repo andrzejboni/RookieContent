@@ -15,6 +15,11 @@ public class TicTacToeMain {
 
         Plansza.wyczyscPlansze();
 
+
+
+
+
+
         wypisywanie.przywitanie();
         logika.rozgrywka();
     }
