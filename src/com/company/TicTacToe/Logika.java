@@ -230,10 +230,10 @@ public class Logika {
     }
 
     public static int ocena[][] = new int[3][3];
+    public static int skladowaOceny[][] = new int[3][3];
 
 
-
-    public static void sztucznaInteligencja() {
+    public static void ilePolObok_SI() {
         /*  Na czym opierać ma się sztuczna inteligencja w grze kółko i krzyżyk.
             Otóż jak mi się wydaje, powinna ona liczyć pola jakie dostępne są obok - im więcej możliwości
             Rozróżniamy:
@@ -241,41 +241,49 @@ public class Logika {
             - ilość ruchów do ułożenia 3 kolejnych znaków (im mniej tym lepiej)
             - zmniejszenie ułożeń przecinikia (im mniej tym lepiej)
         */
-
+        // implementuję pierwszą rzecz, to jest ile jest dostępnych ruchów obok ma każde pole na planszy
+        // Należy przejść przez każd pole w każdej komórce i sprawdzić czy w danej komórce jest możliwy ruch.
 
         for (int i = 0; i < Plansza.plansza.length; i++) {
 
             for (int j = 0; j < Plansza.plansza.length; j++) {// j  kolumna, i wiersz
 
-               if( Plansza.plansza[i][j] == ' ') {
-                    
+                for (int o = 0; o < Plansza.plansza.length; o++) {
 
-               }
+                    for (int p = 0; p < Plansza.plansza.length; p++) {// j  kolumna, i wiersz
+
+                        if (Plansza.plansza[o][p] == ' ') {
+
+                            skladowaOceny[o][p] += 1;
+
+
+                            
+                        }
+
+
+                    }
+
+
+                }
+
+
+// Po sprawdzeniu wszystkiego MADAFAKA
+                ocena[i][j] = 1;
+
             }
+
         }
 
 
+    }
+
+    public static void ileRuchowDoKonca_SI() {
 
 
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public static void zmniejszenieUlozenPrzeciwnika_SI() {
 
 
     }
