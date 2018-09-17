@@ -204,7 +204,8 @@ public class Logika {
 
             if (kolo == true) {
                 if (Logika.czyMoznaPostawicZnak(i, j) == true) {
-                    Kolko.postawZnak(i, j);
+//                    Kolko.postawZnak(i, j);   // Jesli chcemy grac 1 na 1
+                    postawZnak_SI();            // jesli chcemy grac z komputerem !
                 } else {
                     System.out.println("Nie można postawić tutaj znaku!");
                 }
@@ -329,7 +330,33 @@ public class Logika {
     }
 
 
-}
+    public static void postawZnak_SI(){
+int najwiekszaOcena = -1;
+int wiersz = -1;
+int kolumna = -1;
+
+        for (int i = 0; i < Plansza.plansza.length; i++) {
+
+            for (int j = 0; j < Plansza.plansza.length; j++) {// j  kolumna, i wiersz
+                if (najwiekszaOcena < ocena[i][j]) {
+                    najwiekszaOcena = ocena[i][j];
+                    wiersz = i;
+                    kolumna = j;
+
+                }
+            }
+        }
+
+        Kolko.postawZnak(wiersz,kolumna);
+
+    }
+
+
+    }
+
+
+
+
 //
 //    public static void ileRuchowDoKonca_SI() {
 //                        System.out.println("askdo");
