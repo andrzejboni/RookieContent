@@ -4,7 +4,7 @@ public class Wypisywanie {
 
 
     public static void przywitanie(){ // Poki co mozliwa tylko gra we 2
-        System.out.println("Witaj w grze kółko i krzyżyk \n Jesli chcesz grac z komputerem nacisnij [ k ], jesli chcesz grac z drugim uzytkownikiem [ c ].Wiersze i kolumny liczymy od 0. Krzyzyk zaczyna pierwszy.");
+        System.out.println("Witaj w grze kółko i krzyżyk .Wiersze i kolumny liczymy od 0. Krzyzyk zaczyna pierwszy.");
     }
     public static void granie(){
         System.out.println("Podaj współrzędne gdzie chcesz postawić znak: ");
@@ -21,6 +21,9 @@ public class Wypisywanie {
 
     public static void remis(){
         System.out.println("Remis, spróbuj jeszcze raz!");
+    }
+
+    public static void zKimChceszZagrac () { System.out.println("Jesli chcesz zagrac z komputerem wpisz  1 , jesli z człowiekiem wpisz  2 .");
     }
 
 

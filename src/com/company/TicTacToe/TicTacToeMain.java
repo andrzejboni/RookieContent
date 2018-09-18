@@ -6,21 +6,19 @@ public class TicTacToeMain {
     public static void main(String[] args) {
 
 
-        Wypisywanie wypisywanie = new Wypisywanie();
-        Kolko kolko = new Kolko();
-        Krzyzyk krzyzyk = new Krzyzyk();
-        Logika logika = new Logika();
-//        Plansza plansza = new Plansza();
+//        Wypisywanie wypisywanie = new Wypisywanie();
+//        Kolko kolko = new Kolko();
+//        Krzyzyk krzyzyk = new Krzyzyk();
+//        Logika logika = new Logika();
+////        Plansza plansza = new Plansza();
 
 
         Plansza.wyczyscPlansze();
 
 
+        Wypisywanie.przywitanie();
+        Wypisywanie.zKimChceszZagrac();
 
-
-
-
-        wypisywanie.przywitanie();
-        logika.rozgrywka();
+        Logika.rozgrywka();
     }
 }
