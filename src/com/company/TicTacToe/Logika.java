@@ -12,7 +12,7 @@ public class Logika {
     }
 
     public static int i;
-    public static int j ;
+    public static int j;
 
     public static boolean czyMoznaPostawicZnak(int i, int j) {
 
@@ -182,8 +182,6 @@ public class Logika {
     }
 
 
-
-
     public static void rozgrywka() {
         boolean krzyz = true; // ZMIENNE DO ZMIANY KOLEJKI
         boolean kolo = false;
@@ -192,7 +190,6 @@ public class Logika {
 
         for (int w = 0; w <= 9; w++) {
             Logika.ilePolObok_SI(); // z każdą iteracją aktualizuje oceny dla planszy
-
 
 
             if (w == 9) {
@@ -270,39 +267,13 @@ public class Logika {
         */
         // implementuję pierwszą rzecz, to jest ile jest dostępnych ruchów obok ma każde pole na planszy
         //   Należy przejść przez każd pole w każdej komórce i sprawdzić czy w danej komórce jest możliwy ruch.
-//
-//        for (int i = 0; i < Plansza.plansza.length; i++) {
-//
-//            for (int j = 0; j < Plansza.plansza.length; j++) {// Dwie powyzsze petle informuja które pole oceniam // i wiersz, j kolumna
-//
-//                for (int o = 0; o < Plansza.plansza.length; o++) {
-//
-//                    for (int p = 0; p < Plansza.plansza.length; p++) {// j  kolumna, i wiersz
-//
-//
-//                        if (i != o && j != p) {  //  sprawdza czy nie oceniam własnego pola
-//
-//                            if (Plansza.plansza[o][p] == ' ') {
-//
-//                                skladowaOceny[o][p] = 1;
-//
-//                            }
-//                        }
-//
-//                    }
-//
-////                    if (i == 0 & j == 0) {
-////                    ocena[i][j] = (skladowaOceny[i+1][j+1]+skladowaOceny[][]+skladowaOceny[][]);
-////                    }
-//                }
-//
-//            }
-//
-//
-//        }
-        // Przejdz po tablicach, jeśli pole jest wolne, nadaj wartośc 1 dla pola
 
-        for (int o = 0; o < Plansza.plansza.length; o++) {
+        // implementuje drugą rzecz, liczenie ile został do ułożenia 3 kolejnych znaków - kółek, a tym samym wygrania całej batalii
+        // Zdaje sie, że odpowiednie bedzie: Rożróżnienie każdej możliwej kombinacji (dośc pracochłonne - jest ich 8 )
+        // ale! mogę się posłużyć kodem ze sprawdzania czy kółko wygrało! - kwestia edycji tej metody.
+
+
+        for (int o = 0; o < Plansza.plansza.length; o++) {          // Przejdz po tablicach, jeśli pole jest wolne, nadaj wartośc 1 dla pola
 
             for (int p = 0; p < Plansza.plansza.length; p++) {// j  kolumna, i wiersz
 
@@ -315,8 +286,8 @@ public class Logika {
                 }
             }
         }
-// Nadawanie wartosci dla poszczegolnych pol
-        for (int i = 0; i < Plansza.plansza.length; i++) {
+
+        for (int i = 0; i < Plansza.plansza.length; i++) { // Nadawanie wartosci dla poszczegolnych pol
 
             for (int j = 0; j < Plansza.plansza.length; j++) {// , i wiersz, j  kolumna
 
@@ -368,7 +339,7 @@ public class Logika {
     }
 
 
-    public static void postawZnak_SI() {
+    public static void postawZnak_SI() { // SI działające opierajace się na liczeniu dostępnych jeszcze pól
         int najwiekszaOcena = -1;
         int wiersz = -1;
         int kolumna = -1;
@@ -384,10 +355,165 @@ public class Logika {
                 }
             }
         }
+        Kolko.postawZnak(wiersz, kolumna); // Tą metodę trzeba będzie przenieść!
+
+    }
+
+    public static void ileRuchowDoWygranej() {
+        int wiersz = -1;
+        int kolumna = -1;
 
 
-        Kolko.postawZnak(wiersz, kolumna);
+        for (int w = 0; w < Plansza.plansza.length; w++) { // Sprwadzenie po kolumnach
 
+            int licznik = 0;
+            for (int p = 0; p < Plansza.plansza.length; p++) {
+
+                if (Plansza.plansza[w][p] == 'O') {
+                    licznik++;
+                }
+
+                if (czyMoznaPostawicZnak(w, p)) {
+                    wiersz = w;
+                    kolumna = p;
+                }
+            }
+
+            // Tutaj trzeba wrzucić metodę która sprawdzi które pole jest wolne - i temu polu nadać odpowiednią ocenę
+
+            if (wiersz != -1 && kolumna != -1) {
+                if (licznik == 1) {
+                    // myślę że 60% to będzie wystarczający
+                    ocena[wiersz][kolumna] += 2;
+
+                }
+                if (licznik == 2) {
+                    ocena[wiersz][kolumna] += 10;
+                    // Znaczny wpływ na ocenę! Jeden ruch do wygrania - Powinno być przynajmniej 90% wpłyewu na ocenę nastęnego ruchu.
+
+
+                }
+            }
+
+
+            wiersz = -1;
+            kolumna = -1;
+        }
+
+        for (int w = 0; w < Plansza.plansza.length; w++) { // Sprwadzenie po wierszach
+
+            int licznik = 0;
+            for (int p = 0; p < Plansza.plansza.length; p++) {
+
+                if (Plansza.plansza[p][w] == 'O') {
+                    licznik++;
+                }
+
+                if (czyMoznaPostawicZnak(w, p)) {
+                    wiersz = p;
+                    kolumna = w;
+                }
+            }
+
+
+            if (wiersz != -1 && kolumna != -1) {
+                if (licznik == 1) {
+                    // myślę że 60% to będzie wystarczający
+                    ocena[wiersz][kolumna] += 2;
+
+                }
+                if (licznik == 2) {
+                    ocena[wiersz][kolumna] += 10;
+                    // Znaczny wpływ na ocenę! Jeden ruch do wygrania - Powinno być przynajmniej 90% wpłyewu na ocenę nastęnego ruchu.
+
+
+                }
+            }
+
+            wiersz = -1;
+            kolumna = -1;
+        }
+
+
+
+        // Sprwadzenie po przekatnych od lewego gornego rogu
+        if (true) {
+            wiersz = -1;
+            kolumna = -1;
+
+            int licznik = 0;
+
+            if (Plansza.plansza[0][0] == 'O') {
+                licznik++;
+            }
+
+            if (Plansza.plansza[1][1] == 'O') {
+                licznik++;
+            }
+
+            if (Plansza.plansza[2][2] == 'O') {
+                licznik++;
+            }
+
+
+
+            if (wiersz != -1 && kolumna != -1) {
+                if (Plansza.plansza[0][0] == ' ') {
+                    wiersz = 0;
+                    kolumna = 0;
+                }
+
+                if (Plansza.plansza[1][1] == ' ') {
+                    licznik++;
+                }
+
+                if (Plansza.plansza[2][2] == ' ') {
+                    licznik++;
+                }
+
+            }
+            if (wiersz != -1 && kolumna != -1) {
+                if (licznik == 1) {
+                    // myślę że 60% to będzie wystarczający
+                    ocena[wiersz][kolumna] += 2;
+
+                }
+                if (licznik == 2) {
+                    ocena[wiersz][kolumna] += 10;
+                    // Znaczny wpływ na ocenę! Jeden ruch do wygrania - Powinno być przynajmniej 90% wpłyewu na ocenę nastęnego ruchu.
+
+
+                }
+            }
+
+
+            wiersz = -1;
+            kolumna = -1;
+
+        }
+
+        // Sprwadzenie po przekatnych od prawego gornego rogu // i wiersz , j kolumna
+        if (true) {
+            int licznik = 0;
+
+            if (Plansza.plansza[0][2] == 'O') {
+                licznik++;
+            }
+
+            if (Plansza.plansza[1][1] == 'O') {
+                licznik++;
+            }
+
+            if (Plansza.plansza[2][0] == 'O') {
+                licznik++;
+            }
+
+            if (licznik == 3) {
+
+            }
+        }
+
+        
     }
 
 
