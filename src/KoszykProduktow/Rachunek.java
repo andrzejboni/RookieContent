@@ -9,12 +9,12 @@ public class Rachunek {
 
     List<Produkt> listaZakupow = new ArrayList<Produkt>();
 
-    Rachunek(List listaZakupow){
-        this.listaZakupow = listaZakupow;
+    Rachunek(Produkt produkt){
+        this.listaZakupow.add(produkt);
     }
 
 
-    Rachunek(){
+    Rachunek(Produkt p1, Produkt p2, Produkt p3, Produkt p4, Produkt p5){
         this.listaZakupow = new ArrayList<>();
     }
 
