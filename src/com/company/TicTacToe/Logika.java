@@ -513,7 +513,7 @@ public class Logika {
             }
         }
 
-        
+
     }
 
 
