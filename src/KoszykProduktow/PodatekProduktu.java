@@ -2,7 +2,6 @@ package KoszykProduktow;
 
 public enum PodatekProduktu {
 
-
     VAT8(8),
     VAT23(23),
     VAT5(5),
@@ -15,4 +14,11 @@ public enum PodatekProduktu {
 
     }
 
+    public int getPodatek() {
+        return podatek;
+    }
+
+    public void setPodatek(int podatek) {
+        this.podatek = podatek;
+    }
 }

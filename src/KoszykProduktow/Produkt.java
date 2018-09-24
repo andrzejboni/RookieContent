@@ -6,9 +6,15 @@ public class Produkt {
     double cenaProduktuNetto;
     double iloscPodatku;
 
-    double podajCeneBrutto() {
 
-        return 1;
+    Produkt(String nazwaProduktu, double cenaProduktuNetto, PodatekProduktu podatekProduktu) {
+        this.nazwaProduktu = nazwaProduktu;
+        this.cenaProduktuNetto = cenaProduktuNetto;
+        this.iloscPodatku = podatekProduktu.getPodatek();
+    }
+
+    double podajCeneBrutto() {
+        return (((cenaProduktuNetto*(iloscPodatku/100))+cenaProduktuNetto));
     }
 
 
@@ -34,5 +40,14 @@ public class Produkt {
 
     public void setIloscPodatku(double iloscPodatku) {
         this.iloscPodatku = iloscPodatku;
+    }
+
+    @Override
+    public String toString() {
+        return "Produkt{" +
+                "nazwaProduktu='" + nazwaProduktu + '\'' +
+                ", cenaProduktuNetto=" + cenaProduktuNetto +
+                ", iloscPodatku=" + iloscPodatku +
+                '}';
     }
 }
