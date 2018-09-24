@@ -39,4 +39,14 @@ public class Student {
     public String getNazwisko() {
         return nazwisko;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "listaOcen=" + listaOcen +
+                ", numerIndeksu=" + numerIndeksu +
+                ", imie='" + imie + '\'' +
+                ", nazwisko='" + nazwisko + '\'' +
+                '}';
+    }
 }

@@ -18,23 +18,48 @@ public class Dziennik {
 //    * posiadać metodę 'posortujStudentówPoIndeksie():List<Student>' - która sortuje listę studentów po numerach indeksów, a następnie zwraca posortowaną listę.
 //
 
-    private List<Object> listaStudentow = new ArrayList<Object>();
+    private List<Student> listaStudentow = new ArrayList<Student>();
 
-    public void dodajStudenta(Object o) {
+    public Dziennik(List<Student> listaStudentow) {
+        this.listaStudentow = listaStudentow;
+    }
+
+    public Dziennik() {
+        listaStudentow = new ArrayList<>();
+    }
+
+
+    public void dodajStudenta(Student o) {
         listaStudentow.add(o);
     }
 
-    public void usunStudentaw(Object o) {
-        listaStudentow.remove(o);
+    public void usunStudentaw(int numerIndeksu) {
+        listaStudentow.remove(numerIndeksu);
     }
 
-//    public Student zwrocStudenta(String numer) { // Przydatna akcja może zwóricć nam nulla GURWA Optional spoko opcja
-//        Student student = listaStudentow.get(numer);
-//        return student;
-//    }
+    public Optional<Student> getStudent(int id) {
+        for (Student student : listaStudentow) {
+            int nrIndeksu = student.getNumerIndeksu();
 
-    public void podajSredniaStudenta() {
+            if (nrIndeksu == id) {
+                return Optional.of(student);
+            }
 
+        }
+
+        return Optional.empty();
+    }
+
+    public void podajSredniaStudenta(Student o) {
+
+        Student student;
+//        o.getListaOcen();
+//        double srednia;
+//        for (int i = 0; i < o.getListaOcen().size(); i++) {
+//            srednia = o.getListaOcen(i) / o.getListaOcen().size();
+//
+//        }
+//        int i = o.getNumerIndeksu().get(1);
 
     }
 
