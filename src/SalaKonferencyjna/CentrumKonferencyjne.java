@@ -9,15 +9,46 @@ public class CentrumKonferencyjne {
 
     List<SalaKonferencyjna> saleKonferencyjne = new ArrayList<SalaKonferencyjna>();
 
-    boolean dodajSaleKonferencyjna(SalaKonferencyjna o){
+    boolean dodajSaleKonferencyjna(SalaKonferencyjna o) {
 
-//        - stwórz metodę 'dodajSalęKonferencyjną(SalaKonferencyjna):boolean' która dodaje podaną w parametrze salę do listy, a następnie zwraca true jeśli się udało, lub false jeśli się nie udało. Dodanie sali może się nie udać jeśli w liście istnieje już sala o podanym numerze.
-//                Stwórz instancję CentrumKonferencyjne oraz dodaj do Centrum kilka sal konferencyjnych.
+        if (saleKonferencyjne.contains(o)) {
+            return false;
+        } else {
+            saleKonferencyjne.add(o);
+            o.setStanSali(true);
+            return true;
+        }
+    }
 
 
+//
+//1 - wylistujWszystkieSale():void - metoda która wypisuje wszystkie sale które znajdują się w CentrumKonferencyjnym.
+//    Przetestuj działanie metody w mainie.
+
+    public void wypiszWszystkieSale() {
+        saleKonferencyjne.get(1);
+    }
+
+    @Override
+    public String toString() {
+        return "CentrumKonferencyjne{" +
+                "stanCentrum=" + stanCentrum +
+                ", saleKonferencyjne=" + saleKonferencyjne +
+                '}';
+    }
 
 
-        return true;
+//    znajdźNajtanszaSale(int iloscPotrzebnychMiejsc):SalaKonferencyjna
+
+    public SalaKonferencyjna znajdzNajtanszaSale(int iloscPotrzebnychMiejsc) {
+        double najtansza = 0;
+        int index = 0;
+        for (int i = 0; i < saleKonferencyjne.size(); i++) {
+            if (saleKonferencyjne.get(i).getCenaSali() < najtansza)
+                najtansza = saleKonferencyjne.get(i).getCenaSali();
+            index = i;
+        }
+        return saleKonferencyjne.get(index);
     }
 
 }
