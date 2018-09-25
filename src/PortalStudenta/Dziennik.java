@@ -32,8 +32,48 @@ public class Dziennik {
         listaStudentow.add(o);
     }
 
-    public void usunStudentaw(int numerIndeksu) {
+    public void usunStudenta(int numerIndeksu) {
         listaStudentow.remove(numerIndeksu);
+    }
+
+
+    public void usunStudenta2(Student o) {
+        listaStudentow.remove(o);
+    }
+
+    public double podajŚredniąStudenta(Student o) {
+        double srednia = 0;
+
+        for (int i = 0; i < o.getListaOcen().size(); i++) {
+            srednia += o.getListaOcen().get(i);
+        }
+
+        srednia = (srednia / o.getListaOcen().size());
+        return srednia;
+    }
+
+    public double podajStudentowZagrozonych(List<Student> listaStudentow) {
+        double srednia = 0;
+
+
+        for (int i = 0; i < 5; i++) {
+            srednia += listaStudentow.get(1).getListaOcen().get(i);
+        }
+
+        srednia = (srednia / listaStudentow.get(1).getListaOcen().size());
+
+
+        return 1.0d;
+    }
+
+
+    public Student zwrocStudenta(int index) {
+        for (int i = 0; i < listaStudentow.size(); i++) {
+            if (index == listaStudentow.get(i).getNumerIndeksu()) {
+                return listaStudentow.get(i);
+            }
+        }
+        return null;
     }
 
     public Optional<Student> getStudent(int id) {
