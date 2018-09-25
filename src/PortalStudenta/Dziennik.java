@@ -6,7 +6,6 @@ import java.util.Optional;
 
 public class Dziennik {
 
-//
 //    Dziennik powinna:
 //            - posiadać (jako pole) listę Studentów.
 //            - posiadać metodę 'dodajStudenta(Student):void' do dodawania nowego studenta do dziennika

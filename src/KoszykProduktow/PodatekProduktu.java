@@ -10,8 +10,7 @@ public enum PodatekProduktu {
     private int podatek;
 
     PodatekProduktu(int podatek) {
-        this.podatek= podatek;
-
+        this.podatek = podatek;
     }
 
     public int getPodatek() {

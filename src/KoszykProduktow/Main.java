@@ -1,5 +1,8 @@
 package KoszykProduktow;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -15,10 +18,30 @@ public class Main {
         Produkt p4 = new Produkt("mąka", 200.0, NO_VAT);
         Produkt p5 = new Produkt("kartoffle", 200.0, vat5);
 
+        List<Produkt> listaMOJA = new ArrayList<Produkt>();
 
-        Rachunek rachunek = new Rachunek(p1,p2,p3,p4,p5);
+        listaMOJA.add(p1);
+        listaMOJA.add(p2);
+        listaMOJA.add(p3);
+        listaMOJA.add(p4);
+        listaMOJA.add(p5);
 
-        System.out.println(rachunek);
+
+
+        Rachunek rachunek = new Rachunek(listaMOJA);
+
+        System.out.println(rachunek.getListaZakupow()); // OK
+        System.out.println(rachunek.toString()); // OK
+        rachunek.kosztPrzyRoznymVACIE();
+        System.out.println(rachunek.podsumujRachunekBrutto());
+        System.out.println(rachunek.podsumujRachunekNetto());
+        rachunek.wypiszRachunek();
+        System.out.println(rachunek.zwrocWartoscPodatku());
+
+//
+//        Rachunek rachunek2 = new Rachunek();
+//
+//        System.out.println(rachunek.toString());
 
 
 //        System.out.println(p1.toString());
@@ -34,7 +57,6 @@ public class Main {
 //        System.out.println("Cena brutto tego produktu to :" + p5.podajCeneBrutto());
 //
 //
-
 
 
     }

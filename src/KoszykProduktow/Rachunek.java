@@ -7,20 +7,34 @@ import java.util.List;
 
 public class Rachunek {
 
-    List<Produkt> listaZakupow = new ArrayList<Produkt>();
+    private List<Produkt> listaZakupow = new ArrayList<Produkt>();
 
 
-    Rachunek(Produkt produkt) {
-        this.listaZakupow.add(produkt);
+    public Rachunek(List<Produkt> listaZakupow) {
+        this.listaZakupow = listaZakupow;
     }
 
-    Rachunek(Produkt p1, Produkt p2, Produkt p3, Produkt p4, Produkt p5) {
+    public Rachunek() {
         this.listaZakupow = new ArrayList<>();
     }
+
+
+//
+//    public Rachunek(Produkt produkt) {
+//        this.listaZakupow.add(produkt);
+//    }
+//
+//    public Rachunek(Produkt p1, Produkt p2, Produkt p3, Produkt p4, Produkt p5) {
+//        this.listaZakupow = new ArrayList<>();
+//    }
+
 
     public List<Produkt> getListaZakupow() {
         return listaZakupow;
     }
+
+
+
 
     public void setListaZakupow(List<Produkt> listaZakupow) {
         this.listaZakupow = listaZakupow;
@@ -56,21 +70,22 @@ public class Rachunek {
         return roznica;
     }
 
-    public void kosztPrzyRoznymVACIE(PodatekProduktu podatekProduktu) {
+    public void kosztPrzyRoznymVACIE() {
         double cena = 0;
-
+        System.out.println("POdatek wynosi " +PodatekProduktu.VAT8.getPodatek());
 
         for (int i = 0; i < listaZakupow.size(); i++) {
-            cena = (listaZakupow.get(i).cenaProduktuNetto*(PodatekProduktu.VAT8.getPodatek()/100))+listaZakupow.get(i).cenaProduktuNetto;
+            cena += (listaZakupow.get(i).cenaProduktuNetto * ((PodatekProduktu.VAT8.getPodatek() * 0.01)) + listaZakupow.get(i).cenaProduktuNetto);
         }
-        System.out.println("Wszystkie produkty, przy VACie 8% kosztowałyby: " +cena);
+
+        System.out.println("Wszystkie produkty, przy VACie 8% kosztowałyby: " + cena);
 
         cena = 0;
 
         for (int i = 0; i < listaZakupow.size(); i++) {
-            cena = (listaZakupow.get(i).cenaProduktuNetto*(PodatekProduktu.VAT23.getPodatek()/100))+listaZakupow.get(i).cenaProduktuNetto;
+            cena += (listaZakupow.get(i).cenaProduktuNetto * (PodatekProduktu.VAT23.getPodatek() * 0.01)) + listaZakupow.get(i).cenaProduktuNetto;
         }
-        System.out.println("Wszystkie produkty, przy VACie 23% kosztowałyby: " +cena);
+        System.out.println("Wszystkie produkty, przy VACie 23% kosztowałyby: " + cena);
 
     }
 

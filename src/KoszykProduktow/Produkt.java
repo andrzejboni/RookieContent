@@ -14,7 +14,7 @@ public class Produkt {
     }
 
     double podajCeneBrutto() {
-        return (((cenaProduktuNetto*(iloscPodatku/100))+cenaProduktuNetto));
+        return (((cenaProduktuNetto * (iloscPodatku / 100)) + cenaProduktuNetto));
     }
 
 
