@@ -41,12 +41,17 @@ public class CentrumKonferencyjne {
 //    znajdźNajtanszaSale(int iloscPotrzebnychMiejsc):SalaKonferencyjna
 
     public SalaKonferencyjna znajdzNajtanszaSale(int iloscPotrzebnychMiejsc) {
-        double najtansza = 0;
+        double najtansza = 9999999;
         int index = 0;
+
         for (int i = 0; i < saleKonferencyjne.size(); i++) {
-            if (saleKonferencyjne.get(i).getCenaSali() < najtansza)
-                najtansza = saleKonferencyjne.get(i).getCenaSali();
-            index = i;
+
+            if (saleKonferencyjne.get(i).getPojemnoscSali() >= iloscPotrzebnychMiejsc && saleKonferencyjne.get(i).getStanSali()) {
+                if (saleKonferencyjne.get(i).getCenaSali() < najtansza) {
+                    najtansza = saleKonferencyjne.get(i).getCenaSali();
+                    index = i;
+                }
+            }
         }
         return saleKonferencyjne.get(index);
     }

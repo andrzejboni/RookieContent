@@ -28,6 +28,11 @@ public class SalaKonferencyjna {
         return numerSali;
     }
 
+    public boolean getStanSali() {
+        return stanSali;
+    }
+
+
     public void setNumerSali(int numerSali) {
         this.numerSali = numerSali;
     }
