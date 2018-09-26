@@ -22,7 +22,7 @@ public class Zapisywanie {
 
             // Note that write() does not automatically
             // append a newline character.
-            bufferedWriter.write(String.valueOf(registrationDesk));
+            bufferedWriter.write((registrationDesk.mapaWizyt.toString()));
             bufferedWriter.newLine();
 
             // Always close files.

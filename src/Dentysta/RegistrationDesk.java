@@ -29,9 +29,7 @@ public class RegistrationDesk<n> {
 
     }
 
-
     Map<String, Visit> mapaWizyt = new HashMap<String, Visit>();
-
 
     public String register(Visit visit) {
 

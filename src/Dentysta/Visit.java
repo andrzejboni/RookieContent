@@ -16,4 +16,14 @@ public class Visit {
         this.typLekarza = typLekarza;
         this.cenaWizyty = cenaWizyty;
     }
+
+    @Override
+    public String toString() {
+        return "Visit{" +
+                "pacjent=%" + pacjent +
+                ", data='%" + data + '\'' +
+                ", typLekarza=%" + typLekarza +
+                ", cenaWizyty=%" + cenaWizyty +
+                '}';
+    }
 }

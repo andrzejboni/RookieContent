@@ -30,10 +30,10 @@ public class Main {
 
 
 
-        Pacjent p1 = new Pacjent("Jonasz", "Sroka", 111L);
-        Pacjent p2 = new Pacjent("Jonasz", "Sroka", 222L);
-        Pacjent p3 = new Pacjent("Jonasz", "Sroka", 333L);
-        Pacjent p4 = new Pacjent("Jonasz", "Sroka", 444L);
+        Pacjent p1 = new Pacjent("Jonasz", "Przytul", 111L);
+        Pacjent p2 = new Pacjent("Ignac", "Wolej", 222L);
+        Pacjent p3 = new Pacjent("Rych", "Ulej", 333L);
+        Pacjent p4 = new Pacjent("Zych", "Pych", 444L);
 
         Visit w1 = new Visit(p1, "12.12.12", TypLekarza.Dentysta, 120);
         Visit w2 = new Visit(p2, "13.12.12", TypLekarza.Ortodata, 350);
