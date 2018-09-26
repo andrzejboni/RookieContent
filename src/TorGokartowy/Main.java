@@ -9,7 +9,8 @@ public class Main {
 //                -nazwisko
 //                -pesel
 //                -rodzaj zniżki (enum: BRAK, SZKOLNA, STUDENCKA, SENIOR)
-//        Stwórz klasę TorGokartowy, która będzie przechowywać klientów, którzy przybyli na ten tor. Powinna także przechowywać informację,kiedy dany klient przybył na tor. Powinna mieć metody:
+//        Stwórz klasę TorGokartowy, która będzie przechowywać klientów, którzy przybyli na ten tor.
+// Powinna także przechowywać informację,kiedy dany klient przybył na tor. Powinna mieć metody:
 //        przyjmijKlienta(Klient klient);
 //        wydajRachunek(String pesel) - zwracającą obiekt Rachunek.
 //        wydrukujRachunki() - zwracającą rachunki, które zostały już wydane
@@ -27,6 +28,8 @@ public class Main {
 //        -pierwsza godzina kosztuje 20 zł, niezależnie, czy ktoś był krócej
 //                -każde kolejne skończone 10 minut kosztuje 1 zł.
 //
+
+
 
 
 
