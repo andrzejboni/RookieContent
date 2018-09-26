@@ -54,6 +54,7 @@ public class ZapisOdczyt {
                 System.out.println(linia);
                 ogarniajZnakiStopu(linia);
             }
+
         } catch (IOException e1) {
             e1.printStackTrace();
         }
