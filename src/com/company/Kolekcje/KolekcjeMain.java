@@ -182,7 +182,7 @@ public class KolekcjeMain {
         }
 
 
-//        for (int i = 0; i < parts.length; i++) { // Zapisywanie do nowej drugiej tablicy, unikalnych słow
+//        for (int i = 0; i < parts.length; i++) { // ZapisOdczyt do nowej drugiej tablicy, unikalnych słow
 //
 //            for (int j = 0; j < parts.length; j++) {
 //                if (parts[i] == parts[j]) ;

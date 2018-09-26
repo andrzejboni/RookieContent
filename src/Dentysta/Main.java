@@ -45,13 +45,25 @@ public class Main {
         registrationDesk.mapaWizyt.put(registrationDesk.register(w3),w3);
         registrationDesk.mapaWizyt.put(registrationDesk.register(w4),w4);
 
-        Zapisywanie zapisywanie = new Zapisywanie();
+        ZapisOdczyt zapisOdczyt = new ZapisOdczyt();
 
         try {
-            zapisywanie.zapisz(registrationDesk);
+            zapisOdczyt.zapisz(registrationDesk);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+            zapisOdczyt.odczyt();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        zapisOdczyt.listaOdczytanych.get(1);
+
+
+// catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
 
     }
