@@ -79,16 +79,24 @@ public class ZapisOdczyt {
     }
 
 
-    private Pacjent tworzObiektPacjent(String linia) { // Metoda odwraca cały proces -> ze sczytanego tekstu tworzy obiekt klasy Pacjent.
+    private void tworzObiektPacjent(String linia) { // Metoda odwraca cały proces -> ze sczytanego tekstu tworzy obiekt klasy Pacjent.
         String[] split = linia.split("%");
 
-        String imie = split[0];
-        String nazwisko = split[1];
-        long pesel = Long.parseLong(split[2]);
+        String imie = listaOdczytanych.get(0);
+        String nazwisko = listaOdczytanych.get(1);
+        String peselA  = listaOdczytanych.get(2);
 
-        Pacjent pacjent = new Pacjent(imie, nazwisko, pesel);
+        System.out.println(imie);
+        System.out.println(nazwisko);
+        System.out.println(peselA);
+        System.out.println(listaOdczytanych.get(3));
+        System.out.println(listaOdczytanych.get(4));
+        System.out.println(listaOdczytanych.get(5));
+//        long peselB = Long.parseLong(peselA);
 
-        return pacjent;
+//        Pacjent pacjent = new Pacjent(imie, nazwisko, peselB);
+
+//        return pacjent;
     }
 
 

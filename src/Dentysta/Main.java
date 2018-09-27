@@ -1,6 +1,8 @@
 package Dentysta;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -45,6 +47,9 @@ public class Main {
 //        registrationDesk.mapaWizyt.put(registrationDesk.register(w3),w3);
 //        registrationDesk.mapaWizyt.put(registrationDesk.register(w4),w4);
 
+        registrationDesk.dodajPacjentaDoMapy(p1);
+        registrationDesk.dodajPacjentaDoMapy(p1);
+
         ZapisOdczyt zapisOdczyt = new ZapisOdczyt();
 
         try {
@@ -54,11 +59,27 @@ public class Main {
         }
 
 
-            zapisOdczyt.odczyt();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println(zapisOdczyt.listaOdczytanych.get(1));
+//        Set<Pacjent> pacjenci = new HashSet<>();
+        System.out.println(registrationDesk.mapaWizyt.toString());
+
+        registrationDesk.mapaWizyt.toString();
+//        registrationDesk.mapaWizyt.keySet();
+
+        System.out.println(registrationDesk.mapaPacjentow.toString());
+        registrationDesk.mapaPacjentow.keySet();
+
+//        pacjenci = registrationDesk.mapaPacjentow.entrySet();
+//        registrationDesk.mapaPacjentow.entrySet();
+//        System.out.println(pacjenci.size());
+
+
+
+
+//            zapisOdczyt.odczyt();
+//        System.out.println();
+//        System.out.println();
+//        System.out.println();
+//        System.out.println(zapisOdczyt.listaOdczytanych.get(1));
 
 
 // catch (IOException e) {
