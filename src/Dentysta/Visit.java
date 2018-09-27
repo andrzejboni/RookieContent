@@ -19,11 +19,6 @@ public class Visit {
 
     @Override
     public String toString() {
-        return "Visit{" +
-                "pacjent=%" + pacjent +
-                ", data='%" + data + '\'' +
-                ", typLekarza=%" + typLekarza +
-                ", cenaWizyty=%" + cenaWizyty +
-                '}';
+        return  pacjent +"%" + data +"%" + typLekarza +"%" + cenaWizyty+"%";
     }
 }

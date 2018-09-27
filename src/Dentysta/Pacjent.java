@@ -7,7 +7,7 @@ public class Pacjent {
     String imie;
     String nazwisko;
     long pesel;
-    Object pacjent;
+
 
 
 

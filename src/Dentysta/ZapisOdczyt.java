@@ -53,6 +53,7 @@ public class ZapisOdczyt {
             while ((linia = czytnik.readLine()) != null) {
                 System.out.println(linia);
                 ogarniajZnakiStopu(linia);
+                tworzObiektPacjent(linia);
             }
 
         } catch (IOException e1) {
@@ -65,7 +66,7 @@ public class ZapisOdczyt {
     List<String> listaOdczytanych = new ArrayList<>(); // lista przechowuje odczytane w konsoli rzeczy, znakiem odzielającym jest %.
 
 
-    public  void ogarniajZnakiStopu(String linia) { // Znakiem stopu jest %
+    public void ogarniajZnakiStopu(String linia) { // Znakiem stopu jest % dzielę ciąg na elementy od % do %
         char[] tablicaSlowa = new char[linia.length()];
 
 //        tablicaSlowa = linia.toCharArray();
@@ -73,8 +74,21 @@ public class ZapisOdczyt {
         String[] split = linia.split("%");
 
         for (int i = 0; i < split.length; i++) {
-             listaOdczytanych.add(i,split[i]);
+            listaOdczytanych.add(i, split[i]);
         }
+    }
+
+
+    private Pacjent tworzObiektPacjent(String linia) { // Metoda odwraca cały proces -> ze sczytanego tekstu tworzy obiekt klasy Pacjent.
+        String[] split = linia.split("%");
+
+        String imie = split[0];
+        String nazwisko = split[1];
+        long pesel = Long.parseLong(split[2]);
+
+        Pacjent pacjent = new Pacjent(imie, nazwisko, pesel);
+
+        return pacjent;
     }
 
 
