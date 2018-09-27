@@ -2,7 +2,6 @@ package Comparator;
 
 import SalaKonferencyjna.SalaKonferencyjna;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -24,10 +23,10 @@ public class Main {
         PersonStringComparator personStringComparator = new PersonStringComparator();
 
 
-        Person p1 = new Person("Janusz", "Sracz", 5423, Gender.Men);
+        Person p1 = new Person("Janusz", "Pracz", 5423, Gender.Men);
         Person p5 = new Person("Piotrusiówka", "von HufflePuff", 5423, Gender.Woman);
         Person p2 = new Person("Marlenka", "Ravenclaw", 42, Gender.Woman);
-        Person p3 = new Person("Jureczka", "Gryffidor", 233, Gender.Woman);
+        Person p3 = new Person("Jureczka", "Gryffindor", 233, Gender.Woman);
         Person p4 = new Person("Oleczka", "Bury", 12, Gender.Woman);
 
 //        personStringComparator.compare(p1,p2);
@@ -35,18 +34,18 @@ public class Main {
 //        personStringComparator.compare(p3,p4);
 //        System.out.println(personStringComparator.compare2(p1,p2));
 
-        RejstrackaPacjentow rejstrackaPacjentow = new RejstrackaPacjentow();
-        rejstrackaPacjentow.addPatientToQueue(p1);
-        rejstrackaPacjentow.addPatientToQueue(p2);
-        rejstrackaPacjentow.addPatientToQueue(p3);
-        rejstrackaPacjentow.addPatientToQueue(p4);
-        rejstrackaPacjentow.addPatientToQueue(p5);
+        RejstracjaPacjentow rejstracjaPacjentow = new RejstracjaPacjentow();
+        rejstracjaPacjentow.addPatientToQueue(p1);
+        rejstracjaPacjentow.addPatientToQueue(p2);
+        rejstracjaPacjentow.addPatientToQueue(p3);
+        rejstracjaPacjentow.addPatientToQueue(p4);
+        rejstracjaPacjentow.addPatientToQueue(p5);
 
 
-//        List<RejstrackaPacjentow> list = (LinkedList)kolejkaPacjentow;
+//        List<RejstracjaPacjentow> list = (LinkedList)kolejkaPacjentow;
+
 //
-//
-//        Collections.sort(list, new PersonStringComparator());
+//        Collections.sort(rejstracjaPacjentow, new PersonStringComparator());
 
     }
 }
