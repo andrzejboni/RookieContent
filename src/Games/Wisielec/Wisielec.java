@@ -13,8 +13,11 @@ public class Wisielec implements Playable {
     protected int nrZgadywanegoSlowa = 0;
     public static String[] parts;
     int iloscProb;
+    public static char[] tablicaCharow;
+    public static char[] slowoNaChar = new char[10 + 1];
+    Wypisz wypisz = new Wypisz();
 
-    Wisielec wisielec = new Wisielec();
+//    Wisielec wisielec = new Wisielec();
 
 
     // Potrzebuje dwóch talic -> Jedna tablica ma wyrazy
@@ -26,7 +29,7 @@ public class Wisielec implements Playable {
         return nrZgadywanegoSlowa;
     }
 
-    public static String[] dodajSlowaDoTablicy(String line) {
+    public static String[] dodajSlowaDoTablicy(String line) { // URUCHAMIANA W KLASIE WCZYTAJ SLOWO
 //        int dlugosc = text.length() - 1;
         String linia = line;
 
@@ -35,31 +38,38 @@ public class Wisielec implements Playable {
     }
 
     public char[] rzutujWybraneSlowoNaChar(String[] parts) {
-        char[] slowoNaChar = new char[parts.length + 1];
+
         slowoNaChar = parts[nrZgadywanegoSlowa].toCharArray();
         return slowoNaChar;
     }
 
     public boolean czyPoprawnaLitera(char[] slowoNaChar) {
+        tablicaCharow = slowoNaChar;
         String zgadywanaLitera = scanner.nextLine();
-        zgadywanaLitera.toCharArray();
+//        zgadywanaLitera.toCharArray();
+        int licznik = 0;
 
         for (int i = 0; i < slowoNaChar.length; i++) {
 
-            if (zgadywanaLitera == zgadywanaLitera) {
+            if (zgadywanaLitera.equals(tablicaCharow[i])) {
                 Wypisz.poprawnaLitera();
-            } else {
-                Wypisz.niepoprawnaLitera();
-            }
+                Wypisz.wypiszStan(tablicaCharow[i]);
+                licznik++;
 
+            }
         }
 
-        return true;
+        if (licznik != 0) {
+            return true;
+        }
+
+        iloscProb--;
+        return false;
     }
 
 
     public void zgadnijLitere() {
-        Wypisz wypisz = new Wypisz();
+
 
         wypisz.powitanie();
         wypisz.ileProb();
@@ -69,13 +79,11 @@ public class Wisielec implements Playable {
 
         while (i < iloscProb) {
 
-
             i++;
         }
 
 
     }
-
 
     public void gra() {
 

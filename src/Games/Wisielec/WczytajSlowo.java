@@ -6,13 +6,13 @@ import static Games.Wisielec.Wisielec.dodajSlowaDoTablicy;
 
 public class WczytajSlowo {
 
-
+    public static String line = null;
     public void wczytaj() {
 //         ?The name of the file to open.
         String fileName = "C:\\Users\\Andrzej\\IdeaProjects\\RookieContent\\src\\Games\\Wisielec\\config";  // PLIK KONFIGURACYJNY
 
         // This will reference one line at a time
-        String line = null;
+
 
         try {
             // FileReader reads text files in the default encoding.
