@@ -40,4 +40,12 @@ public class Person {
     public void setData(int data) {
         this.data = data;
     }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 }

@@ -4,7 +4,6 @@ import java.util.Stack;
 
 public class Dish {
 
-
     Enum dishType;
 
     Stack<DishType> stack = new Stack<>();

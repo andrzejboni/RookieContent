@@ -2,12 +2,10 @@ package Queue.LIFO;
 
 import java.util.Stack;
 
-public class LIFOMain {
+public class LIFOMain{
     //        Zadanie 1:
 //        Stwórz enuma DishType (rodzaj naczynia), który ma kilka wymyślonych przez ciebie wartości.
 //        Stwórz klasę Dish, która jako pole przechowuje DishType.
-
-
 //        Stwórz klasę Sink, która ma metodę throwDish(Dish dish) oraz metodę clean(), która zwraca Optional<Dish>.
 
     public static void main(String[] args) {
@@ -18,16 +16,18 @@ public class LIFOMain {
         Dish d3 = new Dish(DishType.Spoon);
         Dish d4 = new Dish(DishType.Glass);
 
-        Sink sink = new Sink();
+        Sink sink = new Sink();  // Można to uznać za zlew do którego wrzucamy brudne naczynia czy cos podobnego
 
         sink.throwDish(d1);
         sink.throwDish(d2);
         sink.throwDish(d3);
         sink.throwDish(d4);
 
-        sink.clean();
-        sink.clean();
-        sink.clean();
+        System.out.println(sink.clean());
+        System.out.println(sink.clean());
+
+//        System.out.println(sink.clean());
+//        System.out.println(sink.clean());
 
     }
 }
