@@ -1,4 +1,4 @@
-package com.company.java;
+package Games.ZgadnijLiczbe;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -16,8 +16,10 @@ public class ZgadnijLiczbe {
         Scanner scanner = new Scanner(System.in);
 
         int licznikProb = 1;
+        System.out.println("Wpisz ile prób chcesz mieć:  ");
 
-        while (licznikProb < 7) {
+        int liczbaProb = scanner.nextInt();
+        while (licznikProb < liczbaProb) {
             int liczba = scanner.nextInt();
             if (zgadywanaLiczba == liczba) {
                 System.out.println("Brawo, zgadłeś! To była Twoja " + licznikProb + " próba.");
@@ -37,4 +39,10 @@ public class ZgadnijLiczbe {
 
 }
 
+// Później przenieśc do maina !!!!
 
+//    public static void main(String[] args) {
+//        System.out.println("Witaj w grze zgadnij liczbę!\nWymyśliłem liczbę do zgadnięcia...\nPodaj liczbę od 0 do 100 i spróbuj ją zgadnąć!");
+//        ZgadnijLiczbe zgadnij = new ZgadnijLiczbe();
+//        zgadnij.zgadywanie(zgadnij.losujLiczbe());
+//    }

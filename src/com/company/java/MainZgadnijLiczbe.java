@@ -1,5 +1,7 @@
 package com.company.java;
 
+import Games.ZgadnijLiczbe.ZgadnijLiczbe;
+
 public class MainZgadnijLiczbe {
 
     public static void main(String[] args) {

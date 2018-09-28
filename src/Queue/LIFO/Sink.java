@@ -17,7 +17,7 @@ public class Sink {
 //    }  // ZWRÓC Optionala<Dish>
 
 
-    public Optional<Dish> clean () { // To chyba miało być tak!?
+    public Optional<Dish> clean() { // To chyba miało być tak!?
 //        stack.pop();
         return Optional.ofNullable(stack.pop());
     }
