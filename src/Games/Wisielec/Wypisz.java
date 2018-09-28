@@ -6,8 +6,15 @@ import static Games.Wisielec.Wisielec.tablicaCharow;
 public class Wypisz {
 
     public static void powitanie() {
-        System.out.println("Witaj w grze wisielec. \n Wymysliłem słowo które musisz zgadnąć, podaj literkę!");
+        System.out.println("Witaj w grze wisielec. \n Wymysliłem słowo które musisz zgadnąć!");
     }
+
+
+
+    public static void podajLitere() {
+        System.out.println("Podaj literkę!");
+    }
+
 
     public static void wygrana() {
         System.out.println("Brawo, udało Ci sie zgadnąć słowo, wygrałeś!");

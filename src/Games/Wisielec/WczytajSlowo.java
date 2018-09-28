@@ -7,6 +7,7 @@ import static Games.Wisielec.Wisielec.dodajSlowaDoTablicy;
 public class WczytajSlowo {
 
     public static String line = null;
+    public static String wiersz ;
     public void wczytaj() {
 //         ?The name of the file to open.
         String fileName = "C:\\Users\\Andrzej\\IdeaProjects\\RookieContent\\src\\Games\\Wisielec\\config";  // PLIK KONFIGURACYJNY
@@ -25,8 +26,8 @@ public class WczytajSlowo {
 
             while((line = bufferedReader.readLine()) != null) {
 //                System.out.println(line);
+                wiersz = line;
 
-                dodajSlowaDoTablicy(line);
             }
 
             // Always close files.
