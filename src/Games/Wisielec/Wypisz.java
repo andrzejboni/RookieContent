@@ -25,27 +25,16 @@ public class Wypisz {
     }
 
     public static void poprawnaLitera() {
-        System.out.println("Brawo, jesteś coraz bliżej.");
+        System.out.println("Brawo to dobra litera, jesteś coraz bliżej.");
     }
 
     public static void niepoprawnaLitera() {
-        System.out.println("Niestety, podana litera nie występuje w szukanym słowie!");
+        System.out.println("Nie ma takiej literki.");
     }
 
     public static void ileProb() {
         System.out.println("Wpisz liczbe prob");
     }
 
-    public static void wypiszStan(char poprawnaLitera) {
 
-        for (int i = 0; i < tablicaCharow.length; i++) {
-            if (poprawnaLitera == tablicaCharow[i]) {
-                System.out.println(tablicaCharow[i]);
-            } else {
-                System.out.println(" _ ");
-            }
-        }
-
-
-    }
 }

@@ -15,14 +15,33 @@ public class Main {
         Wisielec wisielec = new Wisielec();
         WczytajSlowo wczytajSlowo = new WczytajSlowo();
 
+        Wypisz.powitanie();
+//        Wisielec.podajLiczbeProb();
+
         wczytajSlowo.wczytaj();
 //        System.out.println(wiersz);
-        wisielec.losujSlowo();
+
         wisielec.dodajSlowaDoTablicy(wiersz);
 
+        String wyraz = parts[wisielec.losujSlowo()];
+//        System.out.println(wyraz);
+
         wisielec.rzutujWybraneSlowoNaChar(parts);
+
         wisielec.czyPoprawnaLitera(slowoNaChar);
 
+//        System.out.println(Wisielec.slowoNaChar[0]);
+
+
+
+
+
+
+
+//        wisielec.dodajSlowaDoTablicy(wiersz);
+//
+//        wisielec.rzutujWybraneSlowoNaChar(parts);
+//        wisielec.czyPoprawnaLitera(slowoNaChar);
 
 
 //        wisielec.rzutujWybraneSlowoNaChar(parts);

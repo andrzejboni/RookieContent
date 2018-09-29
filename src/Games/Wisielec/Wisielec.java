@@ -9,12 +9,12 @@ import java.util.Scanner;
 public class Wisielec implements Playable {
 
 
-    Scanner scanner = new Scanner(System.in);
+     static Scanner scanner = new Scanner(System.in);
     protected int nrZgadywanegoSlowa = 0;
     public static String[] parts;
-    int iloscProb;
+    public static int iloscProb = 10;
     public static char[] tablicaCharow;
-    public static char[] slowoNaChar = new char[20 + 1];
+    public static char[] slowoNaChar = new char[20];
     Wypisz wypisz = new Wypisz();
 
 //    Wisielec wisielec = new Wisielec();
@@ -25,7 +25,7 @@ public class Wisielec implements Playable {
 
     public int losujSlowo() {
         Random rand = new Random();
-        nrZgadywanegoSlowa = rand.nextInt(15) + 1;
+        nrZgadywanegoSlowa = rand.nextInt(29) + 1;
         return nrZgadywanegoSlowa;
     }
 
@@ -43,49 +43,65 @@ public class Wisielec implements Playable {
         return slowoNaChar; // TUTAJ JEST JEDNO SLOWO, SLOWO O NUMERZE WYLOSOWANYM Z MET. LOSUJSLOWO, SLOWO JEST W TABLICY CHAROW
     }
 
-    public void podajLiczbeProb() {
-        Wypisz.powitanie();
+    public static void podajLiczbeProb() {
         Wypisz.ileProb();
 
         iloscProb = scanner.nextInt();
 
     }
 
-    public boolean czyPoprawnaLitera(char[] slowoNaChar) {
+
+    public void czyPoprawnaLitera(char[] slowoNaChar) {
         tablicaCharow = slowoNaChar;
+        char[] tablicaDoWyswieetlania = new char[tablicaCharow.length];
+        for (int i = 0; i < tablicaDoWyswieetlania.length; i++) {
+            tablicaDoWyswieetlania[i] = '#';
+        }
+
 
         int j = 0;
-        int licznik = 0;
-        int temp = 0;
+        int licznikWygranej = tablicaCharow.length;
 
-        while (j < iloscProb) {
+        while (j <= 20) {
+            int licznik = 0;
+            System.out.println(" \n---------------------------------------------");
+            for (int i = 0; i < tablicaDoWyswieetlania.length; i++) {
+                System.out.print(" " + tablicaDoWyswieetlania[i] + " ");
+            }
+            System.out.println("\n---------------------------------------------");
+
             Wypisz.podajLitere();
 
+
             String zgadywanaLitera = scanner.nextLine();
-//        zgadywanaLitera.toCharArray();
+
+            char litera = zgadywanaLitera.charAt(0);
 
 
             for (int i = 0; i < tablicaCharow.length; i++) {
 
-                if (zgadywanaLitera.equals(tablicaCharow[i])) {
+                if (litera == tablicaCharow[i]) {
+                    tablicaDoWyswieetlania[i] = litera;
                     licznik++;
-                    temp = j;
+                    licznikWygranej--;
                 }
             }
 
-            if (licznik != 0) {
+            if (licznik == 0) {
+                Wypisz.niepoprawnaLitera();
+            } else {
                 Wypisz.poprawnaLitera();
-                Wypisz.wypiszStan(tablicaCharow[j]);
-                iloscProb--;
-                return true;
             }
-
-            j++;
             iloscProb--;
-            return false;
+            System.out.println("Pozostało szans: "+ iloscProb);
+
+            if (j == iloscProb) {Wypisz.przegrana(); break;}
+            if (j == iloscProb) {Wypisz.przegrana(); break;}
+            if (licznikWygranej==0) {Wypisz.wygrana(); break;}
+
 
         }
-        return false;
+
     }
 //    public void zgadnijLitere() {
 //
