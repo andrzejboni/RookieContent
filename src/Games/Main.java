@@ -10,6 +10,7 @@ import static Games.Wisielec.Wisielec.parts;
 import static Games.Wisielec.Wisielec.slowoNaChar;
 
 public class Main {
+    public static String wyraz2;
     public static void main(String[] args) {
 
         Wisielec wisielec = new Wisielec();
@@ -25,9 +26,15 @@ public class Main {
 
         String wyraz = parts[wisielec.losujSlowo()];
 //        System.out.println(wyraz);
+         wyraz2 = wyraz;
+
 
         wisielec.rzutujWybraneSlowoNaChar(parts);
+        Wisielec.iloscProb = slowoNaChar.length +4;
 
+        System.out.println("Dlugosc slowa to " + slowoNaChar.length);
+
+        System.out.println("W słowniku jest " +parts.length + " różnych słów.");
         wisielec.czyPoprawnaLitera(slowoNaChar);
 
 //        System.out.println(Wisielec.slowoNaChar[0]);

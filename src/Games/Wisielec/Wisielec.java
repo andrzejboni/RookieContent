@@ -5,6 +5,8 @@ import Games.Playable;
 import java.util.Random;
 import java.util.Scanner;
 
+import static Games.Main.wyraz2;
+
 
 public class Wisielec implements Playable {
 
@@ -12,9 +14,9 @@ public class Wisielec implements Playable {
      static Scanner scanner = new Scanner(System.in);
     protected int nrZgadywanegoSlowa = 0;
     public static String[] parts;
-    public static int iloscProb = 10;
+    public static int iloscProb ;
     public static char[] tablicaCharow;
-    public static char[] slowoNaChar = new char[20];
+    public static char[] slowoNaChar = new char[30];
     Wypisz wypisz = new Wypisz();
 
 //    Wisielec wisielec = new Wisielec();
@@ -25,7 +27,7 @@ public class Wisielec implements Playable {
 
     public int losujSlowo() {
         Random rand = new Random();
-        nrZgadywanegoSlowa = rand.nextInt(29) + 1;
+        nrZgadywanegoSlowa = rand.nextInt(parts.length) ;
         return nrZgadywanegoSlowa;
     }
 
@@ -95,8 +97,9 @@ public class Wisielec implements Playable {
             iloscProb--;
             System.out.println("Pozostało szans: "+ iloscProb);
 
-            if (j == iloscProb) {Wypisz.przegrana(); break;}
-            if (j == iloscProb) {Wypisz.przegrana(); break;}
+//            if (j == iloscProb) {Wypisz.przegrana(); break;}
+            if (j == iloscProb) {Wypisz.przegrana();
+                System.out.println("Słowo to " + wyraz2);break;}
             if (licznikWygranej==0) {Wypisz.wygrana(); break;}
 
 
