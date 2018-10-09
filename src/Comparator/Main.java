@@ -2,6 +2,7 @@ package Comparator;
 
 import SalaKonferencyjna.SalaKonferencyjna;
 
+import java.time.Instant;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -24,6 +25,9 @@ public class Main {
     public static void main(String[] args) {
         // Od początku
 
+
+        long epochTime = Instant.now().toEpochMilli();
+        String epochToString = String.valueOf(epochTime);
 
     }
 }
