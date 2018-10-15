@@ -13,7 +13,7 @@ public class HouseBuilderFluentApi {
         result = new House();
     }
 
-    public HouseBuilderFluentApi setArea(float area) {
+    public HouseBuilderFluentApi setArea(double area) {
         result.setArea(area);
         return this;
     }

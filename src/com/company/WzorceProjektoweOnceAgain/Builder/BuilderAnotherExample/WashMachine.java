@@ -9,6 +9,47 @@ public class WashMachine {
     private int iloscProgramowPrania;
     private int iloscWsadu;
 
+    @Override
+    public String toString() {
+        return "WashMachine{" +
+                "cena=" + cena +
+                ", iloscObrotow=" + iloscObrotow +
+                ", temperaturaWody=" + temperaturaWody +
+                ", marka='" + marka + '\'' +
+                ", waga=" + waga +
+                ", iloscProgramowPrania=" + iloscProgramowPrania +
+                ", iloscWsadu=" + iloscWsadu +
+                '}';
+    }
+
+    public double getCena() {
+        return cena;
+    }
+
+    public int getIloscObrotow() {
+        return iloscObrotow;
+    }
+
+    public int getTemperaturaWody() {
+        return temperaturaWody;
+    }
+
+    public String getMarka() {
+        return marka;
+    }
+
+    public double getWaga() {
+        return waga;
+    }
+
+    public int getIloscProgramowPrania() {
+        return iloscProgramowPrania;
+    }
+
+    public int getIloscWsadu() {
+        return iloscWsadu;
+    }
+
     public WashMachine(double cena, int iloscObrotow, int temperaturaWody, String marka, double waga, int iloscProgramowPrania, int iloscWsadu) {
         this.cena = cena;
         this.iloscObrotow = iloscObrotow;
@@ -18,6 +59,8 @@ public class WashMachine {
         this.iloscProgramowPrania = iloscProgramowPrania;
         this.iloscWsadu = iloscWsadu;
     }
+
+    public WashMachine(){}
 
     public void setCena(double cena) {
         this.cena = cena;

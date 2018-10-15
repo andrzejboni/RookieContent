@@ -2,8 +2,8 @@ package com.company.WzorceProjektoweOnceAgain.Builder;
 
 public class House {
 
-    private float area;
-    private float price;
+    private double area;
+    private double price;
     private int floor;
     private int roomsCount;
     private String adress;
@@ -12,20 +12,12 @@ public class House {
     private boolean hasBalcony;
     private boolean hasPool;
     private boolean hasGarage;
-    private float garageArea;
-    private float height;
-
-
+    private double garageArea;
+    private double height;
 
     public House(){}
 
-
-
-
-
-
-
-    public House(float area, float price, int floor, int roomsCount, String adress, int buildYear, int age, boolean hasBalcony, boolean hasPool, float garageArea, float height) {
+    public House(double area, double price, int floor, int roomsCount, String adress, int buildYear, int age, boolean hasBalcony, boolean hasPool, double garageArea, double height) {
         this.area = area;
         this.price = price;
         this.floor = floor;
@@ -40,19 +32,19 @@ public class House {
     }
 
 
-    public float getArea() {
+    public double getArea() {
         return area;
     }
 
-    public void setArea(float area) {
+    public void setArea(double area) {
         this.area = area;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -112,19 +104,19 @@ public class House {
         this.hasPool = hasPool;
     }
 
-    public float getGarageArea() {
+    public double getGarageArea() {
         return garageArea;
     }
 
-    public void setGarageArea(float garageArea) {
+    public void setGarageArea(double garageArea) {
         this.garageArea = garageArea;
     }
 
-    public float getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(float height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 }

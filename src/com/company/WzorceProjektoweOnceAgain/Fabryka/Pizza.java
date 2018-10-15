@@ -2,12 +2,12 @@ package com.company.WzorceProjektoweOnceAgain.Fabryka;
 
 public class Pizza {
     private String name;
-    private float radius;
-    private float price;
-    private float thickness;
+    private double radius;
+    private double price;
+    private double thickness;
 
 
-    public Pizza(String name, float radius, float price, float thickness) {
+    public Pizza(String name, double radius, double price, double thickness) {
         this.name = name;
         this.radius = radius;
         this.price = price;
@@ -18,15 +18,15 @@ public class Pizza {
         return name;
     }
 
-    public float getRadius() {
+    public double getRadius() {
         return radius;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public float getThickness() {
+    public double getThickness() {
         return thickness;
     }
 }

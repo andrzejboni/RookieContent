@@ -22,7 +22,7 @@ public class PimpMyPizzaFactory {
                 result = new Pizza("Wiejska", 5.00f, 21.f, 3.1f);
                 break;
             case Saturday:
-                result = new Pizza("Cappriciosa", 12.00f, 12.f, 2.1f);
+                result = new Pizza("A Hard Day’s Night", 12.00f, 12.f, 2.1f);
                 break;
             case Sunday:
                 result = new Pizza("Baba Jaga", 19.00f, 19.f, 1.1f);

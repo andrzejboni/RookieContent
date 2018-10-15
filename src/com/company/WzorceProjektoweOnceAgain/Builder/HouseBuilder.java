@@ -1,8 +1,8 @@
 package com.company.WzorceProjektoweOnceAgain.Builder;
 
 public class HouseBuilder {
-    private float area;
-    private float price;
+    private double area;
+    private double price;
     private int floor;
     private int roomsCount;
     private String adress;
@@ -10,8 +10,8 @@ public class HouseBuilder {
     private int age;
     private boolean hasBalcony;
     private boolean hasPool;
-    private float garageArea;
-    private float height;
+    private double garageArea;
+    private double height;
 
 
     public House build() {
@@ -26,11 +26,11 @@ public class HouseBuilder {
     }
 
 
-    public void setArea(float area) {
+    public void setArea(double area) {
         this.area = area;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -62,11 +62,11 @@ public class HouseBuilder {
         this.hasPool = hasPool;
     }
 
-    public void setGarageArea(float garageArea) {
+    public void setGarageArea(double garageArea) {
         this.garageArea = garageArea;
     }
 
-    public void setHeight(float height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
