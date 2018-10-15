@@ -9,3 +9,6 @@ public class Main {
 //
     }
 }
+
+
+// Dependency injection         sprawdz to na wiki!
