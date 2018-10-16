@@ -9,7 +9,8 @@ public class SchedulerComposite extends JobComponent {
     List<JobComponent> sheduledJobComponents;
 
 
-    public SchedulerComposite() {
+    public SchedulerComposite(String name) {
+        super(name);
         sheduledJobComponents = new LinkedList();
     }
 
@@ -24,12 +25,22 @@ public class SchedulerComposite extends JobComponent {
     public void listAllComponents() {
         for (JobComponent component :
                 this.sheduledJobComponents) {
+
             component.completeJob();
+            if (component instanceof SchedulerComposite) {
+                SchedulerComposite subTask = (SchedulerComposite) component;
+                subTask.listAllComponents();
+            }
         }
     }
 
     @Override
     public void completeJob() {
-        System.out.println("You finished the job");
+        System.out.println("You finished the job" + this.name);
+    }
+
+    @Override
+    public void addJob(FinalJobLeaf drinkCoffe) {
+
     }
 }
