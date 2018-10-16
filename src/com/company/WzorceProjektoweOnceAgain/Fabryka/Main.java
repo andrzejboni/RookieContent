@@ -10,6 +10,15 @@ public class Main {
         Pizza p4 = new PimpMyPizzaFactory().getSpecialOfTheDay(DayOfWeek.Sunday);
         Pizza p5 = new PimpMyPizzaFactory().getSpecialOfTheDay(DayOfWeek.Tuesday);
 
+        AbstractPizzaFactory abstractPizzaFactory = new AbstractPizzaFactory();
+        abstractPizzaFactory.getPizza("Dragon");
+        abstractPizzaFactory.getPizza("Grzyb");
+
+        Pizza persza = new PimpMyPizzaFactory().getSpecialOfTheDay(DayOfWeek.Wedensday);
+
+        Pizza fromOrder = new AbstractPizzaFactory().getPizza("Dragon").getSpecialOfTheDay(DayOfWeek.Wedensday);
+        Pizza fromOrder2 = new AbstractPizzaFactory().getPizza("Grzyb").getSpecialOfTheDay(DayOfWeek.Wedensday);
+
 
     }
 }

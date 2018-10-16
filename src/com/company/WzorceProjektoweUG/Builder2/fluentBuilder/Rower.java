@@ -28,7 +28,9 @@ public class Rower {
 	public int getPrzerzutka() {
 		return przerzutka;
 	}
-		
+
+	// Klasa w klasie
+
     public static class Builder {
     	private final String typ;
     	private int opony;
@@ -58,6 +60,8 @@ public class Rower {
             return new Rower(this);
         } 
     }
+
+    // @@@
 
 	@Override
 	public String toString() {

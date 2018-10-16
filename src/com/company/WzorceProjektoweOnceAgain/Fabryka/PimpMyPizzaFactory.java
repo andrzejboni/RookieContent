@@ -1,7 +1,9 @@
 package com.company.WzorceProjektoweOnceAgain.Fabryka;
 
-public class PimpMyPizzaFactory {
+public class PimpMyPizzaFactory implements Factory<Pizza> {
 
+
+    @Override
     public Pizza getSpecialOfTheDay(DayOfWeek day){
         Pizza result;
 
@@ -25,7 +27,7 @@ public class PimpMyPizzaFactory {
                 result = new Pizza("A Hard Day’s Night", 12.00f, 12.f, 2.1f);
                 break;
             case Sunday:
-                result = new Pizza("Baba Jaga", 19.00f, 19.f, 1.1f);
+                result = new Pizza("Pomodoro", 19.00f, 19.f, 1.1f);
                 break;
                 default:
                     result = new Pizza("",0.0f,0.0f,0.0f);
