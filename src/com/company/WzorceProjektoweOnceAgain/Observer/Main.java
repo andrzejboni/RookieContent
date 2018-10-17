@@ -6,8 +6,8 @@ public class Main {
         SubscriberObservable janek = new SubscriberObservable("Janek");
         SubscriberObservable zych = new SubscriberObservable("Zych");
         SubscriberObservable heniek = new SubscriberObservable("Heniek");
-        Observable rych = new SubscriberVIPObservable("Akira","Toriama");
-        Observable ronald = new SubscriberVIPObservable("Romuald","von Hufflepuf");
+        Observable rych = new SubscriberVIPObservable("Ignac","HufflePuff");
+        Observable ronald = new SubscriberVIPObservable("Romuald","von RavenClaw");
         Observable pomelo = new SubscriberVIPObservable("Grzyb","Ewidentny");
 
         CKMObserver ckmRedaction = new CKMObserver();
