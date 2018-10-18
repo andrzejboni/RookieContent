@@ -7,7 +7,7 @@ import java.util.Random;
 public class Utils {
 
 
-    int size = 50;
+    int size = 100;
     List<Figura> listaFigur = new ArrayList<Figura>();
     Random random = new Random();
     public int generujLiczbe(int size){

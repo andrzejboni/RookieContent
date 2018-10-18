@@ -20,6 +20,8 @@ public class Main {
 
         }
 
+        // poczytac o varargsach !
+
 
     }
 }

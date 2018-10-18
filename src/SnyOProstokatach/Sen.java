@@ -1,20 +1,17 @@
 package SnyOProstokatach;
 
 import com.company.BiuroStatycznosc.Pracownik;
+import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Sen {
 
+    List<Figura> fig = new ArrayList<Figura>();
 
-
-//    public void obwod(Figura figura) {
-//        if (figura instanceof Trojkat) {
-//            System.out.println("Obwod trojkata to a+b+c");
-//
-//
-//        } else if (figura instanceof Prostokat) {
-//            System.out.println("asdaw");
-//
-//        }
-//    }
-
+    public Sen(Figura... figuras) {
+//        figuras.addAll(Arrays.asList(figuras));
+    }
 }
