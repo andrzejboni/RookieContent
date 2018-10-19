@@ -7,7 +7,7 @@ import java.util.Random;
 public class WypisywaczFigur {
     public void wypisz(Figura figura) {
         System.out.println("Obwod " + figura.getClass() + " jest rowny " +figura.obliczObwod() +
-                " wzor na obliczanie tegoż to: " + figura.getWzor());
+                " wzor na obliczanie tegoż to: ");
     }
 
 

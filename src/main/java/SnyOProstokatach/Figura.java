@@ -9,6 +9,8 @@ public interface Figura {
     int obwod = 0;
 
     String wzor = null;
+
+    double obliczObwod();
 //
 //    public double obliczObwod();
 //
