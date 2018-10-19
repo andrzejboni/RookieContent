@@ -9,9 +9,10 @@ public class Babcia extends Skarpeta {
         System.out.println("Stasiu, jesteś złym wnuczkiem i podbierasz babci pieniadze ze skarpety!");
     }
 
-    public void dajWnuczkowiKase(int ileKasyDlaWnuczka){
+    public int dajWnuczkowiKase(int ileKasyDlaWnuczka){
         setPieniadzeWskarpecie(super.pieniadzeWskarpecie - ileKasyDlaWnuczka);
-        int pobranaKasaDlaWnuczka = getPieniadzeWskarpecie(ileKasyDlaWnuczka);
+//        int pobranaKasaDlaWnuczka = getPieniadzeWskarpecie(ileKasyDlaWnuczka);
+        return ileKasyDlaWnuczka;
     }
 
 

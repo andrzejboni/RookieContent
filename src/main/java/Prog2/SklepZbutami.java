@@ -7,8 +7,14 @@ public class SklepZbutami extends Wnuczek {
         super(pieniadzeWskarpecie);
     }
 
+
+    @Override
+    public int getPortfelWnuczka() {
+        return super.getPortfelWnuczka();
+    }
+
     public void kupButy(){
-        portfelWnuczka = portfelWnuczka- kosztButow;
+        setPortfelWnuczka(getPortfelWnuczka()-kosztButow);
     }
 
 }
