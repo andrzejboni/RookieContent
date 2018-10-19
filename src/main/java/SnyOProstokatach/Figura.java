@@ -9,27 +9,27 @@ public interface Figura {
     int obwod = 0;
 
     String wzor = null;
-
-    public double obliczObwod();
-
-
-    public default String getWzor() {
-        return wzor;
-    }
-
-
-    public default int getA() {
-        return a;
-    }
-
-    public default int getB() {
-        return b;
-    }
-
-    public default int getC() {
-        return c;
-    }
-
+//
+//    public double obliczObwod();
+//
+//
+//    public default String getWzor() {
+//        return wzor;
+//    }
+//
+//
+//    public default int getA() {
+//        return a;
+//    }
+//
+//    public default int getB() {
+//        return b;
+//    }
+//
+//    public default int getC() {
+//        return c;
+//    }
+//
 
 
 

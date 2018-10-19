@@ -12,7 +12,7 @@ public class main {
         //jak kolejka w poczekalni
 
         //najpopularniejsza implementacja kolejki FIFO to LinkedLista
-        Queue<String> queue = new LinkedList<>();
+        Queue<String> queue = new LinkedList<String>();
         //dodajemy elementy metoda add()
         queue.add("1");
         queue.add("2");
@@ -49,7 +49,7 @@ public class main {
 //        System.out.println(queue);
 
 
-        Queue<Student> kolejka= new LinkedList<>();
+        Queue<Student> kolejka= new LinkedList<Student>();
         Student s1 = new Student("Rych","Zych",123, Arrays.asList(1.2,2.2,3.0,1.2));
 
         ((LinkedList<Student>) kolejka).add(s1);
