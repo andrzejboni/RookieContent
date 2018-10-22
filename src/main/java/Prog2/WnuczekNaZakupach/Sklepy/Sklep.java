@@ -1,8 +1,15 @@
 package Prog2.WnuczekNaZakupach.Sklepy;
 
-import Prog2.WnuczekNaZakupach.ZrodloPieniedzy.FormaPlatnosci;
 
-public interface Sklep extends FormaPlatnosci {
+import Prog2.WnuczekNaZakupach.Sklepy.Produkt.Produkt;
 
+public interface Sklep {
+
+
+
+
+    public void kupProdukt(Produkt produkt) {
+        System.out.println("Kupiono "+produkt+" na Bazarze!");
+    }
 
 }
