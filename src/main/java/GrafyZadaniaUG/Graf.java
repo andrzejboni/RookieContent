@@ -1,27 +1,53 @@
-5
-0 1 0 1 1
-0 0 1 0 0
-1 0 1 1 1
-1 0 0 0 0
-0 0 0 0 0
+package GrafyZadaniaUG;
 
-package com.company;
-
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
-public class Utils {
+public class Graf {
+    int wierzcholki;
+    int krawedzie;
 
-    String file = "/home/LABPK/abonislawski/IdeaProjects/AlgorytmicznaTeoriaGrafow/src/graf.txt";
+    public static int[][] macierzGrafu = new int[Utils.liczbaWierszyMacierzy+20][Utils.liczbaWierszyMacierzy+20];
+
+
+
+    String file = "C:\\git\\Rookie\\src\\main\\java\\GrafyZadaniaUG\\graf";
     public static int liczbaWierszyMacierzy;
 
-    // pierwsza linia oznacza ilosc wierzcholkow czy krawedzi
+    // pierwsza linia oznacza ilosc wierzcholkow czy tam krawedzi
 
+
+    public static int getLiczbaWierszyMacierzy() {
+        return liczbaWierszyMacierzy;
+    }
 
     public void addRowToFile(String row) throws IOException {
+        FileWriter writer = new FileWriter(file,true);
+        writer.write("\n"); // zapisywanie Wiersza odbywa sie w nowej linii !!!!
+        writer.write(row);
+        writer.close();
+    }
+
+
+    public void addTopToTheFile(String row) throws IOException {
+        try (Scanner br = new Scanner(new File(file))) {
+            int line;
+            liczbaWierszyMacierzy = br.nextInt();
+
+
+            for (int i = 0; i < liczbaWierszyMacierzy; i++) { // Liczba wierszy jest równa liczbie kolumn
+                for (int j = 0; j < liczbaWierszyMacierzy; j++) {
+                    Graf.macierzGrafu[i][j] = br.nextInt();
+                }
+
+            }
+
+        }
 
         FileWriter writer = new FileWriter(file,true);
-
+        writer.write("\n"); // zapisywanie Wiersza odbywa sie w nowej linii !!!!
         writer.write(row);
         writer.close();
     }
@@ -54,7 +80,7 @@ public class Utils {
         try (Scanner br = new Scanner(new File(file))) {
             int line;
             liczbaWierszyMacierzy = br.nextInt();
-            System.out.printf("liczba wierszy macierzy" +liczbaWierszyMacierzy);
+
 
             for (int i = 0; i < liczbaWierszyMacierzy; i++) { // Liczba wierszy jest równa liczbie kolumn
                 for (int j = 0; j < liczbaWierszyMacierzy; j++) {
@@ -65,16 +91,12 @@ public class Utils {
 
         }
     }
-}
 
 
-package com.company;
 
-public class Graf {
-    int wierzcholki;
-    int krawedzie;
 
-    public static int[][] macierzGrafu = new int[Utils.liczbaWierszyMacierzy+20][Utils.liczbaWierszyMacierzy+20];
+
+
 
     public void dodajKrawedz(String line){
 
@@ -106,45 +128,3 @@ public class Graf {
 
 
 }
-
-
-
-
-
-package com.company;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-
-public class Main {
-
-    public static void main(String[] args) {
-        Graf graf = new Graf();
-	Utils utils = new Utils();
-
-//        try {
-//            utils.writeToFile();
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-
-        try {
-            utils.readFromFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-//        System.out.println(Graf.macierzGrafu[1][2]);
-
-    }
-}
-
-
-
