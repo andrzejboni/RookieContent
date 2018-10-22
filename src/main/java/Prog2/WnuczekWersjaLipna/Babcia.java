@@ -1,4 +1,4 @@
-package Prog2;
+package Prog2.WnuczekWersjaLipna;
 
 public class Babcia extends Skarpeta {
     public Babcia(int pieniadzeWskarpecie) {

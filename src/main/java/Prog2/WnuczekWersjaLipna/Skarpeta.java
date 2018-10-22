@@ -1,4 +1,4 @@
-package Prog2;
+package Prog2.WnuczekWersjaLipna;
 
 public class Skarpeta {
     int pieniadzeWskarpecie;

@@ -1,4 +1,4 @@
-package Prog2;
+package Prog2.WnuczekWersjaLipna;
 
 import java.util.ArrayList;
 import java.util.List;
