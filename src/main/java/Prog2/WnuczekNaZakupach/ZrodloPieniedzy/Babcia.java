@@ -1,11 +1,18 @@
 package Prog2.WnuczekNaZakupach.ZrodloPieniedzy;
 
-public class Babcia implements Skarpeta, ZrodloPieniedzy {
-int kasaBabci;
+public class Babcia extends AZrodloPieniedzy {
+    AZrodloPieniedzy aZrodloPieniedzy;
 
+    //    public AZrodloPieniedzy getaZrodloPieniedzy() {
+//        return aZrodloPieniedzy;
+//    }
+//
+    public Babcia(int kwota) {
+        super(kwota);
+    }
 
-    public void wyciagnijKaseZeSkarpety() {
-        kasaBabci = Skarpeta.pieniadzeWSkarpecie;
+    @Override
+    public void pobierzKwote(int kwotaDoPobrania) {
 
     }
 }

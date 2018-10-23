@@ -1,9 +1,15 @@
 package Prog2.WnuczekNaZakupach.Sklepy.Produkt;
 
 public class Owoc implements Produkt {
-    int cena = 20;
+    int cena;
 
-    public void kupProdukt() {
-        System.out.println("Kupiono owoc!");
+
+    public Owoc(int cena) {
+        this.cena = cena;
+    }
+
+    @Override
+    public void pobierzProdukt() {
+        System.out.println("Pobrałeś owoc!");
     }
 }

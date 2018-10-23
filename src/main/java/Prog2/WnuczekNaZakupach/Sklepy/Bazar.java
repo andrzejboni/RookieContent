@@ -3,7 +3,7 @@ package Prog2.WnuczekNaZakupach.Sklepy;
 import Prog2.WnuczekNaZakupach.Sklepy.Produkt.Produkt;
 import Prog2.WnuczekNaZakupach.FormaPlatnosci;
 
-public class Bazar implements Sklep, Produkt {
+public class Bazar implements Sklep {
     FormaPlatnosci formaPlatnosci = FormaPlatnosci.Gotowka;
 
     public Bazar() {

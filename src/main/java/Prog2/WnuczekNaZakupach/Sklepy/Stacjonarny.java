@@ -7,4 +7,8 @@ public class Stacjonarny  implements Sklep {
     FormaPlatnosci f2= FormaPlatnosci.Gotowka;
     FormaPlatnosci f1 = FormaPlatnosci.KartaPlatnicza;
 
+    @Override
+    public void kupProdukt(Produkt produkt) {
+
+    }
 }
