@@ -9,6 +9,6 @@ public class Stacjonarny  implements Sklep {
 
     @Override
     public void kupProdukt(Produkt produkt) {
-
+        System.out.println("Kupiono "+produkt+" w sklepie stacjonarnym!");
     }
 }

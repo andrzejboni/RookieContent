@@ -1,14 +1,13 @@
 package Prog2.WnuczekNaZakupach.ZrodloPieniedzy;
 
-public class Babcia extends AZrodloPieniedzy {
-    AZrodloPieniedzy aZrodloPieniedzy;
+import Prog2.WnuczekNaZakupach.FormaPlatnosci;
 
-    //    public AZrodloPieniedzy getaZrodloPieniedzy() {
-//        return aZrodloPieniedzy;
-//    }
-//
-    public Babcia(int kwota) {
-        super(kwota);
+public class Babcia extends AZrodloPieniedzy  {
+//    AZrodloPieniedzy aZrodloPieniedzy;
+
+
+    public Babcia(int kwota, FormaPlatnosci formaPlatnosci) {
+        super(kwota, formaPlatnosci);
     }
 
     @Override

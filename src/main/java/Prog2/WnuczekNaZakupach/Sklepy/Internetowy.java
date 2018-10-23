@@ -13,6 +13,6 @@ public class Internetowy implements  Sklep {
 
     @Override
     public void kupProdukt(Produkt produkt) {
-
+        System.out.println("Kupiono "+produkt+" na w sklepie internetowym!");
     }
 }

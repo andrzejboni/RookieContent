@@ -3,7 +3,6 @@ package GrafyZadaniaUG;
 import java.io.*;
 import java.util.Scanner;
 
-import static com.company.TicTacToe.Logika.j;
 
 public class Utils {
 
@@ -70,29 +69,29 @@ public class Utils {
 
 
     }
-
-    public void addTopToTheFile(String row) throws IOException {
-        // Dodając wierzchołek, powiekszamy zarówno liczbę wierszy w pliku jak i liczbę kolumn.
-
-        try (Scanner br = new Scanner(new File(file))) {
-            int line;
-            liczbaWierszyMacierzy = br.nextInt();
-
-
-            for (int i = 0; i < liczbaWierszyMacierzy; i++) { // Liczba wierszy jest równa liczbie kolumn
-                for (int j = 0; j < liczbaWierszyMacierzy; j++) {
-                    Graf.macierzGrafu[i][j] = br.nextInt();
-                }
-
-            }
-
-        }
-
-        FileWriter writer = new FileWriter(file, true);
-        writer.write("\n"); // zapisywanie Wiersza odbywa sie w nowej linii !!!!
-        writer.write(row);
-        writer.close();
-    }
+//
+//    public void addTopToTheFile(String row) throws IOException {
+//        // Dodając wierzchołek, powiekszamy zarówno liczbę wierszy w pliku jak i liczbę kolumn.
+//
+//        try (Scanner br = new Scanner(new File(file))) {
+//            int line;
+//            liczbaWierszyMacierzy = br.nextInt();
+//
+//
+//            for (int i = 0; i < liczbaWierszyMacierzy; i++) { // Liczba wierszy jest równa liczbie kolumn
+//                for (int j = 0; j < liczbaWierszyMacierzy; j++) {
+//                    Graf.macierzGrafu[i][j] = br.nextInt();
+//                }
+//
+//            }
+//
+//        }
+//
+//        FileWriter writer = new FileWriter(file, true);
+//        writer.write("\n"); // zapisywanie Wiersza odbywa sie w nowej linii !!!!
+//        writer.write(row);
+//        writer.close();
+//    }
 
 
     public void removeRowFromFile(int whichRow) throws IOException { // Najpierw trzeba policzyc ile mam wierszy w pliwkersie a następnie przeiterować po inich
