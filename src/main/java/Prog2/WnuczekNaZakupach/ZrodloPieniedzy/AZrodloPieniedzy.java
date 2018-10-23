@@ -14,9 +14,9 @@ public abstract class AZrodloPieniedzy implements ZrodloPieniedzy {
     private Collection<ZrodloPieniedzy> zrodlaPieniedzy = new ArrayList<ZrodloPieniedzy>();
 
 
-    public AZrodloPieniedzy (int kwota, FormaPlatnosci formaPlatnosci){
+    public AZrodloPieniedzy (int kwota){
         this.kwota = kwota;
-        this.formaPlatnosci = formaPlatnosci;
+
     }
 
     public FormaPlatnosci getFormaPlatnosci()

@@ -4,8 +4,9 @@ import Prog2.WnuczekNaZakupach.FormaPlatnosci;
 
 public class Portfel extends AZrodloPieniedzy {
 
-    public Portfel(int kwota, FormaPlatnosci formaPlatnosci) {
-        super(kwota, formaPlatnosci);
+
+    public Portfel(int kwota) {
+        super(kwota);
     }
 
     @Override

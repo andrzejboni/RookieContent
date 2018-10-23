@@ -6,8 +6,8 @@ public class Babcia extends AZrodloPieniedzy  {
 //    AZrodloPieniedzy aZrodloPieniedzy;
 
 
-    public Babcia(int kwota, FormaPlatnosci formaPlatnosci) {
-        super(kwota, formaPlatnosci);
+    public Babcia(int kwota) {
+        super(kwota);
     }
 
     @Override
