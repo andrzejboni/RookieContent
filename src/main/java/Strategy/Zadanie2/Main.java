@@ -14,7 +14,7 @@ public class Main {
         lista.add(new Student("GRzech", "Sznur", 222));
         lista.add(new Student("Rych", "Prych", 333));
 
-        StratZapisu1 stratZapisu1 = new StratZapisu1();
+        StrategiaZapisu1 stratZapisu1 = new StrategiaZapisu1();
 
         stratZapisu1.zapisz(lista);
         stratZapisu1.zapisz(lista);
