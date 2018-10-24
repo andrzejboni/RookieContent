@@ -10,12 +10,15 @@ public class Main {
 
         Car samochod = new Car(new TurboMode());
         Car s3 = new Car(new TurboMode());
-        Car s2= new Car(new TurboMode());
-        Car s4= new Car(new TurboMode());
+        Car s2= new Car(new EcoMode());
+        Car s4= new Car(new NormalMode());
 
         s3.decreaseSpeed();
         s3.increaseSpeed();
 
-
+        s3.getSpeed();
+        s2.getSpeed();
+        s4.getSpeed();
+        System.out.println(s3.getSpeed()+" "+ + s2.getSpeed()+" " + s4.getSpeed());
     }
 }
