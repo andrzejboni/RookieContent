@@ -9,8 +9,6 @@ public class Graf {
     int wierzcholki;
     int krawedzie;
 
-    public static int[][] macierzGrafu = new int[Utils.liczbaWierszyMacierzy+20][Utils.liczbaWierszyMacierzy+20];
-
 
 
     String file = "C:\\git\\Rookie\\src\\main\\java\\GrafyZadaniaUG\\graf";
