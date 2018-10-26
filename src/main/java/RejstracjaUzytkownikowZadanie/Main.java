@@ -3,7 +3,9 @@ package RejstracjaUzytkownikowZadanie;
 import java.util.ArrayList;
 import java.util.List;
 
-import static RejstracjaUzytkownikowZadanie.User.listaUserow;
+
+import static RejstracjaUzytkownikowZadanie.UserManager.listaUserow;
+import static RejstracjaUzytkownikowZadanie.UserManager.usersToValidate;
 
 public class Main {
 
@@ -15,11 +17,11 @@ public class Main {
         User u4 = new User("Pych", "Uh", "ddd","444");
         User u5 = new User("Mych", "Puch", "eee","555");
 
-        listaUserow.add(u1);
-        listaUserow.add(u2);
-        listaUserow.add(u3);
-        listaUserow.add(u4);
-        listaUserow.add(u5);
+        usersToValidate.add(u1);
+        usersToValidate.add(u2);
+        usersToValidate.add(u3);
+        usersToValidate.add(u4);
+        usersToValidate.add(u5);
 
 
         User user = new User();

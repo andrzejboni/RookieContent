@@ -2,15 +2,13 @@ package RejstracjaUzytkownikowZadanie;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class User {
     private String imie;
     private String nazwisko;
     private String haslo;
     private String login;
-
-    public static List<User> listaUserow = new ArrayList<>();
-    public static List<User> listaUserowDoWalidacji = new ArrayList<>();
 
     public void setUp(){
 
@@ -20,8 +18,24 @@ public class User {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(login, user.login);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(login);
+    }
+
+
+
+
+    @Override
     public String toString() {
-        return imie +";" + nazwisko + ";"+
+        return imie +";" + nazwisko +
                 ";" + haslo + ";" +
                 ";" + login;
     }
