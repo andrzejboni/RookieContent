@@ -46,23 +46,25 @@ public class UserManager {
 
     // Do poprawki! !!!!
     public RegisterEnum registerUser() { // chceck  if there are duplicate of user
+
         for (int i = 0; i < usersToValidate.size(); i++) {
+            if (usersToValidate.get(i).getLogin() == null || usersToValidate.get(i).getHaslo() == null) {
+                return RegisterEnum.FIELDS_MISSING;
+            }
             for (int j = 0; j < listaUserow.size(); j++) {
                 if (usersToValidate.get(i).equals(listaUserow.get(j))) {
                     return RegisterEnum.USER_ALREADY_EXISTS;
                 }
             }
         }
-
-        return null;
+        return RegisterEnum.SUCCESS;
     }
 
-
-    public LogowanieEnum logIn(List<User> userList, String haslo, String login) {
-        for (int i = 0; i < userList.size(); i++) {
-            if (!userList.get(i).getLogin().equals(login)) {
+    public LogowanieEnum logIn(String haslo, String login) {
+        for (int i = 0; i < listaUserow.size(); i++) {
+            if (!listaUserow.get(i).getLogin().equals(login)) {
                 return LogowanieEnum.USER_DOESNT_EXIST;
-            } else if (!userList.get(i).getHaslo().equals(haslo)) {
+            } else if (!listaUserow.get(i).getHaslo().equals(haslo)) {
                 return LogowanieEnum.WRONG_PASSWORD;
             } else {
                 return LogowanieEnum.SUCCESS;
@@ -70,9 +72,18 @@ public class UserManager {
         }
         return LogowanieEnum.SUCCESS;
     }
-
-
-
+//
+//    public LogowanieEnum logInMethod(User user) {
+//
+//        if (usersToValidate.contains(user)) {
+//            return LogowanieEnum.SUCCESS;
+//        } else {
+//            return LogowanieEnum.USER_DOESNT_EXIST;
+//        }
+//
+//
+//        return LogowanieEnum.WRONG_PASSWORD;
+//    }
 
 
     public DeleteEnum usun(String login) { // podanie loginu ktory chcesz usunac
@@ -85,7 +96,7 @@ public class UserManager {
         return DeleteEnum.USER_DOESNT_EXIST;
     }
 
-    public void lookup() {
+    public void lookup() { // Wyszukiwanie uzytkownika
     }
 
 

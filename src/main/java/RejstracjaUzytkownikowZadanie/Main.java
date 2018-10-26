@@ -24,11 +24,18 @@ public class Main {
         usersToValidate.add(u5);
 
 
-        User user = new User();
-        user.setUp();
+        if (usersToValidate.contains(u1)){
+            System.out.println("DZIAŁA");
+        }
 
-        SaveToFile saveToFile = new SaveToFile();
-        saveToFile.saveToFile(listaUserow);
+
+
+//
+//        User user = new User();
+//        user.setUp();
+//
+//        SaveToFile saveToFile = new SaveToFile();
+//        saveToFile.saveToFile(listaUserow);
 
 
     }
