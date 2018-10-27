@@ -24,9 +24,15 @@ public class Main {
         usersToValidate.add(u5);
 
 
-        if (usersToValidate.contains(u1)){
-            System.out.println("DZIAŁA");
-        }
+
+
+
+
+
+//
+//        if (usersToValidate.contains(u1)){
+//            System.out.println("DZIAŁA");
+//        }
 
 
 
