@@ -23,8 +23,10 @@ public class Main {
         usersToValidate.add(u4);
         usersToValidate.add(u5);
 
+listaUserow.add(u5);
+UserManager userManager = new UserManager();
 
-
+        System.out.println(userManager.lookup("555"));
 
 
 

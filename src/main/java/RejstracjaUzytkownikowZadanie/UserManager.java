@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class UserManager {
 
@@ -63,7 +64,7 @@ public class UserManager {
 
     public RegisterEnum RegisterOneUser(User user) {  // Regist one user
 
-        if (user.getHaslo() == "" || user.getLogin() == "" || user.getImie() == "" || user.getNazwisko() == "") {
+        if (user.getHaslo().equals("") || user.getLogin().equals("") || user.getImie().equals("") || user.getNazwisko().equals("")) {
             return RegisterEnum.FIELDS_MISSING;
         }
 
@@ -77,20 +78,19 @@ public class UserManager {
     }
 
 
-
     public LogowanieEnum logInMethod(String haslo, String login) {
         int licznikPassword = 0;
         int licznikUser = 0;
 
         for (int i = 0; i < listaUserow.size(); i++) {
 
-                if (listaUserow.get(i).getLogin().equals(login)) {
-                        licznikUser++;
+            if (listaUserow.get(i).getLogin().equals(login)) {
+                licznikUser++;
 
-                    if (listaUserow.get(i).getHaslo().equals(haslo)) {
-                        licznikPassword++;
+                if (listaUserow.get(i).getHaslo().equals(haslo)) {
+                    licznikPassword++;
 
-                    }
+                }
             }
 
         }
@@ -106,7 +106,7 @@ public class UserManager {
     }
 
 
-    public DeleteEnum usun(String login) { // podanie loginu ktory chcesz usunac
+    public DeleteEnum deleteUser(String login) { // podanie loginu ktory chcesz usunac
         for (int i = 0; i < listaUserow.size(); i++) {
             if (listaUserow.get(i).getLogin().equals(login)) {
                 listaUserow.remove(i);
@@ -116,7 +116,15 @@ public class UserManager {
         return DeleteEnum.USER_DOESNT_EXIST;
     }
 
-    public void lookup() { // Wyszukiwanie uzytkownika
+
+    public Optional<User> lookup(String login) { // Search user
+        for (int i = 0; i < listaUserow.size(); i++) {
+            if (listaUserow.get(i).getLogin().equals(login)) {
+                return Optional.ofNullable(listaUserow.get(i));
+            }
+        }
+
+        return Optional.ofNullable(null);
     }
 
 
