@@ -44,14 +44,14 @@ public class UserManagerRegisterOneUserMethodTest {
     @Test
     public void registerOneUserMissingNaziwskoFieldTest() {
         RegisterEnum correctAnswer = RegisterEnum.FIELDS_MISSING;
-        Assert.assertEquals(correctAnswer, userManager.RegisterOneUser(u1));
+        Assert.assertEquals(correctAnswer, userManager.registerOneUser(u1));
     }
 
 
     @Test
     public void registerOneUserMissingImieFieldTest() {
         RegisterEnum correctAnswer = RegisterEnum.FIELDS_MISSING;
-        Assert.assertEquals(correctAnswer, userManager.RegisterOneUser(u2));
+        Assert.assertEquals(correctAnswer, userManager.registerOneUser(u2));
     }
 
 
@@ -59,14 +59,14 @@ public class UserManagerRegisterOneUserMethodTest {
     public void registerOneUserTryToAddExistingUserTest() {
         RegisterEnum correctAnswer = RegisterEnum.USER_ALREADY_EXISTS;
         listaUserow.add(u6);
-        Assert.assertEquals(correctAnswer, userManager.RegisterOneUser(u6));
+        Assert.assertEquals(correctAnswer, userManager.registerOneUser(u6));
     }
 
 
     @Test
     public void registerOneEverythingIsOK() {
         RegisterEnum correctAnswer = RegisterEnum.SUCCESS;
-        Assert.assertEquals(correctAnswer, userManager.RegisterOneUser(u7));
+        Assert.assertEquals(correctAnswer, userManager.registerOneUser(u7));
     }
 
 

@@ -1,8 +1,12 @@
 package RejstracjaUzytkownikowZadanie;
 
+import RejstracjaUzytkownikowZadanie.Enums.DeleteEnum;
+import RejstracjaUzytkownikowZadanie.Enums.RegisterEnum;
+
 public interface UserEditorManagerProxy {
 
-    public void zarejestruj();
-    public void usun();
 
+    RegisterEnum registerOneUser(User user);
+
+    DeleteEnum deleteUser(String login);
 }

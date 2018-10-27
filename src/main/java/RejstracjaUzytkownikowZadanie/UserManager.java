@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class UserManager {
+public class UserManager implements UserEditorManagerProxy, LoginManagerProxy {
 
 
     public static List<User> listaUserow = new ArrayList<>();
@@ -45,7 +45,7 @@ public class UserManager {
         }
     }
 
-    public RegisterEnum RegisterAll() {
+    public RegisterEnum registerAll() {
 
         for (int i = 0; i < usersToValidate.size(); i++) {
             if (usersToValidate.get(i).getHaslo() == null || usersToValidate.get(i).getLogin() == null || usersToValidate.get(i).getImie() == null || usersToValidate.get(i).getNazwisko() == null) {
@@ -62,7 +62,8 @@ public class UserManager {
     }
 
 
-    public RegisterEnum RegisterOneUser(User user) {  // Regist one user
+    @Override
+    public RegisterEnum registerOneUser(User user) {  // Regist one user
 
         if (user.getHaslo().equals("") || user.getLogin().equals("") || user.getImie().equals("") || user.getNazwisko().equals("")) {
             return RegisterEnum.FIELDS_MISSING;
@@ -105,7 +106,7 @@ public class UserManager {
         return LogowanieEnum.SUCCESS;
     }
 
-
+    @Override
     public DeleteEnum deleteUser(String login) { // podanie loginu ktory chcesz usunac
         for (int i = 0; i < listaUserow.size(); i++) {
             if (listaUserow.get(i).getLogin().equals(login)) {

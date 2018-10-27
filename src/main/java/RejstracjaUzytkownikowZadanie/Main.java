@@ -11,11 +11,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        User u1 = new User("Robalt", "Zuch", "aaa","111");
-        User u2 = new User("Ygrek", "Much", "bbb","222");
-        User u3 = new User("Zych", "Cuch", "ccc","333");
-        User u4 = new User("Pych", "Uh", "ddd","444");
-        User u5 = new User("Mych", "Puch", "eee","555");
+        User u1 = new User("Robalt", "Zuch", "aaa", "111");
+        User u2 = new User("Ygrek", "Much", "bbb", "222");
+        User u3 = new User("Zych", "Cuch", "ccc", "333");
+        User u4 = new User("Pych", "Uh", "ddd", "444");
+        User u5 = new User("Mych", "Puch", "eee", "555");
 
         usersToValidate.add(u1);
         usersToValidate.add(u2);
@@ -23,12 +23,8 @@ public class Main {
         usersToValidate.add(u4);
         usersToValidate.add(u5);
 
-listaUserow.add(u5);
-UserManager userManager = new UserManager();
-
-        System.out.println(userManager.lookup("555"));
-
-
+        listaUserow.add(u5);
+        UserManager userManager = new UserManager();
 
 
 //
@@ -37,13 +33,12 @@ UserManager userManager = new UserManager();
 //        }
 
 
-
 //
 //        User user = new User();
 //        user.setUp();
-//
-//        SaveToFile saveToFile = new SaveToFile();
-//        saveToFile.saveToFile(listaUserow);
+
+        SaveToFile saveToFile = new SaveToFile();
+        saveToFile.saveToFile(listaUserow);
 
 
     }

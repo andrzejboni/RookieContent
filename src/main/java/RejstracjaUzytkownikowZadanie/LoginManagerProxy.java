@@ -1,6 +1,9 @@
 package RejstracjaUzytkownikowZadanie;
 
+
+import RejstracjaUzytkownikowZadanie.Enums.LogowanieEnum;
+
 public interface LoginManagerProxy {
-    public void zaloguj();
+    LogowanieEnum logInMethod(String haslo, String login);
 
 }
