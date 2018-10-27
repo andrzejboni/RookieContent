@@ -10,7 +10,7 @@ import org.junit.Test;
 import static RejstracjaUzytkownikowZadanie.UserManager.listaUserow;
 import static RejstracjaUzytkownikowZadanie.UserManager.usersToValidate;
 
-public class UserManagerTest {
+public class UserManagerLogInMethodTest {
 
     UserManager userManager;
 
@@ -19,17 +19,13 @@ public class UserManagerTest {
     public void setUp(){
         userManager = new UserManager();
 
-
-
-
-
         User u1 = new User("Robalt", "Zuch", "aaa","111");
         User u2 = new User("Ygrek", "Much", "bbb","222");
         User u3 = new User("Zych", "Cuch", "ccc","333");
         User u4 = new User("Pych", "Uh", "ddd","444");
         User u5 = new User("Mych", "Puch", "eee","555");
 
-        listaUserow.add(u1);
+        listaUserow.add(u1); // Lookout! In first step users are added to usersToValidate list, that one is only for tests.
         listaUserow.add(u2);
         listaUserow.add(u3);
         listaUserow.add(u4);
@@ -68,4 +64,10 @@ public class UserManagerTest {
         String login = "121212";
         Assert.assertEquals(correctAnswer, userManager.logInMethod(haslo,login));
     }
+
+
+
+
+
+
 }

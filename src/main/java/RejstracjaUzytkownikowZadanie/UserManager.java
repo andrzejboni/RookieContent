@@ -61,9 +61,9 @@ public class UserManager {
     }
 
 
-    public RegisterEnum RegisterOnlyOnce(User user) {  // Regist one user
+    public RegisterEnum RegisterOneUser(User user) {  // Regist one user
 
-        if (user.getHaslo() == null || user.getLogin() == null || user.getImie() == null || user.getNazwisko() == null) {
+        if (user.getHaslo() == "" || user.getLogin() == "" || user.getImie() == "" || user.getNazwisko() == "") {
             return RegisterEnum.FIELDS_MISSING;
         }
 
@@ -76,24 +76,11 @@ public class UserManager {
 
     }
 
-//
-//    public LogowanieEnum logIn(String haslo, String login) {
-//        for (int i = 0; i < listaUserow.size(); i++) {
-//            if (!listaUserow.get(i).getLogin().equals(login)) {
-//                return LogowanieEnum.USER_DOESNT_EXIST;
-//            } else if (!listaUserow.get(i).getHaslo().equals(haslo)) {
-//                return LogowanieEnum.WRONG_PASSWORD;
-//            } else {
-//                return LogowanieEnum.SUCCESS;
-//            }
-//        }
-//        return LogowanieEnum.SUCCESS;
-//    }
+
 
     public LogowanieEnum logInMethod(String haslo, String login) {
         int licznikPassword = 0;
         int licznikUser = 0;
-
 
         for (int i = 0; i < listaUserow.size(); i++) {
 
