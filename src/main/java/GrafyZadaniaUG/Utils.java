@@ -104,9 +104,6 @@ public class Utils {
 //
 //        writer.close();
 
-
-
-
     }
 
 
@@ -127,15 +124,11 @@ public class Utils {
     }
 
     public void writeToFile(String column) throws IOException {
-
-
         FileWriter writer = new FileWriter(file, true);
 
         writer.write(column);
         writer.close();
     }
-
-
 }
 //
 //        5
