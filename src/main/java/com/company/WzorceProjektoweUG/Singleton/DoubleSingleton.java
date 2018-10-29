@@ -21,3 +21,4 @@ public class DoubleSingleton {
         return instancja;
     }
 }
+
