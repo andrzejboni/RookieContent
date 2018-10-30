@@ -27,7 +27,7 @@ public class WyrazeniaRegularneMain {
 
         for (int i=0; i< parts.length; i++){
             //pierwszaLitera = String.valueOf(napis.charAt(0));
-            if (parts[i].valueOf(napis.charAt(0)) == "a") {
+            if (String.valueOf(napis.charAt(0)) == "a") {
 
                 parts[i].replace("a","@");
                 System.out.print(parts[i]);

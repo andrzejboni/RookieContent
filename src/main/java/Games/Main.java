@@ -22,7 +22,7 @@ public class Main {
         wczytajSlowo.wczytaj();
 //        System.out.println(wiersz);
 
-        wisielec.dodajSlowaDoTablicy(wiersz);
+        Wisielec.dodajSlowaDoTablicy(wiersz);
 
         String wyraz = parts[wisielec.losujSlowo()];
 //        System.out.println(wyraz);

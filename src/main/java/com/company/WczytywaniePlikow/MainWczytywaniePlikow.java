@@ -8,7 +8,7 @@ import static sun.java2d.cmm.ColorTransform.In;
 public class MainWczytywaniePlikow {
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 // WCZYTYWANIE
 //
 //        // The name of the file to open.

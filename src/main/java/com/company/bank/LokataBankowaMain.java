@@ -24,21 +24,21 @@ public class LokataBankowaMain {
 
         SymulatorZysku symulatorZysku = new SymulatorZysku();
 
-        symulatorZysku.obliczZysk(o1, 10000, 36);
+        SymulatorZysku.obliczZysk(o1, 10000, 36);
 
-        symulatorZysku.obliczZysk(o2, 10000, 36);
+        SymulatorZysku.obliczZysk(o2, 10000, 36);
 
-        symulatorZysku.obliczZysk(o3, 10000, 36);
+        SymulatorZysku.obliczZysk(o3, 10000, 36);
 
-        symulatorZysku.obliczZysk(o4, 10000, 36);
+        SymulatorZysku.obliczZysk(o4, 10000, 36);
 
-        symulatorZysku.obliczZysk(oSpec1, 10000, 36);
+        SymulatorZysku.obliczZysk(oSpec1, 10000, 36);
 
-        symulatorZysku.obliczZysk(oSpec2, 10000, 36);
+        SymulatorZysku.obliczZysk(oSpec2, 10000, 36);
 
-        symulatorZysku.obliczZysk(oSpec3, 10000, 36);
+        SymulatorZysku.obliczZysk(oSpec3, 10000, 36);
 
-        symulatorZysku.obliczZysk(oSpec4, 10000, 36);
+        SymulatorZysku.obliczZysk(oSpec4, 10000, 36);
 
 
     }

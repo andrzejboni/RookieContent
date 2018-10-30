@@ -37,7 +37,7 @@ public class GwiazdkiPiramida {
                 pom2++;
             }
 
-            System.out.println("");
+            System.out.println();
             szerokosc++;
         }
     }

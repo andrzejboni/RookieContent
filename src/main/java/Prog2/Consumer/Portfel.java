@@ -7,7 +7,7 @@ public interface Portfel {
 
     boolean wyciagnijKase(int ileWyciagnac);
 
-    public void sprawdzStan();
+    void sprawdzStan();
 
     int getKwota();
 

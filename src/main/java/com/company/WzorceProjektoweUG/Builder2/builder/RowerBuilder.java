@@ -2,9 +2,9 @@ package com.company.WzorceProjektoweUG.Builder2.builder;
 
 public interface RowerBuilder {
 	
-	public void buildOpony();
-	public void buildKierownica();
-	public void buildPrzerzutka();
+	void buildOpony();
+	void buildKierownica();
+	void buildPrzerzutka();
 	
-	public Rower getRower();
+	Rower getRower();
 }

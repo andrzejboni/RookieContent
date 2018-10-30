@@ -1,12 +1,8 @@
 package Prog2.Logger;
 
 import java.io.*;
-import java.security.Timestamp;
-
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Scanner;
 
 

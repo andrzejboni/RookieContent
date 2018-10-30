@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Strategia {
 
-    public void zapisz(List<Student> students);
+    void zapisz(List<Student> students);
 }

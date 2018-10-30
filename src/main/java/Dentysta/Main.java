@@ -53,7 +53,7 @@ public class Main {
         ZapisOdczyt zapisOdczyt = new ZapisOdczyt();
 
         try {
-            zapisOdczyt.zapisz(registrationDesk);
+            ZapisOdczyt.zapisz(registrationDesk);
         } catch (IOException e) {
             e.printStackTrace();
         }

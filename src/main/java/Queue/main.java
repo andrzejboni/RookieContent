@@ -52,9 +52,9 @@ public class main {
         Queue<Student> kolejka= new LinkedList<Student>();
         Student s1 = new Student("Rych","Zych",123, Arrays.asList(1.2,2.2,3.0,1.2));
 
-        ((LinkedList<Student>) kolejka).add(s1);
-        ((LinkedList<Student>) kolejka).add(s1);
-        ((LinkedList<Student>) kolejka).add(s1);
+        kolejka.add(s1);
+        kolejka.add(s1);
+        kolejka.add(s1);
 
 
 

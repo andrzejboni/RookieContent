@@ -43,11 +43,7 @@ public class Wnuczek extends Babcia implements Portfel {
     }
     @Override
     public boolean wyciagnijKase(int ileWyciagnac) {
-        if (this.kasa >= ileWyciagnac) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.kasa >= ileWyciagnac;
     }
     @Override
     public void sprawdzStan() {

@@ -13,7 +13,7 @@ public class BiletMain {
         System.out.println(bilet2.pobierzCene());
 
         bilet1.wyswietlDaneObilecie();
-        System.out.println(bilet1.jakiBilet(60,4.8d,false));
+        System.out.println(Bilet.jakiBilet(60,4.8d,false));
 
 
     }

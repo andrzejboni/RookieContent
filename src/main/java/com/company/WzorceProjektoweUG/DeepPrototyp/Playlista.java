@@ -28,7 +28,7 @@ public class Playlista implements Cloneable {
 	}
 
 	@Override
-	protected Playlista clone() throws CloneNotSupportedException {
+	protected Playlista clone() {
 		Playlista playlista = new Playlista();
 
 		for(Piosenka p : this.getPiosenki()) {

@@ -7,7 +7,7 @@ public class SingletonDoubleCheckLocking implements Serializable {
 
     private volatile static SingletonDoubleCheckLocking singleton = null;
     private static int id = 1;
-    private SingletonDoubleCheckLocking() {};
+    private SingletonDoubleCheckLocking() {}
 
     public static SingletonDoubleCheckLocking instancja() {
         if (singleton == null) {

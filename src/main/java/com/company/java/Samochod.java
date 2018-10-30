@@ -30,8 +30,7 @@ public class Samochod {
     }
 
     public boolean czySwiatlaWlaczone() {
-        if (swiatla) return true;
-        else return false;
+        return swiatla;
     }
 
     Samochod(int predkosc, boolean swiatla, String kolor, String marka, int rocznik, int nrVIN) {

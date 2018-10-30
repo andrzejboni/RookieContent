@@ -4,7 +4,7 @@ package com.company.WzorceProjektoweUG.www;
 public class SingletonTestDCL {
     private volatile static SingletonTestDCL singleton = null;
     private static int id = 1;
-    private SingletonTestDCL() {};
+    private SingletonTestDCL() {}
 
     public static SingletonTestDCL instancja(String watekID) {
         if (singleton == null) {

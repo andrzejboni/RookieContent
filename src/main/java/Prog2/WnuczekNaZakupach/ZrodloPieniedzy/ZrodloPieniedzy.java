@@ -8,7 +8,7 @@ import java.util.List;
 public interface  ZrodloPieniedzy {
 
 
-    public void pobierzKwote(int kwotaDoPobrania);
+    void pobierzKwote(int kwotaDoPobrania);
 
 
 

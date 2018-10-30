@@ -11,14 +11,14 @@ public class TicTacToeMain {
 //        Krzyzyk krzyzyk = new Krzyzyk();
 //        Logika logika = new Logika();
 ////        Plansza plansza = new Plansza();
-
-
-        Plansza.wyczyscPlansze();
-
-
-        Wypisywanie.przywitanie();
-        Wypisywanie.zKimChceszZagrac();
-
-        Logika.rozgrywka();
+//
+//
+//        Plansza.wyczyscPlansze();
+//
+//
+//        Wypisywanie.przywitanie();
+//        Wypisywanie.zKimChceszZagrac();
+//
+//        Logika.rozgrywka();
     }
 }

@@ -3,9 +3,9 @@ package com.company.WzorceProjektoweUG.Builder;
 
 public interface GitaraBuildier {
 
-    public void buildKolorGitary();
-    public void buildStruny();
-    public void buildDrewno();
+    void buildKolorGitary();
+    void buildStruny();
+    void buildDrewno();
 
-    public Gitara getGitara();
+    Gitara getGitara();
 }

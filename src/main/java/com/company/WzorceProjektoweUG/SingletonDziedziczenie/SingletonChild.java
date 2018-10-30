@@ -3,7 +3,8 @@ package com.company.WzorceProjektoweUG.SingletonDziedziczenie;
 
 
 public class SingletonChild extends Singleton {
-    private SingletonChild(){};
+    private SingletonChild(){}
+
     private static SingletonChild obiekt = null;
     private String name = "obiekt DZIECKO";
 

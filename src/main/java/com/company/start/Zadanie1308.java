@@ -34,7 +34,8 @@ public class Zadanie1308 {
 
     public static int ileDzielnikow(int x){
         int licznik =0;
-        if (x<2){;}
+        if (x<2){
+        }
 
         for (int i=1; i <= x; i++) {
             if (x % i == 0) {

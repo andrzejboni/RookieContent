@@ -1,7 +1,7 @@
 package com.company.interfejs;
 
 public interface PosiadaImie {
-    public  String getImie();
+    String getImie();
 
 
 }

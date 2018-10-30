@@ -76,7 +76,7 @@ public class Utils {
 
 
 
-    public void addTopToTheFile() throws IOException {
+    public void addTopToTheFile() {
 
 
     }
@@ -94,7 +94,7 @@ public class Utils {
     }
 
 
-    public void removeRowFromFile(int whichRow) throws IOException { // Najpierw trzeba policzyc ile mam wierszy w pliwkersie a następnie przeiterować po inich
+    public void removeRowFromFile(int whichRow) { // Najpierw trzeba policzyc ile mam wierszy w pliwkersie a następnie przeiterować po inich
         // i zamienić dany wiersz na 0;
 //
 //        FileWriter writer = new FileWriter(file, true);

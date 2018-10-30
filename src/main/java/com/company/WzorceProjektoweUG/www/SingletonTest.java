@@ -6,7 +6,7 @@ public class SingletonTest {
     private static SingletonTest singleton = null;
     private static int id = 1;
 
-    private SingletonTest() {};
+    private SingletonTest() {}
 
 
     public static SingletonTest instancja(String watekID) {

@@ -2,7 +2,7 @@ package Comparator;
 
 
 public enum Gender{
-    Men, Woman, Other;
+    Men, Woman, Other
 
 }
 

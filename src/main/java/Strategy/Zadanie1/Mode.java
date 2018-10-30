@@ -6,10 +6,10 @@ public interface Mode {
 
 
 
-    public double howMuchIncreaseSpeed();
-    public double howMuchDecreaseSpeed();
-    public double howMuchShouldEngineBeWear();
-    public double howManyGasShouldBeReleased();
-    public double howMuchBreaksShouldBeGear();
+    double howMuchIncreaseSpeed();
+    double howMuchDecreaseSpeed();
+    double howMuchShouldEngineBeWear();
+    double howManyGasShouldBeReleased();
+    double howMuchBreaksShouldBeGear();
 
 }

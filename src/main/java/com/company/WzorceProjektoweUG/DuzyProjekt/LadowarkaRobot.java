@@ -11,9 +11,12 @@ class LadowarkaRobot extends PodstawowyRobot {
         super(nazwa, typ, silnik, naped, napedIlosc, bateria, pojemnoscBaterii);
     }
 
-    void zaladuj(){};
-    void zdejmij(){};
-    void podnies(){};
-    void opusc(){};
+    void zaladuj(){}
+
+    void zdejmij(){}
+
+    void podnies(){}
+
+    void opusc(){}
 
 }
