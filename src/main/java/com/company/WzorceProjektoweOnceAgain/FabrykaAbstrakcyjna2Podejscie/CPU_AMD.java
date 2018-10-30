@@ -8,6 +8,14 @@ public class CPU_AMD implements CPU{
     Integer manufacturingTechnology = 13; // nm
     String computerName = "AMDY220";
 
+    public CPU_AMD(Integer cores, String companyName, String modelName, Integer frequency, Integer manufacturingTechnology, String computerName) {
+        this.cores = cores;
+        this.companyName = companyName;
+        this.modelName = modelName;
+        this.frequency = frequency;
+        this.manufacturingTechnology = manufacturingTechnology;
+        this.computerName = computerName;
+    }
 
     @Override
     public Integer getCores(Integer integer) {

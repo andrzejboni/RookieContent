@@ -9,7 +9,7 @@ public class Main {
         String bla;
 
         IntelFactory intelFactory = new IntelFactory();
-        AMDFactory amdFactory= new AMDFactory();
+        AMDFactory amdFactory = new AMDFactory();
 
 
         intelFactory.buildCPU();
@@ -19,14 +19,34 @@ public class Main {
         amdFactory.buildGPU();
 
 
+        String zKlawiatury;
+        System.out.println("Oto fantastyczy sklep dla najlepszych \n" +
+                "uruchomiłem się aby sprzedać Ci komputer. \n" +
+                "dostępne funkcje:   [1] Kup kompa AMD, [2] Kup kompa Intel. Pozdrawiam. ");
         do {
-            System.out.println("Podaj czesc do komputera!");
+            zKlawiatury = scanner.nextLine();
+            System.out.println("Podaj czesc do komputera");
+            System.out.println("Twoje slowo to : " + zKlawiatury);
 
-            bla = scanner.nextLine();
+            if (zKlawiatury.equals("1")) {
+                intelFactory.buildGPU();
+                intelFactory.buildCPU();
+                System.out.println("Właśnie stworzyłem komputer intela. Sprzedam Ci go za jedyne 8999zł. Podaj PIN do karty aby zapłacić.");
+                zKlawiatury = scanner.nextLine();
+                System.out.println("PIN OK \n Dziękujemy za skorzystanie z naszych usług.");
+            }
 
-            System.out.println("Twoje slowo to : " + bla);
 
-        } while (!scanner.nextLine().equals("quit"));
+            if (zKlawiatury.equals("2")) {
+                intelFactory.buildGPU();
+                intelFactory.buildCPU();
+
+                System.out.println("Właśnie stworzyłem komputer intela. Sprzedam Ci go za jedyne 3999zł. Podaj PIN do karty aby zapłacić.");
+                zKlawiatury = scanner.nextLine();
+                System.out.println("PIN OK \n Dziękujemy za skorzystanie z naszych usług.");
+            }
+
+        } while (!zKlawiatury.equals("quit"));
 
     }
 }

@@ -8,6 +8,14 @@ public class CPU_i5 implements CPU{
     Integer manufacturingTechnology = 14; // nm
     String computerName = "intel";
 
+    public CPU_i5(Integer cores, String companyName, String modelName, Integer frequency, Integer manufacturingTechnology, String computerName) {
+        this.cores = cores;
+        this.companyName = companyName;
+        this.modelName = modelName;
+        this.frequency = frequency;
+        this.manufacturingTechnology = manufacturingTechnology;
+        this.computerName = computerName;
+    }
 
     @Override
     public Integer getCores(Integer integer) {

@@ -6,6 +6,12 @@ public class GPU_AMD implements GPU {
     String modelName = "AMD RAZR";
     Integer memory = 8; // gb albo mb, kto co chce kto czego pragnie
 
+    public GPU_AMD(String companyName, String modelName, Integer memory) {
+        this.companyName = companyName;
+        this.modelName = modelName;
+        this.memory = memory;
+    }
+
     @Override
     public GPU getMemory(Float flo) {
         return null;
