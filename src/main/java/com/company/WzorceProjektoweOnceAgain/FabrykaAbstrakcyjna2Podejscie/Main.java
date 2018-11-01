@@ -20,33 +20,47 @@ public class Main {
 
 
         String zKlawiatury;
-        System.out.println("Oto fantastyczy sklep dla najlepszych \n" +
-                "uruchomiłem się aby sprzedać Ci komputer. \n" +
-                "dostępne funkcje:   [1] Kup kompa AMD, [2] Kup kompa Intel. Pozdrawiam. ");
-        do {
-            zKlawiatury = scanner.nextLine();
-            System.out.println("Podaj czesc do komputera");
-            System.out.println("Twoje slowo to : " + zKlawiatury);
+//        System.out.println("Oto fantastyczy sklep dla najlepszych \n" +
+//                "uruchomiłem się aby sprzedać Ci komputer. \n" +
+//                "dostępne funkcje:   [1] Kup kompa AMD, [2] Kup kompa Intel. Pozdrawiam. ");
+//        do {
+//            zKlawiatury = scanner.nextLine();
+//            System.out.println("Podaj czesc do komputera");
+//            System.out.println("Twoje slowo to : " + zKlawiatury);
+//
+//            if (zKlawiatury.equals("1")) {
+//                intelFactory.buildGPU();
+//                intelFactory.buildCPU();
+//                System.out.println("Właśnie stworzyłem komputer intela. Sprzedam Ci go za jedyne 8999zł. Podaj PIN do karty aby zapłacić.");
+//                zKlawiatury = scanner.nextLine();
+//                System.out.println("PIN OK \n Dziękujemy za skorzystanie z naszych usług.");
+//            }
+//
+//
+//            if (zKlawiatury.equals("2")) {
+//                intelFactory.buildGPU();
+//                intelFactory.buildCPU();
+//
+//                System.out.println("Właśnie stworzyłem komputer intela. Sprzedam Ci go za jedyne 3999zł. Podaj PIN do karty aby zapłacić.");
+//                zKlawiatury = scanner.nextLine();
+//                System.out.println("PIN OK \n Dziękujemy za skorzystanie z naszych usług.");
+//            }
+//
+//        } while (!zKlawiatury.equals("quit"));
 
-            if (zKlawiatury.equals("1")) {
-                intelFactory.buildGPU();
-                intelFactory.buildCPU();
-                System.out.println("Właśnie stworzyłem komputer intela. Sprzedam Ci go za jedyne 8999zł. Podaj PIN do karty aby zapłacić.");
-                zKlawiatury = scanner.nextLine();
-                System.out.println("PIN OK \n Dziękujemy za skorzystanie z naszych usług.");
-            }
+
+        int pierwsza = 1;
+        int druga= 2;
+        int trzecia = 3;
 
 
-            if (zKlawiatury.equals("2")) {
-                intelFactory.buildGPU();
-                intelFactory.buildCPU();
+        if (pierwsza == 1 && druga == 2) {System.out.println("GIT1");}
+        if (pierwsza == 3 || druga == 2) {System.out.println("GIT2");}
+        if (pierwsza == 9 & druga == 78) {System.out.println("GIT3");}
+//        if (pierwsza == 1 || druga == 2) {System.out.println("GIT4");}
 
-                System.out.println("Właśnie stworzyłem komputer intela. Sprzedam Ci go za jedyne 3999zł. Podaj PIN do karty aby zapłacić.");
-                zKlawiatury = scanner.nextLine();
-                System.out.println("PIN OK \n Dziękujemy za skorzystanie z naszych usług.");
-            }
 
-        } while (!zKlawiatury.equals("quit"));
+
 
     }
 }

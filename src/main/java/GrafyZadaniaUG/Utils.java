@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Utils {
 
-    String file = "C:\\git\\Rookie\\src\\main\\java\\GrafyZadaniaUG\\graf";
+    String file = "C:\\git\\Rookie77\\src\\main\\java\\GrafyZadaniaUG\\graf";
     public static int liczbaWierszyMacierzy;
 
     public static int[][] macierzGrafu = new int[Utils.liczbaWierszyMacierzy + 20][Utils.liczbaWierszyMacierzy + 20];
@@ -15,19 +15,25 @@ public class Utils {
     // pierwsza linia oznacza ilosc wierzcholkow czy tam krawedzi
 // biblioteka matrix do mnozenia macierzy albo cos
 
-    public static int getLiczbaWierszyMacierzy() {
-        return liczbaWierszyMacierzy;
+
+
+
+
+    public int getLiczbaWierszyMacierzy() throws IOException { // Tested works
+        try (Scanner br = new Scanner(new File(file))) {
+            liczbaWierszyMacierzy = br.nextInt();
+        }
+            return liczbaWierszyMacierzy;
     }
 
-    public void addRowToFile(String row) throws IOException { // DOdaje wiersz ! Fajnie !
+    public void addRowToFile(String row) throws IOException { //  Tested Works
         FileWriter writer = new FileWriter(file, true);
         writer.write("\n"); // zapisywanie Wiersza odbywa sie w nowej linii !!!!
         writer.write(row);
         writer.close();
     }
 
-
-    public void readFromFile() throws IOException {
+    public void readFromFile() throws IOException {    // Zapisuje do tablicy a nastepnie
         try (Scanner br = new Scanner(new File(file))) {
             int line;
             liczbaWierszyMacierzy = br.nextInt();
@@ -39,6 +45,20 @@ public class Utils {
             }
         }
     }
+
+    public void wyswietlTablice() {
+        for (int i = 0; i < liczbaWierszyMacierzy; i++) {
+            System.out.println("\n");
+            for (int j = 0; j < liczbaWierszyMacierzy; j++) {
+                System.out.printf(" " + macierzGrafu[i][j]);
+            }
+        }
+
+
+    }
+
+
+
 
     public void dodajWierzcholekRoBOCZANAZWA() { // po przekątnej muszą być zawsze same zera -> wierzchołek nie może być połączony sam ze sobą
         // Dodając wierzchołek, powiekszamy zarówno liczbę wierszy i liczbę kolumn w pliku <- tak to ma działać.
@@ -82,17 +102,6 @@ public class Utils {
     }
 //public static int[][] macierzGrafu = new int[Utils.liczbaWierszyMacierzy+20][Utils.liczbaWierszyMacierzy+20];
 
-    public void wyswietlTablice() {
-        for (int i = 0; i < liczbaWierszyMacierzy; i++) {
-            System.out.println("\n");
-            for (int j = 0; j < liczbaWierszyMacierzy; j++) {
-                System.out.printf("[" + macierzGrafu[i][j] + "]");
-            }
-        }
-
-
-    }
-
 
     public void removeRowFromFile(int whichRow) { // Najpierw trzeba policzyc ile mam wierszy w pliwkersie a następnie przeiterować po inich
         // i zamienić dany wiersz na 0;
@@ -129,11 +138,34 @@ public class Utils {
         writer.write(column);
         writer.close();
     }
+
+    public void dodajKrawedz(String line){
+
+    }
+    public void usunKrawedz(){
+
+    }
+    public void dodajWierzcholek(){
+
+    }
+    public void usnunWierzcholek(){
+
+    }
+
+    public void wyznaczStopienWierzcholka(){
+
+    }
+    public void maksymalnyStopienGrafu(){
+
+    }
+    public void iloscWierzcholkowParzystych(){
+
+    }
+
+    public void iloscWierzcholkowNieparzystych(){
+
+    }
+
+
 }
 //
-//        5
-//        0 1 0 1 1
-//        0 0 1 0 0
-//        1 0 0 1 1
-//        1 0 0 0 0
-//        0 0 0 0 0

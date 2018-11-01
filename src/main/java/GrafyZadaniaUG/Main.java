@@ -4,7 +4,7 @@ package GrafyZadaniaUG;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-
+import java.util.Scanner;
 
 
 //zadania sprzed tygodnia sa na za tydzień.
@@ -14,36 +14,51 @@ public class Main {
 
     public static void main(String[] args) throws IOException { // wyjątek ze względu na odczyt zapis plików
 
-        Utils utils = new Utils();
 
-//        try {
-//            utils.writeToFile();
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+//        System.out.println(utils.getLiczbaWierszyMacierzy());    // Works
+//        utils.addRowToFile("0 1 0 1 0");                          // Works
+//
+//        utils.readFromFile();
+//
+//        utils.wyswietlTablice();
 
+        gui();
 
-        utils.readFromFile();
-
-        System.out.println("\n" + Utils.getLiczbaWierszyMacierzy());
-
-        Graf graf = new Graf();
-//        utils.dodajWierzcholekRoBOCZANAZWA();
-        utils.wyswietlTablice();
-
-        utils.readFromFile();
-
-        utils.removeAllFromFile();
-
-//        utils.writeToFile("123adw");
-        //  utils.addRowToFile("0 0 0 0 0"); // brak pionowych p
-
-
-//        System.out.println(Graf.macierzGrafu[1][2]);
 
     }
+
+    public static void gui() throws IOException {
+        System.out.println("Labolatorium 1.\n Macierze sąsiedstwa i ciągi graficzne, Algorytmiczna teoria grafów.");
+        Utils utils = new Utils();
+
+        Scanner scanner = new Scanner(System.in);
+        String zKlawiatury;
+
+        do {
+            System.out.println("\nMenu: [1]wczytac graf z pliku [2]wyswietl tablice [3]quit");
+            zKlawiatury = scanner.nextLine();
+
+            if (zKlawiatury.equals("1")) {
+                utils.readFromFile();
+            }
+
+
+            if (zKlawiatury.equals("2")) {
+                utils.wyswietlTablice();
+
+            }
+
+        } while (!zKlawiatury.equals("3"));
+
+    }
+
 }
+
+
+// Example
+//        5
+//        0 1 0 1 1
+//        0 0 1 0 0
+//        1 0 0 1 1
+//        1 0 0 0 0
+//        0 0 0 0 0
