@@ -1,9 +1,7 @@
 package GrafyZadaniaUG;
 
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
 
@@ -17,38 +15,59 @@ public class Main {
 
 //        System.out.println(utils.getLiczbaWierszyMacierzy());    // Works
 //        utils.addRowToFile("0 1 0 1 0");                          // Works
-//
-//        utils.readFromFile();
-//
-//        utils.wyswietlTablice();
+
 
         gui();
-
+        //  metoda wyswietl tablice nie aktualizuje grafu po dodaniu wierzcholka
+        // metoda dodaj wierzcholek dodaje jeden wierzcholek, po probie dodania kolejnego, nadpisuje stary
 
     }
 
     public static void gui() throws IOException {
-        System.out.println("Labolatorium 1.\n Macierze sąsiedstwa i ciągi graficzne, Algorytmiczna teoria grafów.");
+        System.out.println("\nLabolatorium 1. Macierze sąsiedstwa i ciągi graficzne, algorytmiczna teoria grafów.");
         Utils utils = new Utils();
 
         Scanner scanner = new Scanner(System.in);
         String zKlawiatury;
 
         do {
-            System.out.println("\nMenu: [1]wczytac graf z pliku [2]wyswietl tablice [3]quit");
+            System.out.println("Menu:\n" +
+                    "[1]wczytaj tablice         [4]dodaj wierzcholek        [7]stopnie wierzchołka \n" +
+                    "[2]wyswietl tablice        [5]modyfikuj krawędź        [99]quit\n" +
+                    "[3]liczba wierzcholków     [6]wyczysc macierz\n" +
+                    " ");
             zKlawiatury = scanner.nextLine();
 
             if (zKlawiatury.equals("1")) {
                 utils.readFromFile();
             }
-
-
             if (zKlawiatury.equals("2")) {
                 utils.wyswietlTablice();
-
+            }
+            if (zKlawiatury.equals("3")) {
+                utils.getLiczbaWierzcholkow();
+            }
+            if (zKlawiatury.equals("4")) {
+                utils.dodajWierzcholek();
+            }
+            if(zKlawiatury.equals("6")){
+                utils.wyczyscMacierz();
+            }
+            if(zKlawiatury.equals("7")){
+                utils.stopnieWierzcholka();
+            }
+            if(zKlawiatury.equals("5")){
+                utils.modyfikujKrawedz();
+            }
+            if(zKlawiatury.equals("5")){
+                utils.modyfikujKrawedz();
+            }
+            if(zKlawiatury.equals("5")){
+                utils.modyfikujKrawedz();
             }
 
-        } while (!zKlawiatury.equals("3"));
+
+        } while (!zKlawiatury.equals("99"));
 
     }
 
