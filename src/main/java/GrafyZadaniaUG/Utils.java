@@ -122,11 +122,27 @@ public class Utils {
             }
         }
         System.out.println("\n");
+
+        int stopnieParzyste =0;
+        int stopnieNieparzyste=0;
+
         System.out.println("Maksymalny stopień grafu to " + Collections.max(stopien)
                 + ", minimalny: " + Collections.min(stopien));
         for (int i = 0; i < liczbaWierzcholkow; i++) {
             System.out.println("Stopień wierzchołka " + i + " wynosi: " + stopien.get(i));
+            if (stopien.get(i) % 2 ==0) {stopnieParzyste++;}
+            else {stopnieNieparzyste++;}
         }
+        System.out.print("Lista wierzchołków nierosnąco: ");
+        List<Integer> stopienPosortowany = new ArrayList<>();
+        stopienPosortowany.addAll(stopien);
+        Collections.sort(stopienPosortowany, Collections.reverseOrder());
+        for (int i = 0; i < liczbaWierzcholkow; i++) {
+            System.out.print(stopienPosortowany.get(i)+ ", ");
+        }
+
+        System.out.println("\nStopni wierzchołka parzystych: " + stopnieParzyste+ ", nieparzystych "+ stopnieNieparzyste);
+
     }
 
     public void parzystoscWierzcholkow() {
