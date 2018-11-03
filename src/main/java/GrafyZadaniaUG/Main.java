@@ -30,6 +30,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String zKlawiatury;
 
+
+
         do {
             System.out.println("Menu:\n" +
                     "[1]wczytaj tablice         [4]dodaj wierzcholek        [7]stopnie wierzchołka \n" +
