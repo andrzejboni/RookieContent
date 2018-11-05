@@ -6,10 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 
 public interface  ZrodloPieniedzy {
-
-
     void pobierzKwote(int kwotaDoPobrania);
-
-
 
 }
