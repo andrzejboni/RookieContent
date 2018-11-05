@@ -14,6 +14,7 @@ public interface IProsteZrodloPieniedzy extends IZrodloPieniedzy {
     // przyklad , chce pobrac 200 pln ze zrodla ktore zawiera tylko 100 -  dostaje 100;
 
 
+
     void odejmijKwote(Integer kwota);
 
     FormaPlatnosci getFormaPieniedzy();

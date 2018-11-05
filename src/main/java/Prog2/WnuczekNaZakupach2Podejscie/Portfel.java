@@ -4,15 +4,23 @@ import Prog2.WnuczekNaZakupach.FormaPlatnosci;
 
 public class Portfel extends GotowkoweZrodlaPieniedzy implements IProsteZrodloPieniedzy {
 
+    @Override
+    public String toString() {
+        return "Portfel{" +
+                "formaPlatnosci=" + formaPlatnosci +
+                ", kwota=" + super.kwota +
+                '}';
+    }
 
-    public Portfel(int kwota, FormaPlatnosci formaPlatnosci) {
+    public Portfel(int kwota) {
         super.kwota = kwota;
-        this.formaPlatnosci = formaPlatnosci;
+        super.formaPlatnosci = formaPlatnosci;
+
     }
 
     @Override
     public void ustawKwote(Integer kwota) {
-       super.kwota = kwota;
+        super.kwota = kwota;
     }
 
     @Override
@@ -22,8 +30,8 @@ public class Portfel extends GotowkoweZrodlaPieniedzy implements IProsteZrodloPi
 
     @Override
     public void odejmijKwote(Integer kwota) {
-        if (kwota >super.kwota){
-            System.out.println("Wyciagnieto z konta maksymalną kwotę"+ kwota);
+        if (kwota > super.kwota) {
+            System.out.println("Wyciagnieto z konta maksymalną kwotę" + kwota);
             super.kwota = 0;
             return;
         }
@@ -33,6 +41,15 @@ public class Portfel extends GotowkoweZrodlaPieniedzy implements IProsteZrodloPi
     @Override
     public FormaPlatnosci getFormaPieniedzy() {
         return this.formaPlatnosci;
+    }
+
+    public void otworzProtfel() {
+        System.out.println("Otwarto porfel");
+    }
+
+    public void zamknijProtfel() {
+
+        System.out.println("Zamknieto portfel");
     }
 
 
