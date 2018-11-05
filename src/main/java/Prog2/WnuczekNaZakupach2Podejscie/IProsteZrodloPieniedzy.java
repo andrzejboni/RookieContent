@@ -1,6 +1,10 @@
 package Prog2.WnuczekNaZakupach2Podejscie;
 
+import Prog2.WnuczekNaZakupach.FormaPlatnosci;
+
 public interface IProsteZrodloPieniedzy extends IZrodloPieniedzy {
+
+    int kwota = 0;
 
     void ustawKwote(Integer kwota);
     void dodajKwote(Integer kwota);
@@ -12,5 +16,5 @@ public interface IProsteZrodloPieniedzy extends IZrodloPieniedzy {
 
     void odejmijKwote(Integer kwota);
 
-    FormaPieniedzy getFormaPieniedzy();
+    FormaPlatnosci getFormaPieniedzy();
 }
