@@ -53,4 +53,13 @@ public class Portfel extends GotowkoweZrodlaPieniedzy implements IProsteZrodloPi
     }
 
 
+    @Override
+    public int zabierzDostepneSrodki() {
+        return super.kwota = 0;
+    }
+
+    @Override
+    public int stanDostepnychSrodkow() {
+        return super.kwota;
+    }
 }

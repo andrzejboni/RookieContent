@@ -47,4 +47,13 @@ public class Kieszen extends GotowkoweZrodlaPieniedzy implements IProsteZrodloPi
         System.out.println("otwarto nóż w kieszeni");
     }
 
+    @Override
+    public int zabierzDostepneSrodki() {
+        return super.kwota = 0;
+    }
+
+    @Override
+    public int stanDostepnychSrodkow() {
+        return super.kwota;
+    }
 }

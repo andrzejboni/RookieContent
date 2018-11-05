@@ -14,9 +14,12 @@ public class Main {
         portfel.zamknijProtfel();
 
         System.out.println(portfel.toString());
-
-
-
+//
+//        portfel.getFormaPieniedzy();
+//        portfel.stanDostepnychSrodkow();
+//        portfel.zabierzDostepneSrodki();
+//        portfel.stanDostepnychSrodkow();
+//        System.out.println(portfel.toString());
 
 
     }
