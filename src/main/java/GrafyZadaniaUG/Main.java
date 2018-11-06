@@ -25,13 +25,6 @@ public class Main {
 
 
 
-        Map<Integer, List<Integer>> map = new HashMap<>();
-//        map.put(1, new ArrayList<Integer>(Arrays.asList(1,2,3)));
-        map.put(1, new ArrayList<Integer>());
-
-
-
-
 
 
 
@@ -49,8 +42,8 @@ public class Main {
         do {
             System.out.println("\nMenu:\n" +
                     "[1]wczytaj tablice         [4]dodaj wierzcholek        [7]stopnie wierzchołka \n" +
-                    "[2]wyswietl tablice        [5]modyfikuj krawędź        [99]quit\n" +
-                    "[3]liczba wierzcholków     [6]wyczysc macierz\n" +
+                    "[2]wyswietl tablice        [5]modyfikuj krawędź        [8]znajdz podgraf(naiwnie)\n" +
+                    "[3]liczba wierzcholków     [6]wyczysc macierz\n" +     "[99]quit\n"+
                     " ");
             zKlawiatury = scanner.nextLine();
 
@@ -76,7 +69,7 @@ public class Main {
                 utils.stopnieWierzcholka();
             }
             if (zKlawiatury.equals("8")) {
-
+                utils.podgrafIzomofricznydoC3();
             }
             if (zKlawiatury.equals("9")) {
 

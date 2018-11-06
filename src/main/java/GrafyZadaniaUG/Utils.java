@@ -155,12 +155,7 @@ public class Utils {
         stopien.clear();
     }
 
-    public void podgrafIzomofricznydoC3(){
-        // Trzeba to zrobic jakos tak.
-        // Mam grafik, trzeba odpalić liczni, taki sam licznik jak dla tego co liczy
-
-
-
+    public void podgrafIzomofricznydoC3() {
 
         Map<Integer, List<Integer>> map = new HashMap<>();
 //        map.put(1, new ArrayList<Integer>(Arrays.asList(1,2,3)));
@@ -176,9 +171,8 @@ public class Utils {
 //        System.out.println(map.get(1).get(0)+ map.get(1).get(1));
 
 
-
         for (int i = 0; i < liczbaWierzcholkow; i++) { // sprawdz i zapisz do lisy nr wierzchołka który ma połączenie z danym wierzchołkiem
-            for (int j = 0; j < liczbaWierzcholkow; j++) {
+            for (int j = 0; j < liczbaWierzcholkow; j++) { // przetestowane działa
                 if (macierzGrafu[i][j] == 1) {
                     map.get(i).add(j);
                 }
@@ -186,15 +180,26 @@ public class Utils {
         }
 
 
+        for (int i = 0; i < liczbaWierzcholkow; i++) { // sprawdz i zapisz do lisy nr wierzchołka który ma połączenie z danym wierzchołkiem
+            for (int j = 0; j < map.get(i).size()-1; j++) {
+
+                if ( map.get(map.get(i).get(j)).contains(map.get(i).get(j+1))){
+                    System.out.println("Podgraf znaleziony");
+                    System.out.println("Wierzchołki [1]: " + map.get(i).get(j) + " [2]: " + map.get(map.get(i).get(j)).get(j) +" [3]: "+ map.get(i).get(j+1));
+                }
+
+            }
+        }
 
 
+
+//        map.get(map.get(i).get(i)).get(k);
+//        map.get(1).contains(1);
 
 
 
 
     }
-
-
 
 
     public void czyGrafZawieraPodgrafIzomorficzny() {
@@ -223,9 +228,6 @@ public class Utils {
 
 
     }
-
-
-
 
 
 //    public boolean isC3() {
