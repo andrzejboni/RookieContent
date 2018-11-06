@@ -31,9 +31,8 @@ public class Main {
         String zKlawiatury;
 
 
-
         do {
-            System.out.println("Menu:\n" +
+            System.out.println("\nMenu:\n" +
                     "[1]wczytaj tablice         [4]dodaj wierzcholek        [7]stopnie wierzchołka \n" +
                     "[2]wyswietl tablice        [5]modyfikuj krawędź        [99]quit\n" +
                     "[3]liczba wierzcholków     [6]wyczysc macierz\n" +
@@ -52,20 +51,20 @@ public class Main {
             if (zKlawiatury.equals("4")) {
                 utils.dodajWierzcholek();
             }
-            if(zKlawiatury.equals("6")){
+            if (zKlawiatury.equals("5")) {
+                utils.modyfikujKrawedz();
+            }
+            if (zKlawiatury.equals("6")) {
                 utils.wyczyscMacierz();
             }
-            if(zKlawiatury.equals("7")){
+            if (zKlawiatury.equals("7")) {
                 utils.stopnieWierzcholka();
             }
-            if(zKlawiatury.equals("5")){
-                utils.modyfikujKrawedz();
+            if (zKlawiatury.equals("8")) {
+
             }
-            if(zKlawiatury.equals("5")){
-                utils.modyfikujKrawedz();
-            }
-            if(zKlawiatury.equals("5")){
-                utils.modyfikujKrawedz();
+            if (zKlawiatury.equals("9")) {
+
             }
 
 

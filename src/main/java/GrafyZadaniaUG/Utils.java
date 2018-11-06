@@ -10,14 +10,13 @@ public class Utils {
 
 
     public static int[][] macierzGrafu = new int[Utils.liczbaWierzcholkow + 50][Utils.liczbaWierzcholkow + 50];
-
     public static int stopnieParzyste = 0;
     public static int stopnieNieparzyste = 0;
     public static int liczbaWierzcholkow;
     public static List<Integer> stopien = new ArrayList<>();
 
     // pierwsza linia oznacza ilosc wierzcholkow czy tam krawedzi
-// biblioteka matrix do mnozenia macierzy albo cos
+    // biblioteka matrix do mnozenia macierzy albo cos
 
 
     public void getLiczbaWierzcholkow() {
@@ -56,7 +55,7 @@ public class Utils {
     public void dodajWierzcholek() { // po przekątnej muszą być zawsze same zera -> wierzchołek nie może być połączony sam ze sobą
         // Dodając wierzchołek, powiekszamy zarówno liczbę wierszy i liczbę kolumn w pliku <- tak to ma działać.
 
-        System.out.println("Wpisz połączenia wierzchołka pionowo \nDodajesz: " + (liczbaWierzcholkow+1)+ " wierzchołek."); // 1 2 3 .. n  gdzie n to liczba krawedzi
+        System.out.println("Wpisz połączenia wierzchołka pionowo \nDodajesz: " + (liczbaWierzcholkow + 1) + " wierzchołek."); // 1 2 3 .. n  gdzie n to liczba krawedzi
 
 //        liczbaWierzcholkow = liczbaWierzcholkow+1; // TRZEBA DODAC ZMIANE LICZBY OZNACZAJACEJ LICZBE KRAWEDZI! TO NIE ZAPISUJE SI EDO TABLICY
 
@@ -67,7 +66,7 @@ public class Utils {
         for (int i = 0; i < liczbaWierzcholkow; i++) {
             macierzGrafu[i][liczbaWierzcholkow] = Integer.parseInt(tablicaZnakowPionow[i]);
         }
-        System.out.println("\nWpisz połączenia wierzchołka poziomo \nDodajesz: " + (liczbaWierzcholkow+1) + " wierzchołek.");
+        System.out.println("\nWpisz połączenia wierzchołka poziomo \nDodajesz: " + (liczbaWierzcholkow + 1) + " wierzchołek.");
         linia = zKlawiatury.nextLine();  // wpisuje mu linie
         String tablicaZnakowPoziomo[] = linia.split(" "); // robie z tego tablice, spoko
 
@@ -103,6 +102,10 @@ public class Utils {
                 macierzGrafu[i][j] = 0;
             }
         }
+        stopnieParzyste = 0;
+        stopnieNieparzyste = 0;
+        liczbaWierzcholkow = 0;
+        stopien.clear();
     }
 
     public void writeToFile(String column) throws IOException {
@@ -145,9 +148,10 @@ public class Utils {
 
         System.out.println("\nStopni wierzchołka parzystych: " + stopnieParzyste + ", nieparzystych " + stopnieNieparzyste);
 
-    }
 
-    public void parzystoscWierzcholkow() {
+        stopnieParzyste = 0;
+        stopnieNieparzyste = 0;
+        stopien.clear();
     }
 
     public void czyGrafZawieraPodgrafIzomorficzny() {
@@ -175,11 +179,7 @@ public class Utils {
         // Sprawdzenie czy graf ma podgraf
 
 
-
-
-
     }
-
 
 
 //    public boolean isC3() {
