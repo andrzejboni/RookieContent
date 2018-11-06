@@ -2,7 +2,7 @@ package GrafyZadaniaUG;
 
 
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.*;
 
 
 //zadania sprzed tygodnia sa na za tydzień.
@@ -20,6 +20,21 @@ public class Main {
         gui();
         //  metoda wyswietl tablice nie aktualizuje grafu po dodaniu wierzcholka
         // metoda dodaj wierzcholek dodaje jeden wierzcholek, po probie dodania kolejnego, nadpisuje stary
+
+
+
+
+
+        Map<Integer, List<Integer>> map = new HashMap<>();
+//        map.put(1, new ArrayList<Integer>(Arrays.asList(1,2,3)));
+        map.put(1, new ArrayList<Integer>());
+
+
+
+
+
+
+
 
     }
 

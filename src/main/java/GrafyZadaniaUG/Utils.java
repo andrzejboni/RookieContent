@@ -1,5 +1,6 @@
 package GrafyZadaniaUG;
 
+import java.awt.geom.Point2D;
 import java.io.*;
 import java.util.*;
 
@@ -154,6 +155,48 @@ public class Utils {
         stopien.clear();
     }
 
+    public void podgrafIzomofricznydoC3(){
+        // Trzeba to zrobic jakos tak.
+        // Mam grafik, trzeba odpalić liczni, taki sam licznik jak dla tego co liczy
+
+
+
+
+        Map<Integer, List<Integer>> map = new HashMap<>();
+//        map.put(1, new ArrayList<Integer>(Arrays.asList(1,2,3)));
+
+
+        for (int i = 0; i < liczbaWierzcholkow; i++) { // Tworzę tyle list ile mam wierzchołków nie wiem czy to do końća potrzebne
+            map.put(i, new ArrayList<Integer>());
+        }
+
+//        map.get(1).add(1);
+//        System.out.println(" 1. "+  map.get(1).add(1));
+//        System.out.println(" 1. "+  map.get(1).add(5));
+//        System.out.println(map.get(1).get(0)+ map.get(1).get(1));
+
+
+
+        for (int i = 0; i < liczbaWierzcholkow; i++) { // sprawdz i zapisz do lisy nr wierzchołka który ma połączenie z danym wierzchołkiem
+            for (int j = 0; j < liczbaWierzcholkow; j++) {
+                if (macierzGrafu[i][j] == 1) {
+                    map.get(i).add(j);
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+    }
+
+
+
+
     public void czyGrafZawieraPodgrafIzomorficzny() {
 //    The number of nodes must be the same
 //    The number of edges must be the same
@@ -180,6 +223,9 @@ public class Utils {
 
 
     }
+
+
+
 
 
 //    public boolean isC3() {
