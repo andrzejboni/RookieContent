@@ -22,14 +22,13 @@ public class Main {
         // metoda dodaj wierzcholek dodaje jeden wierzcholek, po probie dodania kolejnego, nadpisuje stary
 
 
-
-
-
-
-
-
-
     }
+
+
+    // POPRAWIĆ DODAWANIE I WIERZCHOŁKÓW, WCZYTYWANIE ITP.
+    // POPRAWIĆ METODĘ NAIWNĄ
+    // Dopracować pozostałe metody
+
 
     public static void gui() throws IOException {
         System.out.println("\nLabolatorium 1. Macierze sąsiedstwa i ciągi graficzne, algorytmiczna teoria grafów.");
@@ -41,9 +40,9 @@ public class Main {
 
         do {
             System.out.println("\nMenu:\n" +
-                    "[1]wczytaj tablice         [4]dodaj wierzcholek        [7]stopnie wierzchołka \n" +
+                    "[1]wczytaj tablice         [4]dodaj wierzcholek        [7]stopnie wierzchołka          [99]quit\n" +
                     "[2]wyswietl tablice        [5]modyfikuj krawędź        [8]znajdz podgraf(naiwnie)\n" +
-                    "[3]liczba wierzcholków     [6]wyczysc macierz\n" +     "[99]quit\n"+
+                    "[3]liczba wierzcholków     [6]wyczysc macierz          \n" +
                     " ");
             zKlawiatury = scanner.nextLine();
 
@@ -71,9 +70,6 @@ public class Main {
             if (zKlawiatury.equals("8")) {
                 utils.podgrafIzomofricznydoC3();
             }
-            if (zKlawiatury.equals("9")) {
-
-            }
 
 
         } while (!zKlawiatury.equals("99"));
@@ -90,3 +86,12 @@ public class Main {
 //        1 0 0 1 1
 //        1 0 0 0 0
 //        0 0 0 0 0
+//
+//7
+//        0 0 0 0 1 1 0
+//        0 1 0 0 0 0 0
+//        1 0 0 0 0 0 1
+//        0 0 0 0 0 0 0
+//        1 0 0 0 0 1 0
+//        1 0 0 0 1 0 0
+//        0 1 0 0 0 0 1

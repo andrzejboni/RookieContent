@@ -66,13 +66,14 @@ public class Utils {
 
         for (int i = 0; i < liczbaWierzcholkow; i++) {
             macierzGrafu[i][liczbaWierzcholkow] = Integer.parseInt(tablicaZnakowPionow[i]);
-        }
-        System.out.println("\nWpisz połączenia wierzchołka poziomo \nDodajesz: " + (liczbaWierzcholkow + 1) + " wierzchołek.");
-        linia = zKlawiatury.nextLine();  // wpisuje mu linie
-        String tablicaZnakowPoziomo[] = linia.split(" "); // robie z tego tablice, spoko
-
-        for (int i = 0; i < liczbaWierzcholkow; i++) {
-            macierzGrafu[liczbaWierzcholkow][i] = Integer.parseInt(tablicaZnakowPoziomo[i]);
+            macierzGrafu[liczbaWierzcholkow][i] = Integer.parseInt(tablicaZnakowPionow[i]);
+//        }
+//        System.out.println("\nWpisz połączenia wierzchołka poziomo \nDodajesz: " + (liczbaWierzcholkow + 1) + " wierzchołek.");
+//        linia = zKlawiatury.nextLine();  // wpisuje mu linie
+//        String tablicaZnakowPoziomo[] = linia.split(" "); // robie z tego tablice, spoko
+//
+//        for (int i = 0; i < liczbaWierzcholkow; i++) {
+//            macierzGrafu[liczbaWierzcholkow][i] = Integer.parseInt(tablicaZnakowPoziomo[i]);
         }
         liczbaWierzcholkow += 1;
     }
@@ -109,10 +110,11 @@ public class Utils {
         stopien.clear();
     }
 
-    public void writeToFile(String column) throws IOException {
+    public void zapiszDoPliku() throws IOException {
         FileWriter writer = new FileWriter(file, true);
 
-        writer.write(column);
+//        writer.write(column);
+        writer.write(liczbaWierzcholkow);
         writer.close();
     }
 
@@ -179,26 +181,30 @@ public class Utils {
             }
         }
 
-
+        int licznik = 0;
         for (int i = 0; i < liczbaWierzcholkow; i++) { // sprawdz i zapisz do lisy nr wierzchołka który ma połączenie z danym wierzchołkiem
-            for (int j = 0; j < map.get(i).size()-1; j++) {
+            for (int j = 0; j < map.get(i).size() - 1; j++) {
 
-                if ( map.get(map.get(i).get(j)).contains(map.get(i).get(j+1))){
-                    System.out.println("Podgraf znaleziony");
-                    System.out.println("Wierzchołki [1]: " + map.get(i).get(j) + " [2]: " + map.get(map.get(i).get(j)).get(j) +" [3]: "+ map.get(i).get(j+1));
+                if (map.get(map.get(i).get(j)).contains(map.get(i).get(j + 1))) {
+                    if (licznik == 0) {
+                        licznik++;
+                        System.out.println("Podgraf znaleziony");
+                        System.out.println("Wierzchołki [1]: " + map.get(i).get(j) + " [2]: " + map.get(map.get(i).get(j)).get(j) + " [3]: " + map.get(i).get(j + 1));
+                    }
                 }
 
             }
+            licznik = 0;
         }
 
+//        if (licznik == 0) {
+//            System.out.println("Nie znaleziono podgrafu izomorficznego do C3");
+//        }
 
+        licznik = 0;
 
 //        map.get(map.get(i).get(i)).get(k);
 //        map.get(1).contains(1);
-
-
-
-
     }
 
 
