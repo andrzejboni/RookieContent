@@ -8,9 +8,6 @@ public class Pacjent {
     String nazwisko;
     long pesel;
 
-
-
-
     public Pacjent(String imie, String nazwisko, long pesel) {
         this.imie = imie;
         this.nazwisko = nazwisko;
