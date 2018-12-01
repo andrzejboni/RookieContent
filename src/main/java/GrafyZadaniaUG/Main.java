@@ -40,10 +40,11 @@ public class Main {
 
         do {
             System.out.println("\nMenu:\n" +
-                    "[1]wczytaj tablice         [4]dodaj wierzcholek        [7]stopnie wierzchołka          [99]quit\n" +
-                    "[2]wyswietl tablice        [5]modyfikuj krawędź        [8]znajdz podgraf(naiwnie)\n" +
-                    "[3]liczba wierzcholków     [6]wyczysc macierz          \n" +
-                    " ");
+                    "[1]Wczytaj tablice         [6]Wyczysc macierz              [11] ---------          [16] ---------\n" +
+                    "[2]Wyswietl tablice        [7]Stopnie wierzchołka          [12] ---------          [17] ---------\n" +
+                    "[3]Liczba wierzcholków     [8]Znajdz podgraf(naiwnie)      [13] ---------          [18] ---------\n" +
+                    "[4]Dodaj wierzcholek       [9]Przeszukuj w głąb - DFS      [14] ---------          [19] ---------\n" +
+                    "[5]Modyfikuj krawędź       [10] ---------                  [15] ---------          [99] quit\n");
             zKlawiatury = scanner.nextLine();
 
             if (zKlawiatury.equals("1")) {
@@ -69,6 +70,12 @@ public class Main {
             }
             if (zKlawiatury.equals("8")) {
                 utils.podgrafIzomofricznydoC3();
+            }
+            if (zKlawiatury.equals("9")) {
+                utils.przeszukajWGlab();
+            }
+            if (zKlawiatury.equals("10")) {
+
             }
 
 

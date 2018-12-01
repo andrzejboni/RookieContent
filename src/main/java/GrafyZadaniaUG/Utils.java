@@ -196,67 +196,33 @@ public class Utils {
             }
             licznik = 0;
         }
-
-//        if (licznik == 0) {
-//            System.out.println("Nie znaleziono podgrafu izomorficznego do C3");
-//        }
-
         licznik = 0;
+    }
 
-//        map.get(map.get(i).get(i)).get(k);
-//        map.get(1).contains(1);
+    public void przeszukajWGlab() {
+// Trzeba wyeliminować ewentualnosc zapętlenia się algorytmu. Algorytm w przypadku grafu tworzącego cykle
+        // może wpadać w pętle, należy tego uniknać i zadbać by algorytm ogarniał ten temat
+        // Może należy stworzyć tablicę która sprawdzi czy wierzchołek został już odwiedzony, a może inaczej
+        // Parametr visited
+//Zaznaczamy bieżący wierzchołek jako odwiedzony. Przechodzimy do kolejnych sąsiadów wierzchołka bieżącego i
+// wykonujemy dla nich tą samą operację (tzn. zaznaczamy je jako odwiedzone i przechodzimy do ich sąsiadów).
+// Przechodzenie kończymy, gdy zostaną w ten sposób odwiedzone wszystkie dostępne wierzchołki.
+
+
+        boolean czyOdwiedzono[] = new boolean[Utils.liczbaWierzcholkow];
+
+
+
+
+
+
+        System.out.println("Odwiedzone wierzchołki: ");
+
+
+        for (int i = 0; i < czyOdwiedzono.length; i++) { // Pętle po każdym przejsćiu zerują stan
+                czyOdwiedzono[i] = false;
+           }
     }
 
 
-    public void czyGrafZawieraPodgrafIzomorficzny() {
-//    The number of nodes must be the same
-//    The number of edges must be the same
-//    Count how many vertices have k adjacent edges. These must be the same for both graphs.
-
-//        5
-//        A B C D E
-//      A 0 1 0 0 1             stopien wierzcholka A = 2,
-//      B 1 0 0 0 0
-//      C 0 0 0 0 0
-//      D 0 0 0 0 0
-//      E 1 0 0 0 0
-
-//        5
-//        A B C D E
-//      A 0 0 0 0 0
-//      B 0 0 0 0 1             // to samo co wyzej
-//      C 0 0 0 0 0
-//      D 0 0 0 0 1             // to samo co wyzej
-//      E 0 1 0 1 0             stopien wierzchołka A= 2
-
-// Do każdego grafu można stworzyć analogiczny graf izomofriczny. '
-        // Sprawdzenie czy graf ma podgraf
-
-
-    }
-
-
-//    public boolean isC3() {
-//
-//        int[][] mul;
-//        mul = new int[this.getnVert()][this.getnVert()];
-//        for (int i = 0; i < this.getnVert(); i += 1) {
-//            // System.out.println("i="+i);
-//            for (int j = 0; j < this.getnVert(); j += 1) {
-//                // System.out.println("j="+j);
-//                mul[i][j] = 0;
-//                for (int k = 0; k < this.getnVert(); k += 1) {
-//                    mul[i][j] += mat[i][k] * mat[k][j];
-//                }
-//                if (mul[i][j] > 0) {
-//                    if (mat[i][j] > 0) {
-//                        return true;
-//                    }
-//                }
-//            }
-//
-//        }
-//
-//        return false;
-//    }
 }
