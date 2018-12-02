@@ -40,11 +40,11 @@ public class Main {
 
         do {
             System.out.println("\nMenu:\n" +
-                    "[1]Wczytaj tablice         [6]Wyczysc macierz              [11] ---------          [16] ---------\n" +
-                    "[2]Wyswietl tablice        [7]Stopnie wierzchołka          [12] ---------          [17] ---------\n" +
+                    "[1]Wczytaj graf            [6]Wyczysc macierz              [11] ---------          [16] ---------\n" +
+                    "[2]Wyswietl graf           [7]Stopnie wierzchołka          [12] ---------          [17] ---------\n" +
                     "[3]Liczba wierzcholków     [8]Znajdz podgraf(naiwnie)      [13] ---------          [18] ---------\n" +
                     "[4]Dodaj wierzcholek       [9]Przeszukuj w głąb - DFS      [14] ---------          [19] ---------\n" +
-                    "[5]Modyfikuj krawędź       [10] ---------                  [15] ---------          [99] quit\n");
+                    "[5]Modyfikuj krawędź       [10]Stworz macierz incydencji   [15] ---------          [99] quit\n");
             zKlawiatury = scanner.nextLine();
 
             if (zKlawiatury.equals("1")) {
@@ -84,6 +84,7 @@ public class Main {
     }
 
 }
+
 
 
 // Example

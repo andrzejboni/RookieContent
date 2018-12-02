@@ -199,7 +199,7 @@ public class Utils {
         licznik = 0;
     }
 
-    public void przeszukajWGlab() {
+    public void przeszukajWGlab() { // DFS
 // Trzeba wyeliminować ewentualnosc zapętlenia się algorytmu. Algorytm w przypadku grafu tworzącego cykle
         // może wpadać w pętle, należy tego uniknać i zadbać by algorytm ogarniał ten temat
         // Może należy stworzyć tablicę która sprawdzi czy wierzchołek został już odwiedzony, a może inaczej
@@ -210,19 +210,38 @@ public class Utils {
 
 
         boolean czyOdwiedzono[] = new boolean[Utils.liczbaWierzcholkow];
+        for (int i = 0; i < czyOdwiedzono.length; i++) { // Zeruje stan
+            czyOdwiedzono[i] = false;
+        }
+
+        czyOdwiedzono[0] = true;
+        System.out.println(" 0");
+
+        for (int i = 0; i < Utils.liczbaWierzcholkow; i++) {
+            for (int j = 0; j < Utils.liczbaWierzcholkow; j++) {
+
+                if (macierzGrafu[i][j] == 1) {
+
+                    if (czyOdwiedzono[j] == false) {
+
+                        System.out.print(" " + j);
+                        czyOdwiedzono[j] = true;
+                    }
+                }
+            }
+        }
 
 
+// v0 v1 v5 v2 v3 v4
 
+// 1  5  0  2  4  3
+// 1  5  2  4  3
+// 0  1  5  2  4  3
 
-
-
-        System.out.println("Odwiedzone wierzchołki: ");
-
-
-        for (int i = 0; i < czyOdwiedzono.length; i++) { // Pętle po każdym przejsćiu zerują stan
-                czyOdwiedzono[i] = false;
-           }
     }
 
+    public void stworzMacierzIncydencji(){
+
+    }
 
 }
