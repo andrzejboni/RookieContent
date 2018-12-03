@@ -44,7 +44,7 @@ public class Main {
                     "[2]Wyswietl graf           [7]Stopnie wierzchołka          [12] ---------          [17] ---------\n" +
                     "[3]Liczba wierzcholków     [8]Znajdz podgraf(naiwnie)      [13] ---------          [18] ---------\n" +
                     "[4]Dodaj wierzcholek       [9]Przeszukuj w głąb - DFS      [14] ---------          [19] ---------\n" +
-                    "[5]Modyfikuj krawędź       [10]Stworz macierz incydencji   [15] ---------          [99] quit\n");
+                    "[5]Modyfikuj krawędź       [10]Wczytaj macierz incydencji  [15] ---------          [99] quit\n");
             zKlawiatury = scanner.nextLine();
 
             if (zKlawiatury.equals("1")) {
@@ -75,7 +75,7 @@ public class Main {
                 utils.przeszukajWGlab();
             }
             if (zKlawiatury.equals("10")) {
-
+                utils.wczytajMacierzIncydencji();
             }
 
 
@@ -84,7 +84,6 @@ public class Main {
     }
 
 }
-
 
 
 // Example

@@ -8,13 +8,15 @@ import java.util.*;
 public class Utils {
 
     String file = "C:\\git\\Rookie77\\src\\main\\java\\GrafyZadaniaUG\\graf";
-
+    String fileMacierzIncydencji = "C:\\git\\Rookie77\\src\\main\\java\\GrafyZadaniaUG\\macierzIncydencji.txt";
 
     public static int[][] macierzGrafu = new int[Utils.liczbaWierzcholkow + 50][Utils.liczbaWierzcholkow + 50];
     public static int stopnieParzyste = 0;
     public static int stopnieNieparzyste = 0;
     public static int liczbaWierzcholkow;
     public static List<Integer> stopien = new ArrayList<>();
+    public static int[][] macierzIncydencji = new int[Utils.liczbaWierzcholkow + 50][Utils.liczbaWierzcholkow + 50];
+    public static int liczbaKrawedzi;
 
     // pierwsza linia oznacza ilosc wierzcholkow czy tam krawedzi
     // biblioteka matrix do mnozenia macierzy albo cos
@@ -104,6 +106,15 @@ public class Utils {
                 macierzGrafu[i][j] = 0;
             }
         }
+
+        for (int i = 0; i < liczbaWierzcholkow; i++) {
+            System.out.println("\n");
+            for (int j = 0; j < liczbaKrawedzi; j++) {
+                macierzIncydencji[i][j] = 0;
+            }
+        }
+        liczbaKrawedzi = 0;
+
         stopnieParzyste = 0;
         stopnieNieparzyste = 0;
         liczbaWierzcholkow = 0;
@@ -240,8 +251,43 @@ public class Utils {
 
     }
 
-    public void stworzMacierzIncydencji(){
+    public void wczytajMacierzIncydencji() throws IOException {
+        if (liczbaWierzcholkow == 0) {
+            System.out.println("(!) Wczytaj macierz na podstawie której ma być stworzona macierz incydencji!");
+            return;
+        }
 
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Ile macierz ma krawędzi?");
+        int liczbaKrawedzi = scan.nextInt();
+
+
+        try (Scanner br = new Scanner(new File(fileMacierzIncydencji))) {
+            int line;
+            liczbaWierzcholkow = br.nextInt();
+
+            for (int i = 0; i < liczbaWierzcholkow; i++) {
+                for (int j = 0; j < liczbaKrawedzi; j++) {
+                    macierzIncydencji[i][j] = br.nextInt();
+                }
+            }
+            br.close();
+        }
     }
+
+    /*
+            E1 E2 E3 E4 E5 E6 E7 E8 E9
+        0    1  1  0  0  0  0  0  0  0
+        1   -1  0 -1 -1 -1  0  0  0  0
+        2    0  0  1  0  0 -1  1  0  0
+        3    0  0  0  0  0  0 -1  1  0
+        4    0  0  0  1  0  0  0 -1  1
+        5    0 -1  0  0  1  1  0  0 -1
+
+
+
+     */
+
 
 }
