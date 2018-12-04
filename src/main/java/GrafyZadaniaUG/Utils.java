@@ -33,27 +33,6 @@ public class Utils {
         writer.close();
     }
 
-    public void readFromFile() throws IOException {    // Zapisuje do tablicy a nastepnie
-        try (Scanner br = new Scanner(new File(file))) {
-            int line;
-            liczbaWierzcholkow = br.nextInt();
-
-            for (int i = 0; i < liczbaWierzcholkow; i++) { // Liczba wierszy jest równa liczbie kolumn
-                for (int j = 0; j < liczbaWierzcholkow; j++) {
-                    macierzGrafu[i][j] = br.nextInt();
-                }
-            }
-        }
-    }
-
-    public void wyswietlTablice() {
-        for (int i = 0; i < liczbaWierzcholkow; i++) {
-            System.out.println("\n");
-            for (int j = 0; j < liczbaWierzcholkow; j++) {
-                System.out.printf(" " + macierzGrafu[i][j]);
-            }
-        }
-    }
 
     public void dodajWierzcholek() { // po przekątnej muszą być zawsze same zera -> wierzchołek nie może być połączony sam ze sobą
         // Dodając wierzchołek, powiekszamy zarówno liczbę wierszy i liczbę kolumn w pliku <- tak to ma działać.
@@ -210,15 +189,30 @@ public class Utils {
         licznik = 0;
     }
 
-    public void przeszukajWGlab() { // DFS
-// Trzeba wyeliminować ewentualnosc zapętlenia się algorytmu. Algorytm w przypadku grafu tworzącego cykle
-        // może wpadać w pętle, należy tego uniknać i zadbać by algorytm ogarniał ten temat
-        // Może należy stworzyć tablicę która sprawdzi czy wierzchołek został już odwiedzony, a może inaczej
-        // Parametr visited
-//Zaznaczamy bieżący wierzchołek jako odwiedzony. Przechodzimy do kolejnych sąsiadów wierzchołka bieżącego i
-// wykonujemy dla nich tą samą operację (tzn. zaznaczamy je jako odwiedzone i przechodzimy do ich sąsiadów).
-// Przechodzenie kończymy, gdy zostaną w ten sposób odwiedzone wszystkie dostępne wierzchołki.
+    public void wyswietlTablice() {
+        for (int i = 0; i < liczbaWierzcholkow; i++) {
+            System.out.println("\n");
+            for (int j = 0; j < liczbaWierzcholkow; j++) {
+                System.out.printf(" " + macierzGrafu[i][j]);
+            }
+        }
+    }
 
+    public void wyswietlMacierzIncydencji() {
+        for (int i = 0; i < liczbaWierzcholkow; i++) {
+            System.out.println("\n");
+            for (int j = 0; j < liczbaKrawedzi; j++) {
+                if (macierzIncydencji[i][j] < 0) {
+                    System.out.printf(""+macierzIncydencji[i][j]);
+                } else {
+
+                    System.out.printf(" " + macierzIncydencji[i][j]);
+                }
+            }
+        }
+    }
+
+    public void przeszukajWGlab() { // DFS  POWINNO BYc na podstawie macierzy incydencji!!
 
         boolean czyOdwiedzono[] = new boolean[Utils.liczbaWierzcholkow];
         for (int i = 0; i < czyOdwiedzono.length; i++) { // Zeruje stan
@@ -229,14 +223,14 @@ public class Utils {
         System.out.println(" 0");
 
         for (int i = 0; i < Utils.liczbaWierzcholkow; i++) {
-            for (int j = 0; j < Utils.liczbaWierzcholkow; j++) {
+            for (int j = 0; j < Utils.liczbaKrawedzi; j++) {
 
-                if (macierzGrafu[i][j] == 1) {
+                if (macierzIncydencji[i][j] == 1) {
 
-                    if (czyOdwiedzono[j] == false) {
+                    if (czyOdwiedzono[i] == false) {
 
-                        System.out.print(" " + j);
-                        czyOdwiedzono[j] = true;
+                        System.out.print(" " + i);
+                        czyOdwiedzono[i] = true;
                     }
                 }
             }
@@ -249,23 +243,40 @@ public class Utils {
 // 1  5  2  4  3
 // 0  1  5  2  4  3
 
+
+// 0
+// 2 3 4 5
+    }
+
+    public void readFromFile() throws IOException {    // Zapisuje do tablicy a nastepnie
+        try (Scanner br = new Scanner(new File(file))) {
+
+            liczbaWierzcholkow = br.nextInt();
+
+            for (int i = 0; i < liczbaWierzcholkow; i++) { // Liczba wierszy jest równa liczbie kolumn
+                for (int j = 0; j < liczbaWierzcholkow; j++) {
+                    macierzGrafu[i][j] = br.nextInt();
+                }
+            }
+        }
     }
 
     public void wczytajMacierzIncydencji() throws IOException {
         if (liczbaWierzcholkow == 0) {
-            System.out.println("(!) Wczytaj macierz na podstawie której ma być stworzona macierz incydencji!");
+            System.out.println("(!) Wczytaj macierz wierzchołkow na podstawie której ma być stworzona macierz incydencji!");
             return;
         }
 
         Scanner scan = new Scanner(System.in);
-
-        System.out.println("Ile macierz ma krawędzi?");
-        int liczbaKrawedzi = scan.nextInt();
+//
+//        System.out.println("Ile macierz ma krawędzi?");
+//        liczbaKrawedzi = scan.nextInt();
+//        System.out.println("liczba krawedzi to " + liczbaKrawedzi);
 
 
         try (Scanner br = new Scanner(new File(fileMacierzIncydencji))) {
-            int line;
-            liczbaWierzcholkow = br.nextInt();
+
+            liczbaKrawedzi = br.nextInt();
 
             for (int i = 0; i < liczbaWierzcholkow; i++) {
                 for (int j = 0; j < liczbaKrawedzi; j++) {
@@ -276,7 +287,10 @@ public class Utils {
         }
     }
 
-    /*
+
+
+
+        /*
             E1 E2 E3 E4 E5 E6 E7 E8 E9
         0    1  1  0  0  0  0  0  0  0
         1   -1  0 -1 -1 -1  0  0  0  0
@@ -284,10 +298,6 @@ public class Utils {
         3    0  0  0  0  0  0 -1  1  0
         4    0  0  0  1  0  0  0 -1  1
         5    0 -1  0  0  1  1  0  0 -1
-
-
-
      */
-
 
 }

@@ -40,7 +40,7 @@ public class Main {
 
         do {
             System.out.println("\nMenu:\n" +
-                    "[1]Wczytaj graf            [6]Wyczysc macierz              [11] ---------          [16] ---------\n" +
+                    "[1]Wczytaj graf            [6]Wyczysc macierz              [11]Wyśw. m.incydencji  [16] ---------\n" +
                     "[2]Wyswietl graf           [7]Stopnie wierzchołka          [12] ---------          [17] ---------\n" +
                     "[3]Liczba wierzcholków     [8]Znajdz podgraf(naiwnie)      [13] ---------          [18] ---------\n" +
                     "[4]Dodaj wierzcholek       [9]Przeszukuj w głąb - DFS      [14] ---------          [19] ---------\n" +
@@ -76,6 +76,9 @@ public class Main {
             }
             if (zKlawiatury.equals("10")) {
                 utils.wczytajMacierzIncydencji();
+            }
+            if (zKlawiatury.equals("11")) {
+                utils.wyswietlMacierzIncydencji();
             }
 
 
