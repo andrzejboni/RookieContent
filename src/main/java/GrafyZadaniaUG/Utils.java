@@ -17,6 +17,7 @@ public class Utils {
     public static List<Integer> stopien = new ArrayList<>();
     public static int[][] macierzIncydencji = new int[Utils.liczbaWierzcholkow + 50][Utils.liczbaWierzcholkow + 50];
     public static int liczbaKrawedzi;
+    public static int liczbaWierzcholkowMacierzIncyd;
 
     // pierwsza linia oznacza ilosc wierzcholkow czy tam krawedzi
     // biblioteka matrix do mnozenia macierzy albo cos
@@ -62,7 +63,7 @@ public class Utils {
 
     public void modyfikujKrawedz() {
 
-        System.out.println("Podaj ciąg znaków do edytowania krawędzi, wzór: x y 1 ");
+        System.out.println("Podaj ciąg znaków do edytowania wierzchołka, wzór: x y 1 ");
         Scanner zKlawiatury = new Scanner(System.in);
         String linia = zKlawiatury.nextLine();  // wpisuje mu linie
         String[] tablicaZnakowPionow = linia.split(" "); // robie z tego tablice, spoko
@@ -199,11 +200,11 @@ public class Utils {
     }
 
     public void wyswietlMacierzIncydencji() {
-        for (int i = 0; i < liczbaWierzcholkow; i++) {
+        for (int i = 0; i < liczbaWierzcholkowMacierzIncyd; i++) {
             System.out.println("\n");
             for (int j = 0; j < liczbaKrawedzi; j++) {
                 if (macierzIncydencji[i][j] < 0) {
-                    System.out.printf(""+macierzIncydencji[i][j]);
+                    System.out.printf("" + macierzIncydencji[i][j]);
                 } else {
 
                     System.out.printf(" " + macierzIncydencji[i][j]);
@@ -214,20 +215,23 @@ public class Utils {
 
     public void przeszukajWGlab() { // DFS  POWINNO BYc na podstawie macierzy incydencji!!
 
-        boolean czyOdwiedzono[] = new boolean[Utils.liczbaWierzcholkow];
+        System.out.println("Liczba wierzchołkow: " + liczbaWierzcholkowMacierzIncyd);
+        System.out.println("Liczba krawedzi: " + liczbaKrawedzi);
+
+        boolean czyOdwiedzono[] = new boolean[Utils.liczbaWierzcholkowMacierzIncyd];
         for (int i = 0; i < czyOdwiedzono.length; i++) { // Zeruje stan
             czyOdwiedzono[i] = false;
         }
+//
+//        czyOdwiedzono[0] = true;
+//        System.out.print(" 0");
 
-        czyOdwiedzono[0] = true;
-        System.out.println(" 0");
-
-        for (int i = 0; i < Utils.liczbaWierzcholkow; i++) {
+        for (int i = 0; i < Utils.liczbaWierzcholkowMacierzIncyd; i++) {
             for (int j = 0; j < Utils.liczbaKrawedzi; j++) {
 
-                if (macierzIncydencji[i][j] == 1) {
+                if (macierzIncydencji[i][j] >= 1) {
 
-                    if (czyOdwiedzono[i] == false) {
+                    if (! czyOdwiedzono[i] ) {
 
                         System.out.print(" " + i);
                         czyOdwiedzono[i] = true;
@@ -237,15 +241,33 @@ public class Utils {
         }
 
 
+
+
+// Poprawna sciezka dla recznie przepisanej macierzy
 // v0 v1 v5 v2 v3 v4
 
-// 1  5  0  2  4  3
-// 1  5  2  4  3
-// 0  1  5  2  4  3
+
+// Macierz przepisana ręcznie moga być ew. błedy
+//        6 9
+//        1  1  0  0  0  0  0  0  0
+//       -1  0 -1 -1 -1  0  0  0  0
+//        0  0  1  0  0 -1  1  0  0
+//        0  0  0  0  0  0 -1  1  0
+//        0  0  0  1  0  0  0 -1  1
+//        0 -1  0  0  1  1  0  0 -1
+
+//// Przykład a)
+//        1	0	0  -1	0	0
+//       -1	1	0	0  -1	0
+//        0  -1	1	0	0	0
+//        0	0  -1	1	0	1
+//        0	0	0	0	1  -1
 
 
-// 0
-// 2 3 4 5
+        // Przyklad b)
+/
+
+
     }
 
     public void readFromFile() throws IOException {    // Zapisuje do tablicy a nastepnie
@@ -262,10 +284,8 @@ public class Utils {
     }
 
     public void wczytajMacierzIncydencji() throws IOException {
-        if (liczbaWierzcholkow == 0) {
-            System.out.println("(!) Wczytaj macierz wierzchołkow na podstawie której ma być stworzona macierz incydencji!");
-            return;
-        }
+
+
 
         Scanner scan = new Scanner(System.in);
 //
@@ -276,9 +296,10 @@ public class Utils {
 
         try (Scanner br = new Scanner(new File(fileMacierzIncydencji))) {
 
+            liczbaWierzcholkowMacierzIncyd = br.nextInt();
             liczbaKrawedzi = br.nextInt();
 
-            for (int i = 0; i < liczbaWierzcholkow; i++) {
+            for (int i = 0; i < liczbaWierzcholkowMacierzIncyd; i++) {
                 for (int j = 0; j < liczbaKrawedzi; j++) {
                     macierzIncydencji[i][j] = br.nextInt();
                 }
@@ -286,6 +307,33 @@ public class Utils {
             br.close();
         }
     }
+
+
+    public void modyfikujKrawedzDoMacierzyIncydencji() {
+        if (liczbaWierzcholkow == 0) {
+            System.out.println("(!) Wczytaj najpierw macierz wierzchołkow!");
+            return;
+        }
+
+        Scanner scan = new Scanner(System.in);
+
+
+        System.out.println("Ile krawędzi chcesz edytować?");
+        liczbaKrawedzi = scan.nextInt();
+//
+
+        System.out.println("Podaj ciąg znaków do dodania krawędzi, wzór: x y 1 ");
+        for (int i = 0; i < liczbaKrawedzi; i++) {
+
+            String linia = scan.nextLine();  // wpisuje mu linie
+            String[] tablicaZnakowPionow = linia.split(" "); // robie z tego tablice, spoko
+            macierzIncydencji[Integer.parseInt(tablicaZnakowPionow[0])][Integer.parseInt(tablicaZnakowPionow[1])] = Integer.parseInt(tablicaZnakowPionow[2]);
+            System.out.println("Dodano połączenie ");
+        }
+
+    }
+
+
 
 
 
