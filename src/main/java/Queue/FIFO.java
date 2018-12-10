@@ -12,6 +12,8 @@ public class FIFO {
 
         //najpopularniejsza implementacja kolejki FIFO to LinkedLista, KOLEJKA DO LEKARZA
         Queue<String> queue = new LinkedList<>();
+
+
         //dodajemy elementy metoda add()
         queue.add("1");
         queue.add("2");

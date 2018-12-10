@@ -228,39 +228,96 @@ public class Utils {
 
         czyOdwiedzono[0] = true;
         System.out.print(" 0");
-      //  for (int k = 0; k < liczbaWierzcholkowMacierzIncyd; k++) { // Jesli nie przeszedł wszystkich krawedzi to przechodzi je dla pewnosci jeszcze raz !
+        //  for (int k = 0; k < liczbaWierzcholkowMacierzIncyd; k++) { // Jesli nie przeszedł wszystkich krawedzi to przechodzi je dla pewnosci jeszcze raz !
 
 
-            for (int i = 0; i < Utils.liczbaWierzcholkowMacierzIncyd; i++) {
+        for (int i = 0; i < Utils.liczbaWierzcholkowMacierzIncyd; i++) {
 
-                int licznik2 = 0; // licznik nie pozwalający przechodzić wiecej niz jedngo wierzchołka w za pierwszym razem
+            int licznik2 = 0; // licznik nie pozwalający przechodzić wiecej niz jedngo wierzchołka w za pierwszym razem
 
-                for (int j = 0; j < Utils.liczbaKrawedzi; j++) {
+            for (int j = 0; j < Utils.liczbaKrawedzi; j++) {
 
 
-                    if (licznik2 == 0) { // Licznik ten pozwala odwiedzić tylko jeden wierzchołek w jednym przebiegu pętli
-                        if (macierzIncydencji[i][j] >= 1) {
+                if (licznik2 == 0) { // Licznik ten pozwala odwiedzić tylko jeden wierzchołek w jednym przebiegu pętli
+                    if (macierzIncydencji[i][j] >= 1) {
 
-                            if (!czyOdwiedzono[i]) {
-                                System.out.print(" " + i);
-                                czyOdwiedzono[i] = true;
-                                licznik2++;
-                            }
+                        if (!czyOdwiedzono[i]) {
+                            System.out.print(" " + i);
+                            czyOdwiedzono[i] = true;
+                            licznik2++;
                         }
                     }
                 }
             }
-    //    }
-
-        // TODO Przekiwanie w głąb  Opis działania:
-        // Wchodze do pierwszego wierzchołka. Biorę dane, do jakich wierzchołków mam dostęp z wierzchołka w którym jestem
-        // Idę do niego, sprawdzam czy bł juz odwiedzony, jeśli nie zaznaczam obecnośc, i sprawdzam czy ma jakies inne do odwiesdzenia
-        // jesli nie sprawsdzam czy z poprzeniego moge gdzies pojsc jeszcze. Jeśli nie sprawdzam dalej <- aż do momentu dojscia do wierzcholka poczatkoweog.
-        // Rozwiazazanie ewentualnosci pętli w wierzcholku-> jesli wierzcholek ma pętle która prawsdzi do samej siebie, blokujemy.
-        // Ta linijka do dodania w metodzie sprawdz czy graf jest spójny : Na koncu sprawdzamy czy liczba  odwiesdzonych wierzchołkow jest równa ilosci posiadanych
-        // przez graf wierzcholkow.
+        }
+    }
 
 
+    // TODO Przekiwanie w głąb  Opis działania:
+    // Wchodze do pierwszego wierzchołka. Biorę dane, do jakich wierzchołków mam dostęp z wierzchołka w którym jestem
+    // Idę do niego, sprawdzam czy bł juz odwiedzony, jeśli nie zaznaczam obecnośc, i sprawdzam czy ma jakies inne do odwiesdzenia
+    // jesli nie sprawsdzam czy z poprzeniego moge gdzies pojsc jeszcze. Jeśli nie sprawdzam dalej <- aż do momentu dojscia do wierzcholka poczatkoweog.
+    // Jeśli dojde do początkowego i w żadnym następnym nie mam nic do odwiedzenia, to znaczy że albo odwiedziłem wszystkie wierzhcołki, albo graf jest niespójny,
+    // albo nie ma dojscia do niego no nie wiem.
+    // Rozwiazazanie ewentualnosci pętli w wierzcholku-> jesli wierzcholek ma pętle która prawsdzi do samej siebie, blokujemy.
+    // Ta linijka do dodania w metodzie sprawdz czy graf jest spójny : Na koncu sprawdzamy czy liczba  odwiesdzonych wierzchołkow jest równa ilosci posiadanych
+    // przez graf wierzcholkow.
+
+    public void przeszukajWGlabDRUGIE_PODEJSCIE() { // DFS  POWINNO BYc na podstawie macierzy incydencji!!
+        System.out.println("Liczba wierzchołkow: " + liczbaWierzcholkowMacierzIncyd);
+        System.out.println("Liczba krawedzi: " + liczbaKrawedzi);
+
+        boolean czyOdwiedzono[] = new boolean[Utils.liczbaWierzcholkowMacierzIncyd];
+        for (int i = 0; i < czyOdwiedzono.length; i++) { // Zeruje stan
+            czyOdwiedzono[i] = false;
+        }
+        czyOdwiedzono[0] = true; // Ustawiam wierzchołek poczatkowy na true;
+//        System.out.print(" 0");
+
+
+        Queue<Integer> listaOdwiedzonych = new LinkedList<>(); // Jedna dla całego grafu!
+
+        //dodajemy elementy metoda add()
+//        queue.add(1);
+
+
+        for (int i = 0; i < liczbaWierzcholkowMacierzIncyd; i++) {
+
+            Queue<Integer> nastepnyWierzcholek = new LinkedList<>(); // indywidualna dla każdego wierzchołka
+
+            for (int j = 0; j < liczbaKrawedzi; j++) {
+
+                if (macierzIncydencji[i][j] == 1) { // Wierzchołek ma połączenie wychodzące! IDĘ TAM GDZIE TA KRAWĘDŹ WCHODZI (SZUKAM -1)
+
+                    nastepnyWierzcholek.add(j);
+
+                    for (int k = 0; k < liczbaWierzcholkowMacierzIncyd; k++) { // Szukam pionowo -1 by znaleźć gdzie krawędź wchodzi
+                        if (macierzIncydencji[i][k] == -1) {
+                            if (!czyOdwiedzono[j]) {  // Jeśli nie jest odwiedzony, zmieniam wartość na true, dodaje do kolejki.
+                                czyOdwiedzono[k] = true;
+                                listaOdwiedzonych.add(k);
+                            }
+                        }
+                    }
+                }
+
+                // Poniżej odiwedzam nasepny wierzchołek !!!
+
+
+
+
+
+
+
+
+            }
+
+        }
+
+
+        System.out.println("Lista odwiedzonych wierzchołkow: \n" + listaOdwiedzonych);
+
+    }
 
 
 //
@@ -288,7 +345,6 @@ public class Utils {
 //                // Nastepenie zajmę sie sytuacja w której wierzhcołek ma połączenie wielokrotne (pętla)
 //
 //            }
-    }
 
 
 // Poprawna sciezka dla recznie przepisanej macierzy
@@ -418,11 +474,11 @@ Jeśli liczba ta będzie równa liczbie wierzchołków grafu, to graf jest spój
             }
         }
         if (licznik == liczbaWierzcholkowMacierzIncyd) {
-            System.out.println(licznik +  "  " + liczbaWierzcholkow);
+            System.out.println(licznik + "  " + liczbaWierzcholkow);
             System.out.println("\n  Graf jest spójny");
         } else {
             System.out.println("\n Graf nie jest spójny.");
-            System.out.println(licznik +  "  " + liczbaWierzcholkow);
+            System.out.println(licznik + "  " + liczbaWierzcholkow);
 
         }
 
