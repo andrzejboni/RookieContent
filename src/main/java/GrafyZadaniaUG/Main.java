@@ -72,7 +72,7 @@ public class Main {
                 utils.podgrafIzomofricznydoC3();
             }
             if (zKlawiatury.equals("9")) {
-                utils.DFS();
+                utils.DFS(0);
             }
             if (zKlawiatury.equals("10")) {
                 utils.wczytajMacierzIncydencji();

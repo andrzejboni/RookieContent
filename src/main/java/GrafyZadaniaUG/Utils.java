@@ -52,13 +52,6 @@ public class Utils {
         for (int i = 0; i < liczbaWierzcholkow; i++) {
             macierzGrafu[i][liczbaWierzcholkow] = Integer.parseInt(tablicaZnakowPionow[i]);
             macierzGrafu[liczbaWierzcholkow][i] = Integer.parseInt(tablicaZnakowPionow[i]);
-//        }
-//        System.out.println("\nWpisz połączenia wierzchołka poziomo \nDodajesz: " + (liczbaWierzcholkow + 1) + " wierzchołek.");
-//        linia = zKlawiatury.nextLine();  // wpisuje mu linie
-//        String tablicaZnakowPoziomo[] = linia.split(" "); // robie z tego tablice, spoko
-//
-//        for (int i = 0; i < liczbaWierzcholkow; i++) {
-//            macierzGrafu[liczbaWierzcholkow][i] = Integer.parseInt(tablicaZnakowPoziomo[i]);
         }
         liczbaWierzcholkow += 1;
     }
@@ -154,18 +147,9 @@ public class Utils {
     public void podgrafIzomofricznydoC3() {
 
         Map<Integer, List<Integer>> map = new HashMap<>();
-//        map.put(1, new ArrayList<Integer>(Arrays.asList(1,2,3)));
-
-
         for (int i = 0; i < liczbaWierzcholkow; i++) { // Tworzę tyle list ile mam wierzchołków nie wiem czy to do końća potrzebne
             map.put(i, new ArrayList<Integer>());
         }
-
-//        map.get(1).add(1);
-//        System.out.println(" 1. "+  map.get(1).add(1));
-//        System.out.println(" 1. "+  map.get(1).add(5));
-//        System.out.println(map.get(1).get(0)+ map.get(1).get(1));
-
 
         for (int i = 0; i < liczbaWierzcholkow; i++) { // sprawdz i zapisz do lisy nr wierzchołka który ma połączenie z danym wierzchołkiem
             for (int j = 0; j < liczbaWierzcholkow; j++) { // przetestowane działa
@@ -216,262 +200,6 @@ public class Utils {
         }
     }
 
-    public void przeszukajWGlab() { //   POWINNO BYc na podstawie macierzy incydencji!!
-
-
-        System.out.println("Liczba wierzchołkow: " + liczbaWierzcholkowMacierzIncyd);
-        System.out.println("Liczba krawedzi: " + liczbaKrawedzi);
-
-        int licznik = 0;
-
-        boolean czyOdwiedzono[] = new boolean[Utils.liczbaWierzcholkowMacierzIncyd];
-        for (int i = 0; i < czyOdwiedzono.length; i++) { // Zeruje stan
-            czyOdwiedzono[i] = false;
-        }
-
-        czyOdwiedzono[0] = true;
-        System.out.print(" 0");
-        //  for (int k = 0; k < liczbaWierzcholkowMacierzIncyd; k++) { // Jesli nie przeszedł wszystkich krawedzi to przechodzi je dla pewnosci jeszcze raz !
-
-
-        for (int i = 0; i < Utils.liczbaWierzcholkowMacierzIncyd; i++) {
-
-            int licznik2 = 0; // licznik nie pozwalający przechodzić wiecej niz jedngo wierzchołka w za pierwszym razem
-
-            for (int j = 0; j < Utils.liczbaKrawedzi; j++) {
-
-
-                if (licznik2 == 0) { // Licznik ten pozwala odwiedzić tylko jeden wierzchołek w jednym przebiegu pętli
-                    if (macierzIncydencji[i][j] >= 1) {
-
-                        if (!czyOdwiedzono[i]) {
-                            System.out.print(" " + i);
-                            czyOdwiedzono[i] = true;
-                            licznik2++;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-
-    // TODO Przekiwanie w głąb  Opis działania:
-    // Wchodze do pierwszego wierzchołka. Biorę dane, do jakich wierzchołków mam dostęp z wierzchołka w którym jestem
-    // Idę do niego, sprawdzam czy bł juz odwiedzony, jeśli nie zaznaczam obecnośc, i sprawdzam czy ma jakies inne do odwiesdzenia
-    // jesli nie sprawsdzam czy z poprzeniego moge gdzies pojsc jeszcze. Jeśli nie sprawdzam dalej <- aż do momentu dojscia do wierzcholka poczatkoweog.
-    // Jeśli dojde do początkowego i w żadnym następnym nie mam nic do odwiedzenia, to znaczy że albo odwiedziłem wszystkie wierzhcołki, albo graf jest niespójny,
-    // albo nie ma dojscia do niego no nie wiem.
-    // Rozwiazazanie ewentualnosci pętli w wierzcholku-> jesli wierzcholek ma pętle która prawsdzi do samej siebie, blokujemy.
-    // Ta linijka do dodania w metodzie sprawdz czy graf jest spójny : Na koncu sprawdzamy czy liczba  odwiesdzonych wierzchołkow jest równa ilosci posiadanych
-    // przez graf wierzcholkow.
-
-    public void przeszukajWGlabDRUGIE_PODEJSCIE() { // POWINNO BYc na podstawie macierzy incydencji!!
-        System.out.println("Liczba wierzchołkow: " + liczbaWierzcholkowMacierzIncyd);
-        System.out.println("Liczba krawedzi: " + liczbaKrawedzi);
-
-        boolean czyOdwiedzono[] = new boolean[Utils.liczbaWierzcholkowMacierzIncyd];
-        for (int i = 0; i < czyOdwiedzono.length; i++) { // Zeruje stan
-            czyOdwiedzono[i] = false;
-        }
-        czyOdwiedzono[0] = true; // Ustawiam wierzchołek poczatkowy na true;
-//        System.out.print(" 0");
-
-
-        Queue<Integer> listaOdwiedzonych = new LinkedList<>(); // Jedna dla całego grafu!
-
-        //dodajemy elementy metoda add()
-//        queue.add(1);
-
-
-        for (int i = 0; i < liczbaWierzcholkowMacierzIncyd; i++) {
-
-            Queue<Integer> nastepnyWierzcholek = new LinkedList<>(); // indywidualna dla każdego wierzchołka
-
-            for (int j = 0; j < liczbaKrawedzi; j++) {
-
-                if (macierzIncydencji[i][j] == 1) { // Wierzchołek ma połączenie wychodzące! IDĘ TAM GDZIE TA KRAWĘDŹ WCHODZI (SZUKAM -1)
-
-                    nastepnyWierzcholek.add(j);
-
-                    for (int k = 0; k < liczbaWierzcholkowMacierzIncyd; k++) { // Szukam pionowo -1 by znaleźć gdzie krawędź wchodzi
-                        if (macierzIncydencji[i][k] == -1) {
-                            if (!czyOdwiedzono[j]) {  // Jeśli nie jest odwiedzony, zmieniam wartość na true, dodaje do kolejki.
-                                czyOdwiedzono[k] = true;
-                                listaOdwiedzonych.add(k);
-                            }
-                        }
-                    }
-                }
-
-                // Poniżej odiwedzam nasepny wierzchołek !!!
-
-            }
-
-        }
-
-
-        System.out.println("Lista odwiedzonych wierzchołkow: \n" + listaOdwiedzonych);
-
-    }
-
-    /*
-    Zastanawiam sie teraz, czy można by to zrobic jeszcze inaczej. To znaczy: Wchodze do wierzchołka nr 0, robię wszystkie akcje prawidłowe
-    dla tego wierzchołka to znaczy:
-    0. Zaznaczam wierzchołek jako owiedzony
-    1. Przechodze po połączeniach dla wierzchołka. Połączenia wychodzące dodaje do kolejki
-    2. Przechodzę do pierwszego wierzchoła z kolejki (niezaleznie który to jest wierzchołek)
-    3. powtarzam krok 0, następnie krok 1 i 2.
-    4. jeśli wszystkie wierzchołki okaża się być odwiedzone, cofam się do poprzedniego wierzchołka i wykonuje kroki od 1
-
-
-    Albo inaczej, wchodze w głąb tego grafu zgodnie z definicją algorytmu.
-    0. Przechodze po połączeniach dla wierzchołka.
-    1. wchodze w pierwszą wychodzącą krawedz,
-    2. powtarzam kroki od 0 do 1 do momentu kiedy wierzchołek nie ma żadnych połączeń wychodzących.
-    3. zaznaczam ostatni (krańcowy wierzchołek) za odwiedzony
-    4. cofam sie do poprzedniego wierzchołka
-    5. wykonuje kroki od 1.
-
-     */
-
-
-    public void przeszukajWGlab_TrzeciePodejscie() {
-        System.out.println("Liczba wierzchołkow: " + liczbaWierzcholkowMacierzIncyd);
-        System.out.println("Liczba krawedzi: " + liczbaKrawedzi);
-
-        boolean czyOdwiedzono[] = new boolean[Utils.liczbaWierzcholkowMacierzIncyd];
-        for (int i = 0; i < czyOdwiedzono.length; i++) { // Zeruje stan
-            czyOdwiedzono[i] = false;
-        }
-        czyOdwiedzono[0] = true; // Ustawiam wierzchołek poczatkowy na true;
-//        System.out.print(" 0");
-
-
-        Queue<Integer> listaOdwiedzonych = new LinkedList<>(); // Jedna dla całego grafu!
-
-
-        System.out.println();
-
-        for (int i = 0; i < liczbaWierzcholkowMacierzIncyd; i++) {
-            for (int j = 0; j < liczbaKrawedzi; j++) {
-                if (macierzIncydencji[i][j] == 1) { // Wierzchołek ma połączenie wychodzące! IDĘ TAM GDZIE TA KRAWĘDŹ WCHODZI (SZUKAM -1)
-                    for (int k = 0; k < liczbaWierzcholkowMacierzIncyd; k++) { // Szukam pionowo -1 by znaleźć gdzie krawędź wchodzi
-                        if (macierzIncydencji[i][k] == -1) {
-                            for (int l = 0; l < liczbaKrawedzi; l++) {
-                            }
-                            if (!czyOdwiedzono[j]) {  // Jeśli nie jest odwiedzony, zmieniam wartość na true, dodaje do kolejki.
-                                czyOdwiedzono[k] = true;
-                                listaOdwiedzonych.add(k);
-                            }
-                        }
-                    }
-                }
-                // Poniżej odiwedzam nasepny wierzchołek !!!
-                System.out.println();
-            }
-        }
-        System.out.println("Lista odwiedzonych wierzchołkow: \n" + listaOdwiedzonych);
-    }
-
-    public void wyzerujTablice() {
-
-        for (int i = 0; i < czyOdwiedzono.length; i++) { // Zeruje stan
-            czyOdwiedzono[i] = false;
-        }
-    }
-
-    public int odwiedzWierzcholek(int licznik) {
-
-        czyOdwiedzono[licznik] = true;
-        System.out.println(" v" + licznik);
-        for (int j = 0; j < liczbaKrawedzi; j++) {
-            if (macierzIncydencji[licznik][j] == 1) {
-
-                for (int i = 0; i < liczbaWierzcholkowMacierzIncyd; i++) {
-                    if (macierzIncydencji[i][j] == -1) {
-                        System.out.println("Znalazłem -1");
-                        if (czyOdwiedzono[i] = false) {
-                            System.out.println("znalazłem nieodwiedzone -1");
-                            return odwiedzWierzcholek(j);
-                        }
-                    }
-                }
-
-            }
-        }
-        return 9999;
-    }
-
-    public void DFS() {
-
-        for (int i = 0; i < czyOdwiedzono.length ; i++) { // Zeruje stan
-            czyOdwiedzono[i] = false;
-        }
-        for (int i = 0; i < czyOdwiedzono.length ; i++) { // Zeruje stan
-
-            if (!czyOdwiedzono[i]) {
-                System.out.println("Wchodze");
-                odwiedzWierzcholek(i);
-                System.out.println("Wyszedł");
-            }
-        }
-    }
-
-
-//    public static int randomNumber(int min, int max) {
-//
-//        Random random = new Random();
-//        int temp = random.nextInt((max - min) + 1) + min;
-//
-//        if (temp > max || temp < 0) {
-//            return randomNumber(min, max);
-//        }
-//
-//        return temp;
-//    }
-
-
-
-
-/*
-   function VisitNode(u):
-       oznacz u jako odwiedzony
-       dla każdego wierzchołka v na liście sąsiedztwa u:
-           jeżeli v nieodwiedzony:
-               VisitNode(v)
-   function DepthFirstSearch(Graf G):
-       dla każdego wierzchołka u z grafu G:
-           oznacz u jako nieodwiedzony
-       dla każdego wierzchołka u z grafu G:
-           jeżeli u nieodwiedzony:
-               VisitNode(u)
- */
-
-
-// Poprawna sciezka dla recznie przepisanej macierzy
-// v0 v1 v5 v2 v3 v4
-
-
-// Macierz przepisana ręcznie moga być ew. błedy
-//        6 9
-//        1  1  0  0  0  0  0  0  0
-//       -1  0 -1 -1 -1  0  0  0  0
-//        0  0  1  0  0 -1  1  0  0
-//        0  0  0  0  0  0 -1  1  0
-//        0  0  0  1  0  0  0 -1  1
-//        0 -1  0  0  1  1  0  0 -1
-
-//// Przykład a)
-//        1	0	0  -1	0	0
-//       -1	1	0	0  -1	0
-//        0  -1	1	0	0	0
-//        0	0  -1	1	0	1
-//        0	0	0	0	1  -1
-
-
-    // Przyklad b)
-
 
     public void readFromFile() throws IOException {    // Zapisuje do tablicy a nastepnie
         try (Scanner br = new Scanner(new File(file))) {
@@ -490,10 +218,6 @@ public class Utils {
 
 
         Scanner scan = new Scanner(System.in);
-//
-//        System.out.println("Ile macierz ma krawędzi?");
-//        liczbaKrawedzi = scan.nextInt();
-//        System.out.println("liczba krawedzi to " + liczbaKrawedzi);
 
 
         try (Scanner br = new Scanner(new File(fileMacierzIncydencji))) {
@@ -590,38 +314,91 @@ Jeśli liczba ta będzie równa liczbie wierzchołków grafu, to graf jest spój
 
     }
 
-        /*
-            E1 E2 E3 E4 E5 E6 E7 E8 E9
-        0    1  1  0  0  0  0  0  0  0
-        1   -1  0 -1 -1 -1  0  0  0  0
-        2    0  0  1  0  0 -1  1  0  0
-        3    0  0  0  0  0  0 -1  1  0
-        4    0  0  0  1  0  0  0 -1  1
-        5    0 -1  0  0  1  1  0  0 -1
-     */
-}
-/*  DOBRZE NAPISANA METODA.
-        boolean czyOdwiedzono[] = new boolean[Utils.liczbaWierzcholkow];
+
+    public void przeszukajWGlab_TrzeciePodejscie() {
+        System.out.println("Liczba wierzchołkow: " + liczbaWierzcholkowMacierzIncyd);
+        System.out.println("Liczba krawedzi: " + liczbaKrawedzi);
+
+        boolean czyOdwiedzono[] = new boolean[Utils.liczbaWierzcholkowMacierzIncyd];
+        for (int i = 0; i < czyOdwiedzono.length; i++) { // Zeruje stan
+            czyOdwiedzono[i] = false;
+        }
+        czyOdwiedzono[0] = true; // Ustawiam wierzchołek poczatkowy na true;
+
+
+        Queue<Integer> listaOdwiedzonych = new LinkedList<>(); // Jedna dla całego grafu!
+
+
+        System.out.println();
+
+        for (int i = 0; i < liczbaWierzcholkowMacierzIncyd; i++) {
+            for (int j = 0; j < liczbaKrawedzi; j++) {
+                if (macierzIncydencji[i][j] == 1) { // Wierzchołek ma połączenie wychodzące! IDĘ TAM GDZIE TA KRAWĘDŹ WCHODZI (SZUKAM -1)
+                    for (int k = 0; k < liczbaWierzcholkowMacierzIncyd; k++) { // Szukam pionowo -1 by znaleźć gdzie krawędź wchodzi
+                        if (macierzIncydencji[i][k] == -1) {
+                            for (int l = 0; l < liczbaKrawedzi; l++) {
+                            }
+                            if (!czyOdwiedzono[j]) {  // Jeśli nie jest odwiedzony, zmieniam wartość na true, dodaje do kolejki.
+                                czyOdwiedzono[k] = true;
+                                listaOdwiedzonych.add(k);
+                            }
+                        }
+                    }
+                }
+                // Poniżej odiwedzam nasepny wierzchołek !!!
+                System.out.println();
+            }
+        }
+        System.out.println("Lista odwiedzonych wierzchołkow: \n" + listaOdwiedzonych);
+    }
+
+//
+//    Algorytm rekurencyjny DFS dla macierzy incydencji: DFS(v)
+//    Wejście
+//    n	 – 	liczba wierzchołków, n   C
+//    m	 – 	liczba krawędzi, m   C
+//    v	 – 	numer wierzchołka startowego, v   C
+//    visited	 – 	n-elementowa tablica logiczna z informacją o odwiedzonych wierzchołkach
+//    A	 – 	macierz incydencji o rozmiarze n x m
+//    Wyjście:
+//    Przetworzenie wszystkich wierzchołków w grafie.
+//    Elementy pomocnicze:
+//    i,j	 – 	indeksy. i,j   C
+//    Lista kroków:
+//    K01:	visited[v] ← true	; odwiedź wierzchołek
+//    K02:	Przetwórz wierzchołek v	; przetwarzanie wstępne
+//    K03:	Dla i = 0,1,...,m-1: wykonuj K04...K08	; przeszukujemy kolejne krawędzie
+//   K04:	    Jeśli A[v][i] ≠ 1, to następny obieg pętli K03	; szukamy krawędzi, dla której v jest wierzchołkiem startowym
+//    K05:	    Dla j = 0,1,...,n-1: wykonuj K06...K08
+//    K06:	        Jeśli A[j][i] ≠ -1. to następny obieg pętli K05	; szukamy wierzchołka końcowego
+//    K07:	        Jeśli visited[j] = false, to DFS(j)	; rekurencyjnie odwiedzamy znalezionego sąsiada
+//   K08:	        Następny obieg pętli K03	; kontynuujemy szukanie dalszych sąsiadów
+//    K09:	Przetwórz wierzchołek v	; przetwarzanie końcowe
+//    K10:	Zakończ
+
+
+    public int DFS(int numerWierzcholkaStartowego) {
+        Utils.czyOdwiedzono = new boolean[Utils.liczbaWierzcholkowMacierzIncyd];
         for (int i = 0; i < czyOdwiedzono.length; i++) { // Zeruje stan
             czyOdwiedzono[i] = false;
         }
 
-        czyOdwiedzono[0] = true;
-        System.out.println(" 0");
+        czyOdwiedzono[numerWierzcholkaStartowego] = true;
+        System.out.println(numerWierzcholkaStartowego + " ");
+        for (int i = 0; i < liczbaKrawedzi - 1; i++) {
+            if (macierzIncydencji[numerWierzcholkaStartowego][i] == 1) {
+                for (int j = 0; j < liczbaWierzcholkowMacierzIncyd - 1; j++) {
+                    if (macierzIncydencji[j][i] == 1) {
+                        if (czyOdwiedzono[j] == false) {
+                            return DFS(j);
+                        }
 
-        for (int i = 0; i < Utils.liczbaWierzcholkow; i++) {
-            for (int j = 0; j < Utils.liczbaWierzcholkow; j++) {
-
-                if (macierzGrafu[i][j] == 1) {
-
-                    if (czyOdwiedzono[j] == false) {
-
-                        System.out.print(" " + j);
-                        czyOdwiedzono[j] = true;
                     }
                 }
             }
         }
+        return 99999;
+    }
 
 
- */
+}

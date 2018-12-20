@@ -1,0 +1,26 @@
+Algorytm rekurencyjny DFS dla macierzy incydencji: DFS(v)
+Wejście
+n	 – 	liczba wierzchołków, n   C
+m	 – 	liczba krawędzi, m   C
+v	 – 	numer wierzchołka startowego, v   C
+visited	 – 	n-elementowa tablica logiczna z informacją o odwiedzonych wierzchołkach
+A	 – 	macierz incydencji o rozmiarze n x m
+Wyjście:
+Przetworzenie wszystkich wierzchołków w grafie.
+Elementy pomocnicze:
+i,j	 – 	indeksy. i,j   C
+Lista kroków:
+K01:	visited[v] ← true	; odwiedź wierzchołek
+K02:	Przetwórz wierzchołek v	; przetwarzanie wstępne
+K03:	Dla i = 0,1,...,m-1: wykonuj K04...K08	; przeszukujemy kolejne krawędzie
+K04:	    Jeśli A[v][i] ≠ 1, to następny obieg pętli K03	; szukamy krawędzi, dla której v jest wierzchołkiem startowym
+K05:	    Dla j = 0,1,...,n-1: wykonuj K06...K08
+K06:	        Jeśli A[j][i] ≠ -1. to następny obieg pętli K05	; szukamy wierzchołka końcowego
+K07:	        Jeśli visited[j] = false, to DFS(j)	; rekurencyjnie odwiedzamy znalezionego sąsiada
+K08:	        Następny obieg pętli K03	; kontynuujemy szukanie dalszych sąsiadów
+K09:	Przetwórz wierzchołek v	; przetwarzanie końcowe
+K10:	Zakończ
+
+
+Zwróć uwagę, że reprezentacja grafu macierzą incydencji nie jest wygodna dla algorytmu DFS.
+
