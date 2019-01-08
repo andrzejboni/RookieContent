@@ -40,18 +40,18 @@ public class Main {
 
         do {
             System.out.println("\nMenu:\n" +
-                    "[1]Wczytaj graf            [6]Wyczysc macierz              [11]Wyśw. m.incydencji  [16] ---------\n" +
-                    "[2]Wyswietl graf           [7]Stopnie wierzchołka          [12]Czy graf jest spojny[17] ---------\n" +
-                    "[3]Liczba wierzcholków     [8]Znajdz podgraf(naiwnie)      [13] ---------          [18] ---------\n" +
-                    "[4]Dodaj wierzcholek       [9]Przeszukuj w głąb - DFS      [14] ---------          [19] ---------\n" +
-                    "[5]Modyfikuj krawędź       [10]Wczytaj macierz incydencji  [15] ---------          [99] quit\n");
+                    "[1]Wczytaj l sasiedztwa    [6]Wyczysc macierz              [11]Wyśw. m.incydencji     [16] ---------\n" +
+                    "[2]Wczytaj m. incydencji   [7]Stopnie wierzchołka          [12]Czy graf jest spojny   [17] ---------\n" +
+                    "[3]Liczba wierzcholków     [8]Znajdz podgraf(naiwnie)      [13]DFS dla m incydencji   [18] ---------\n" +
+                    "[4]Dodaj wierzcholek       [9]Wyswietl graf                [14]DFS dla m sasiedztwa   [19] ---------\n" +
+                    "[5]Modyfikuj krawędź       [10]Algorytm Kruskala           [15] ---------             [99] quit\n");
             zKlawiatury = scanner.nextLine();
 
             if (zKlawiatury.equals("1")) {
                 utils.readFromFile();
             }
             if (zKlawiatury.equals("2")) {
-                utils.wyswietlTablice();
+                utils.wczytajMacierzIncydencji();
             }
             if (zKlawiatury.equals("3")) {
                 utils.getLiczbaWierzcholkow();
@@ -72,16 +72,25 @@ public class Main {
                 utils.podgrafIzomofricznydoC3();
             }
             if (zKlawiatury.equals("9")) {
-                utils.DFS(0);
+                utils.wyswietlTablice();
             }
             if (zKlawiatury.equals("10")) {
-                utils.wczytajMacierzIncydencji();
+                utils.kruskal();
             }
             if (zKlawiatury.equals("11")) {
                 utils.wyswietlMacierzIncydencji();
             }
             if (zKlawiatury.equals("12")) {
                 utils.czyGrafJestSpojny();
+            }
+            if (zKlawiatury.equals("13")) {
+                utils.DFSdlaMacierzyIncydencji(0);
+            }
+            if (zKlawiatury.equals("14")) {
+                utils.DFSdlaMacierzySasiedztwa(0);
+            }
+            if (zKlawiatury.equals("15")) {
+
             }
 
 

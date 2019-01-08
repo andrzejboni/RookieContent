@@ -1,6 +1,6 @@
 package GrafyZadaniaUG;
 
-public class Zadania2 {
+public class Kruskal {
 
 
 

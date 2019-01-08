@@ -31,49 +31,71 @@
      */
 
 
-
-    // Przyklad b)
-
+// ------------------------------------------Lepsze------------
 
 
 
-        /*
-        Zastanawiam sie teraz, czy można by to zrobic jeszcze inaczej. To znaczy: Wchodze do wierzchołka nr 0, robię wszystkie akcje prawidłowe
-        dla tego wierzchołka to znaczy:
-        0. Zaznaczam wierzchołek jako owiedzony
-        1. Przechodze po połączeniach dla wierzchołka. Połączenia wychodzące dodaje do kolejki
-        2. Przechodzę do pierwszego wierzchoła z kolejki (niezaleznie który to jest wierzchołek)
-        3. powtarzam krok 0, następnie krok 1 i 2.
-        4. jeśli wszystkie wierzchołki okaża się być odwiedzone, cofam się do poprzedniego wierzchołka i wykonuje kroki od 1
+//
+//6
+//        0 1 0 0 0 1
+//        1 0 1 0 1 1
+//        0 1 0 1 0 1
+//        0 0 1 0 1 0
+//        0 1 0 1 0 1
+//        1 1 0 0 1 0
 
 
-        Albo inaczej, wchodze w głąb tego grafu zgodnie z definicją algorytmu.
-        0. Przechodze po połączeniach dla wierzchołka.
-        1. wchodze w pierwszą wychodzącą krawedz,
-        2. powtarzam kroki od 0 do 1 do momentu kiedy wierzchołek nie ma żadnych połączeń wychodzących.
-        3. zaznaczam ostatni (krańcowy wierzchołek) za odwiedzony
-        4. cofam sie do poprzedniego wierzchołka
-        5. wykonuje kroki od 1.
-
-         */
-
-
-
-
+//10
+//        0	1	0	0	0	0	0	1	0	0
+//        1	0	1	1	0	0	1	0	0	0
+//        0	1	0	0	0	0	0	0	0	0
+//        0	1	0	0	1	1	0	0	0	0
+//        0	0	0	1	0	0	0	0	0	0
+//        0	0	0	1	0	0	0	0	0	0
+//        0	1	0	0	0	0	0	0	0	0
+//        1	0	0	0	0	0	0	0	1	1
+//        0	0	0	0	0	0	0	1	0	0
+//        0	0	0	0	0	0	0	1	0	0
 
 
+// 7
+//     0    1	1	0	0	0	0
+//     1	0	1	1	0	0	0
+//     1	1	0	0	1	0	0
+//     0	1	0	0	1	0	0
+//     0	0	1	1	0	1	0
+//     0	0	0	0	1	0	1
+//     0	0	0	0	0	1	0
 
-    // TODO Przekiwanie w głąb  Opis działania:
-    // Wchodze do pierwszego wierzchołka. Biorę dane, do jakich wierzchołków mam dostęp z wierzchołka w którym jestem
-    // Idę do niego, sprawdzam czy bł juz odwiedzony, jeśli nie zaznaczam obecnośc, i sprawdzam czy ma jakies inne do odwiesdzenia
-    // jesli nie sprawsdzam czy z poprzeniego moge gdzies pojsc jeszcze. Jeśli nie sprawdzam dalej <- aż do momentu dojscia do wierzcholka poczatkoweog.
-    // Jeśli dojde do początkowego i w żadnym następnym nie mam nic do odwiedzenia, to znaczy że albo odwiedziłem wszystkie wierzhcołki, albo graf jest niespójny,
-    // albo nie ma dojscia do niego no nie wiem.
-    // Rozwiazazanie ewentualnosci pętli w wierzcholku-> jesli wierzcholek ma pętle która prawsdzi do samej siebie, blokujemy.
-    // Ta linijka do dodania w metodzie sprawdz czy graf jest spójny : Na koncu sprawdzamy czy liczba  odwiesdzonych wierzchołkow jest równa ilosci posiadanych
-    // przez graf wierzcholkow.
+//7
+//          0	1	1	0	0	0	0
+//        	1	0	1	1	0	0	0
+//        	1	1	0	0	1	0	0
+//        	0	1	0	0	1	0	0
+//        	0	0	1	1	0	0	0
+//        	0	0	0	0	0	0	1
+//        	0	0	0	0	0	1	0
 
 
+//9
+//            0	0	0	0	0	1	1	0	0
+//        	0	0	0	0	0	0	1	0	0
+//        	0	0	0	0	0	0	0	1	0
+//        	0	0	0	0	0	0	0	1	0
+//        	0	0	0	0	0	0	0	1	0
+//        	1	0	0	0	0	0	0	0	0
+//        	1	1	0	0	0	0	0	0	0
+//        	0	0	1	1	1	0	0	0	0
+//        	0	0	0	0	0	0	0	0	0
+
+
+
+5
+    0	4	4	6	6
+	4	0	2	0	0
+	4	2	0	8	0
+	6	0	8	0	9
+	6	0	0	9	0
 
 
 
