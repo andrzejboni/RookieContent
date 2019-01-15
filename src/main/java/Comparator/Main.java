@@ -39,7 +39,7 @@ public class Main {
 //    SalaKonferencyjna s3 = new SalaKonferencyjna(112, true, 120, 10);
 //    SalaKonferencyjna s2 = new SalaKonferencyjna(113, true, 190, 80);
 //
-////        System.out.println(salaKonfComparator.compare(s1,s2));
+//        System.out.println(salaKonfComparator.compare(s1,s2));
 ////        System.out.println(salaKonfComparator.compare(s2,s1));
 ////        System.out.println(salaKonfComparator.compare(s1,s3));
 //

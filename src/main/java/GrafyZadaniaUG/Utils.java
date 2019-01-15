@@ -23,6 +23,27 @@ public class Utils {
     public static boolean czyOdwiedzonoMacierzSasiedztwa[];//  gdyby ktos modyfikowal macierz incydencji a listy sasiedztwa nie, lub odwrotnie.
 
 
+    public static Map<List<Integer>, Integer> listaWag = new HashMap<>();
+    public static int tablicaListSasiedztwa[][] = new int[5][5];
+
+
+    // WAZNE UWAGA!!
+    public static ArrayList<Krawedz> listaSasiedztwa = new ArrayList<>();
+
+    public static ArrayList<ArrayList<Krawedz>> zbiorWierzcholka = new ArrayList<>(); // lista potrzebna do kruskala,
+
+    public static int sumaWagKrawedzi;
+
+    public void test() {
+
+
+
+
+    }
+
+    //Convert HashMap to TreeMap.It will be sorted in natural order.
+
+
     // pierwsza linia oznacza ilosc wierzcholkow czy tam krawedzi
     // biblioteka matrix do mnozenia macierzy albo cos
 
@@ -415,7 +436,7 @@ Jeśli liczba ta będzie równa liczbie wierzchołków grafu, to graf jest spój
         return 999999;
     }
 
-    public boolean czyGrafJestSpojnyNieskierowanyWazony() {
+    public static boolean czyGrafJestSpojnyNieskierowanyWazony() {
 /*
 Tworzymy licznik odwiedzonych wierzchołków i ustawiamy go na zero. Następnie uruchamiamy przejście DFS od dowolnie wybranego wierzchołka.
 W każdym odwiedzonym wierzchołku zwiększamy nasz licznik. Gdy przejście DFS się zakończy, w liczniku będzie liczba wszystkich odwiedzonych wierzchołków.
@@ -469,25 +490,6 @@ Jeśli liczba ta będzie równa liczbie wierzchołków grafu, to graf jest spój
             System.out.println(licznik + "  " + liczbaWierzcholkow);
             return false;
         }
-
-
-    }
-
-
-    public void kruskal() {
-        // Należy sprawdzić spójnośc grafu uprzendnio!!
-
-        if (!czyGrafJestSpojnyNieskierowanyWazony()) {
-            System.out.printf("Graf nie jest spójny");
-            return;
-        }
-
-        List<Integer> listaWag = new ArrayList<>();
-        listaWag.addAll(stopien);
-        Collections.sort(listaWag);
-
-
-
 
 
     }

@@ -75,7 +75,7 @@ public class Main {
                 utils.wyswietlTablice();
             }
             if (zKlawiatury.equals("10")) {
-                utils.kruskal();
+//                utils.kruskal();
             }
             if (zKlawiatury.equals("11")) {
                 utils.wyswietlMacierzIncydencji();
