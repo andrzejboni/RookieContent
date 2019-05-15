@@ -68,7 +68,7 @@ public class Wisielec implements Playable {
             int licznik = 0;
             System.out.println(" \n---------------------------------------------");
             for (int i = 0; i < tablicaDoWyswieetlania.length; i++) {
-                System.out.print(" " + tablicaDoWyswieetlania[i] + " ");
+                System.out.print("" + tablicaDoWyswieetlania[i] + "");
             }
             System.out.println("\n---------------------------------------------");
 

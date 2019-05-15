@@ -37,30 +37,33 @@ public class Kruskal {
         zbiorWierzcholka.get(0);
         */
 
-
         sumaWagKrawedzi += zbiorWierzcholka.get(0).get(0).getWaga(); // Do sumy wag krawedzi dodaje pierwszy wierzcholek
+        listaSasiedztwa.remove(0);
+
 
         for (int i = 0; i < listaSasiedztwa.size() -1; i++) {
+            Krawedz a = listaSasiedztwa.get(i);
+            listaSasiedztwa.remove(i); // ewentualne do usuniecia.
+
+            if (!zbiorWierzcholka.get(i).contains(a)) {
+                System.out.println(zbiorWierzcholka.get(i) + " PRZED");
+                zbiorWierzcholka.get(i).addAll(zbiorWierzcholka.get(i + 1)); // powinienem dodawac całą listę a nie tylko wierzch
+                System.out.println(zbiorWierzcholka.get(i) + " PO DODANIU");
 
 
-                Krawedz a = listaSasiedztwa.get(i + 1);
+                sumaWagKrawedzi += a.getWaga(); // sumuje wage dodanych krawedzi
+                System.out.println("DODAŁEM " + a);
 
-//            for (int j = 0; j < listaSasiedztwa.size() ; j++) {
-//
+                System.out.println("Lista s przed usunieciem" + listaSasiedztwa.get(i + 1));
+                listaSasiedztwa.remove(a);
+                zbiorWierzcholka.remove(a);
+                System.out.println("Lista s PO usunieciu" + listaSasiedztwa.get(i + 1));
 
-                if (!zbiorWierzcholka.get(i).contains(a)) {
-
-//                zbiorWierzcholka.get(i).addAll(a); Opcja z łączeniem dwu list Do rozważenia !!!
-                    zbiorWierzcholka.get(i).add(a);
-
-                    sumaWagKrawedzi += a.getWaga();
-//                System.out.println(" Dodałem " + zbiorWierzcholka.get(0).contains(a));
-                    wypiszListeSasiedztwa();
-                    listaSasiedztwa.remove(a);
-                    wypiszListeSasiedztwa();
-                }
+                System.out.println(listaSasiedztwa);
+            }
         }
-
+//        wypiszZbiorWierzcholkow();
+//        System.out.println("Minimalne drzewo spinające:" + zbiorWierzcholka.get(0));
         System.out.println("Suma wag krawedzi to : " + sumaWagKrawedzi);
     }
 

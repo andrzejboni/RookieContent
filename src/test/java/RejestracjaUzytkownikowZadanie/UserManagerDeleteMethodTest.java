@@ -53,4 +53,11 @@ public class UserManagerDeleteMethodTest {
         DeleteEnum correctAnswer = DeleteEnum.USER_DOESNT_EXIST;
         Assert.assertEquals(correctAnswer, userManager.deleteUser("oooo"));
     }
+
+    @Test
+    public void deleteUserUSER_DESENT_EXISTMethodTest(){
+
+
+    }
+
 }

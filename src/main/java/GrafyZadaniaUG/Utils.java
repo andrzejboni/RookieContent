@@ -337,7 +337,7 @@ Jeśli liczba ta będzie równa liczbie wierzchołków grafu, to graf jest spój
                 }
             }
         }
-        if (licznik == liczbaWierzcholkowMacierzIncyd) {
+        if (licznik == liczbaWierzcholkow) {
             System.out.println(licznik + "  " + liczbaWierzcholkow);
             System.out.println("\n  Graf jest spójny");
         } else {
@@ -442,8 +442,6 @@ Tworzymy licznik odwiedzonych wierzchołków i ustawiamy go na zero. Następnie 
 W każdym odwiedzonym wierzchołku zwiększamy nasz licznik. Gdy przejście DFS się zakończy, w liczniku będzie liczba wszystkich odwiedzonych wierzchołków.
 Jeśli liczba ta będzie równa liczbie wierzchołków grafu, to graf jest spójny. Inaczej nie jest spójny.
  */
-
-
         System.out.println("Liczba wierzchołkow: " + liczbaWierzcholkow);
         System.out.println("Liczba krawedzi: " + liczbaKrawedzi);
 
@@ -490,11 +488,7 @@ Jeśli liczba ta będzie równa liczbie wierzchołków grafu, to graf jest spój
             System.out.println(licznik + "  " + liczbaWierzcholkow);
             return false;
         }
-
-
     }
-
-
 }
 
 

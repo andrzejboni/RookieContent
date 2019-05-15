@@ -10,7 +10,7 @@ public class WczytajSlowo {
     public static String wiersz ;
     public void wczytaj() {
 //         ?The name of the file to open.
-        String fileName = "C:\\Users\\Andrzej\\IdeaProjects\\RookieContent\\src\\Games\\Wisielec\\config";  // PLIK KONFIGURACYJNY
+        String fileName = "C:\\git\\Rookie77\\src\\main\\java\\Games\\Wisielec\\config";  // PLIK KONFIGURACYJNY
 
         // This will reference one line at a time
 
