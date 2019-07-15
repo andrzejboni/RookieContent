@@ -20,5 +20,9 @@ public class TicTacToeMain {
         Wypisywanie.zKimChceszZagrac();
 
         Logika.rozgrywka();
+
+
+
+
     }
 }

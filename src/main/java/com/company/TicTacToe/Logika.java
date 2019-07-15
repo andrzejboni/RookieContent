@@ -7,6 +7,7 @@ public class Logika {
     public static Scanner scanner = new Scanner(System.in);
     public static int komputerCzyCzlowiek;
 
+
     public static void setKomputerCzyCzlowiek(int komputerCzyCzlowiek) {
         Logika.komputerCzyCzlowiek = komputerCzyCzlowiek;
     }
@@ -15,11 +16,8 @@ public class Logika {
     public static int j;
 
     public static boolean czyMoznaPostawicZnak(int i, int j) {
-
         return Plansza.plansza[i][j] == ' ';
     }
-
-
 
     public static boolean czyKOLKOWygral() {
         // Jest 3 + 3 + 2 czyli razem 8 mozliwosci wygranai w kolko i krzyżor trzeba wszystkie razy tutaj zaimplementowac
@@ -185,12 +183,10 @@ public class Logika {
         for (int w = 0; w <= 9; w++) {
             Logika.ilePolObok_SI(); // z każdą iteracją aktualizuje oceny dla planszy
 
-
             if (w == 9) {
                 System.out.println("Remis!");
                 break;
             }
-
 
             Plansza.wypisz();
             if (Logika.czyKRZYZYKWygral()) {
@@ -246,8 +242,6 @@ public class Logika {
         }
 
     }
-
-
 
     public static int ocena[][] = new int[3][3];
     public static int skladowaOceny[][] = new int[3][3];
